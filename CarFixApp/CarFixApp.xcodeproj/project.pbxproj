@@ -14,6 +14,7 @@
 		2D0E744C2779948200556AAD /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E744B2779948200556AAD /* PostModel.swift */; };
 		2D0E744E2779995800556AAD /* imageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E744D2779995800556AAD /* imageView.swift */; };
 		2D0E74502779996E00556AAD /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E744F2779996E00556AAD /* Activity.swift */; };
+		2D0E74522779D02C00556AAD /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2D0E74512779D02C00556AAD /* .gitignore */; };
 		2DC6A55C27788BC1003F6A6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC6A55B27788BC1003F6A6D /* AppDelegate.swift */; };
 		2DC6A55E27788BC1003F6A6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC6A55D27788BC1003F6A6D /* SceneDelegate.swift */; };
 		2DC6A56327788BC1003F6A6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DC6A56127788BC1003F6A6D /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 		2D0E744B2779948200556AAD /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		2D0E744D2779995800556AAD /* imageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageView.swift; sourceTree = "<group>"; };
 		2D0E744F2779996E00556AAD /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		2D0E74512779D02C00556AAD /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
 		2DC6A55827788BC1003F6A6D /* CarFixApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarFixApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DC6A55B27788BC1003F6A6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DC6A55D27788BC1003F6A6D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 		2DC6A54F27788BC1003F6A6D = {
 			isa = PBXGroup;
 			children = (
+				2D0E74512779D02C00556AAD /* .gitignore */,
 				2DC6A55A27788BC1003F6A6D /* CarFixApp */,
 				2DC6A55927788BC1003F6A6D /* Products */,
 			);
@@ -199,6 +202,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D0E74522779D02C00556AAD /* .gitignore in Resources */,
 				2DC6A56827788BC5003F6A6D /* LaunchScreen.storyboard in Resources */,
 				2DC6A56527788BC5003F6A6D /* Assets.xcassets in Resources */,
 				2DCAFBFA277957850051F940 /* GoogleService-Info.plist in Resources */,
