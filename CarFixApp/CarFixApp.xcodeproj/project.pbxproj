@@ -1,0 +1,468 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2D0E74442779708D00556AAD /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2D0E74432779708D00556AAD /* FirebaseAuth */; };
+		2D0E74462779708D00556AAD /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2D0E74452779708D00556AAD /* FirebaseFirestore */; };
+		2D0E74482779708D00556AAD /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2D0E74472779708D00556AAD /* FirebaseStorage */; };
+		2DC6A55C27788BC1003F6A6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC6A55B27788BC1003F6A6D /* AppDelegate.swift */; };
+		2DC6A55E27788BC1003F6A6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC6A55D27788BC1003F6A6D /* SceneDelegate.swift */; };
+		2DC6A56027788BC1003F6A6D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC6A55F27788BC1003F6A6D /* ViewController.swift */; };
+		2DC6A56327788BC1003F6A6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DC6A56127788BC1003F6A6D /* Main.storyboard */; };
+		2DC6A56527788BC5003F6A6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC6A56427788BC5003F6A6D /* Assets.xcassets */; };
+		2DC6A56827788BC5003F6A6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DC6A56627788BC5003F6A6D /* LaunchScreen.storyboard */; };
+		2DCAFBEA277950ED0051F940 /* LoginUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCAFBE9277950ED0051F940 /* LoginUserViewController.swift */; };
+		2DCAFBEC277951200051F940 /* RigesterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCAFBEB277951200051F940 /* RigesterUserViewController.swift */; };
+		2DCAFBEE277951490051F940 /* HomeUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCAFBED277951490051F940 /* HomeUserViewController.swift */; };
+		2DCAFBF0277951990051F940 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCAFBEF277951990051F940 /* DetailsViewController.swift */; };
+		2DCAFBF2277951D70051F940 /* EngLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCAFBF1277951D70051F940 /* EngLoginViewController.swift */; };
+		2DCAFBF4277952020051F940 /* EngRigesterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCAFBF3277952020051F940 /* EngRigesterViewController.swift */; };
+		2DCAFBF6277952210051F940 /* EngRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCAFBF5277952210051F940 /* EngRequestViewController.swift */; };
+		2DCAFBF82779526C0051F940 /* ViewRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCAFBF72779526C0051F940 /* ViewRequestViewController.swift */; };
+		2DCAFBFA277957850051F940 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DCAFBF9277957850051F940 /* GoogleService-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2DC6A55827788BC1003F6A6D /* CarFixApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarFixApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DC6A55B27788BC1003F6A6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2DC6A55D27788BC1003F6A6D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		2DC6A55F27788BC1003F6A6D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2DC6A56227788BC1003F6A6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2DC6A56427788BC5003F6A6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2DC6A56727788BC5003F6A6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2DC6A56927788BC5003F6A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DCAFBE9277950ED0051F940 /* LoginUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserViewController.swift; sourceTree = "<group>"; };
+		2DCAFBEB277951200051F940 /* RigesterUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RigesterUserViewController.swift; sourceTree = "<group>"; };
+		2DCAFBED277951490051F940 /* HomeUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUserViewController.swift; sourceTree = "<group>"; };
+		2DCAFBEF277951990051F940 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		2DCAFBF1277951D70051F940 /* EngLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngLoginViewController.swift; sourceTree = "<group>"; };
+		2DCAFBF3277952020051F940 /* EngRigesterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngRigesterViewController.swift; sourceTree = "<group>"; };
+		2DCAFBF5277952210051F940 /* EngRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngRequestViewController.swift; sourceTree = "<group>"; };
+		2DCAFBF72779526C0051F940 /* ViewRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRequestViewController.swift; sourceTree = "<group>"; };
+		2DCAFBF9277957850051F940 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2DC6A55527788BC1003F6A6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D0E74442779708D00556AAD /* FirebaseAuth in Frameworks */,
+				2D0E74462779708D00556AAD /* FirebaseFirestore in Frameworks */,
+				2D0E74482779708D00556AAD /* FirebaseStorage in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2DC6A54F27788BC1003F6A6D = {
+			isa = PBXGroup;
+			children = (
+				2DC6A55A27788BC1003F6A6D /* CarFixApp */,
+				2DC6A55927788BC1003F6A6D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2DC6A55927788BC1003F6A6D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2DC6A55827788BC1003F6A6D /* CarFixApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2DC6A55A27788BC1003F6A6D /* CarFixApp */ = {
+			isa = PBXGroup;
+			children = (
+				2DCAFBE62779502C0051F940 /* Model */,
+				2DCAFBE7277950420051F940 /* View */,
+				2DCAFBE82779504B0051F940 /* Controller */,
+				2DC6A55B27788BC1003F6A6D /* AppDelegate.swift */,
+				2DC6A55D27788BC1003F6A6D /* SceneDelegate.swift */,
+				2DC6A55F27788BC1003F6A6D /* ViewController.swift */,
+				2DC6A56427788BC5003F6A6D /* Assets.xcassets */,
+				2DC6A56627788BC5003F6A6D /* LaunchScreen.storyboard */,
+				2DC6A56927788BC5003F6A6D /* Info.plist */,
+				2DCAFBF9277957850051F940 /* GoogleService-Info.plist */,
+			);
+			path = CarFixApp;
+			sourceTree = "<group>";
+		};
+		2DCAFBE62779502C0051F940 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2DCAFBE7277950420051F940 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2DC6A56127788BC1003F6A6D /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2DCAFBE82779504B0051F940 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2DCAFBE9277950ED0051F940 /* LoginUserViewController.swift */,
+				2DCAFBEB277951200051F940 /* RigesterUserViewController.swift */,
+				2DCAFBED277951490051F940 /* HomeUserViewController.swift */,
+				2DCAFBEF277951990051F940 /* DetailsViewController.swift */,
+				2DCAFBF1277951D70051F940 /* EngLoginViewController.swift */,
+				2DCAFBF3277952020051F940 /* EngRigesterViewController.swift */,
+				2DCAFBF5277952210051F940 /* EngRequestViewController.swift */,
+				2DCAFBF72779526C0051F940 /* ViewRequestViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2DC6A55727788BC1003F6A6D /* CarFixApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2DC6A56C27788BC5003F6A6D /* Build configuration list for PBXNativeTarget "CarFixApp" */;
+			buildPhases = (
+				2DC6A55427788BC1003F6A6D /* Sources */,
+				2DC6A55527788BC1003F6A6D /* Frameworks */,
+				2DC6A55627788BC1003F6A6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CarFixApp;
+			packageProductDependencies = (
+				2D0E74432779708D00556AAD /* FirebaseAuth */,
+				2D0E74452779708D00556AAD /* FirebaseFirestore */,
+				2D0E74472779708D00556AAD /* FirebaseStorage */,
+			);
+			productName = CarFixApp;
+			productReference = 2DC6A55827788BC1003F6A6D /* CarFixApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2DC6A55027788BC1003F6A6D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					2DC6A55727788BC1003F6A6D = {
+						CreatedOnToolsVersion = 13.0;
+					};
+				};
+			};
+			buildConfigurationList = 2DC6A55327788BC1003F6A6D /* Build configuration list for PBXProject "CarFixApp" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2DC6A54F27788BC1003F6A6D;
+			packageReferences = (
+				2D0E74422779708D00556AAD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			productRefGroup = 2DC6A55927788BC1003F6A6D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2DC6A55727788BC1003F6A6D /* CarFixApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2DC6A55627788BC1003F6A6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DC6A56827788BC5003F6A6D /* LaunchScreen.storyboard in Resources */,
+				2DC6A56527788BC5003F6A6D /* Assets.xcassets in Resources */,
+				2DCAFBFA277957850051F940 /* GoogleService-Info.plist in Resources */,
+				2DC6A56327788BC1003F6A6D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2DC6A55427788BC1003F6A6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DCAFBF4277952020051F940 /* EngRigesterViewController.swift in Sources */,
+				2DC6A56027788BC1003F6A6D /* ViewController.swift in Sources */,
+				2DCAFBF82779526C0051F940 /* ViewRequestViewController.swift in Sources */,
+				2DCAFBF2277951D70051F940 /* EngLoginViewController.swift in Sources */,
+				2DC6A55C27788BC1003F6A6D /* AppDelegate.swift in Sources */,
+				2DCAFBF6277952210051F940 /* EngRequestViewController.swift in Sources */,
+				2DCAFBEE277951490051F940 /* HomeUserViewController.swift in Sources */,
+				2DCAFBEC277951200051F940 /* RigesterUserViewController.swift in Sources */,
+				2DCAFBF0277951990051F940 /* DetailsViewController.swift in Sources */,
+				2DC6A55E27788BC1003F6A6D /* SceneDelegate.swift in Sources */,
+				2DCAFBEA277950ED0051F940 /* LoginUserViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2DC6A56127788BC1003F6A6D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2DC6A56227788BC1003F6A6D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2DC6A56627788BC5003F6A6D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2DC6A56727788BC5003F6A6D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2DC6A56A27788BC5003F6A6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2DC6A56B27788BC5003F6A6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2DC6A56D27788BC5003F6A6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6HVZQF48D4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CarFixApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = w.CarFixApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2DC6A56E27788BC5003F6A6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6HVZQF48D4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CarFixApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = w.CarFixApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2DC6A55327788BC1003F6A6D /* Build configuration list for PBXProject "CarFixApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DC6A56A27788BC5003F6A6D /* Debug */,
+				2DC6A56B27788BC5003F6A6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2DC6A56C27788BC5003F6A6D /* Build configuration list for PBXNativeTarget "CarFixApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DC6A56D27788BC5003F6A6D /* Debug */,
+				2DC6A56E27788BC5003F6A6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2D0E74422779708D00556AAD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2D0E74432779708D00556AAD /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2D0E74422779708D00556AAD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		2D0E74452779708D00556AAD /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2D0E74422779708D00556AAD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		2D0E74472779708D00556AAD /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2D0E74422779708D00556AAD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 2DC6A55027788BC1003F6A6D /* Project object */;
+}
