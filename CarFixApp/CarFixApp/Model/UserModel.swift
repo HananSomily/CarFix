@@ -12,17 +12,17 @@ struct User{
 var id:String = ""
 var name:String = ""
 var email:String = ""
-var imageURL:String = ""
+var imageUrl:String = ""
 var phoneNumber:Int = 0
     init(dict:[String:Any]){
         if let id = dict["id"] as? String ,
            let name = dict["name"] as? String ,
            let email = dict["email"] as? String ,
-           let imageURL = dict["imageURL"] as? String {
+           let imageUrl = dict["imageUrl"] as? String {
             self.id = id
             self.name = name
             self.email = email
-            self.imageURL = imageURL
+            self.imageUrl = imageUrl
         }
     }
 }

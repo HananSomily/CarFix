@@ -35,6 +35,7 @@ class RigesterUserViewController: UIViewController {
     }
     
     @IBAction func handelRegister(_ sender: Any) {
+        print("somthing")
         if let image = userImageProfil.image,
            let imageData = image.jpegData(compressionQuality: 0.80),
            let name = userNameTextField.text ,
@@ -42,6 +43,7 @@ class RigesterUserViewController: UIViewController {
            let passward = userPasswardTextField.text ,
            let confirPassward = userConfirPassawrdTextField.text,
            passward == confirPassward {
+            print("ok")
             Activity.showIndicator(parentView: self.view, childView: activityIndicator)
             Auth.auth().createUser(withEmail: email, password: passward) { authResult , error in
                 if let error = error {
