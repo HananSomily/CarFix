@@ -43,19 +43,17 @@ class HomeUserViewController: UIViewController {
     }
     let activityIndicator = UIActivityIndicatorView()
 
-   // let activityIndicator = UIActivityIndicatorView()
-
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let customer = customer {
-            userNameLable.text = customer.name
-            userEmailLable.text = customer.email
-            userPhoneLable.text = "\(customer.phoneNumber)"
-        }
+//        if let customer = customer {
+//            userNameLable.text = customer.name
+//            userEmailLable.text = customer.email
+//            userPhoneLable.text = "\(customer.phoneNumber)"
+//        }
             if let selectedPosts = selectedPosts ,
             let selectedImage = selectedPostImage {
+                userNameLable.text = selectedPosts.user.name
+                userEmailLable.text = selectedPosts.user.email
                 descriptionTextField.text = selectedPosts.description
                 takeImage.image = selectedImage
                 actionSave.setTitle("Update Post", for: .normal)
