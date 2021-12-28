@@ -16,6 +16,8 @@
 		2D0E74502779996E00556AAD /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E744F2779996E00556AAD /* Activity.swift */; };
 		2D0E74522779D02C00556AAD /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2D0E74512779D02C00556AAD /* .gitignore */; };
 		2D0E74542779D0C900556AAD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2D0E74532779D0C900556AAD /* README.md */; };
+		2D0E7457277A98BF00556AAD /* CompanyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E7455277A98BF00556AAD /* CompanyCollectionViewCell.swift */; };
+		2D0E7458277A98BF00556AAD /* CompanyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D0E7456277A98BF00556AAD /* CompanyCollectionViewCell.xib */; };
 		2DC6A55C27788BC1003F6A6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC6A55B27788BC1003F6A6D /* AppDelegate.swift */; };
 		2DC6A55E27788BC1003F6A6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC6A55D27788BC1003F6A6D /* SceneDelegate.swift */; };
 		2DC6A56327788BC1003F6A6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DC6A56127788BC1003F6A6D /* Main.storyboard */; };
@@ -39,6 +41,8 @@
 		2D0E744F2779996E00556AAD /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		2D0E74512779D02C00556AAD /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
 		2D0E74532779D0C900556AAD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		2D0E7455277A98BF00556AAD /* CompanyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCollectionViewCell.swift; sourceTree = "<group>"; };
+		2D0E7456277A98BF00556AAD /* CompanyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyCollectionViewCell.xib; sourceTree = "<group>"; };
 		2DC6A55827788BC1003F6A6D /* CarFixApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarFixApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DC6A55B27788BC1003F6A6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DC6A55D27788BC1003F6A6D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				2D0E74492779909F00556AAD /* UserModel.swift */,
+				2D0E7455277A98BF00556AAD /* CompanyCollectionViewCell.swift */,
+				2D0E7456277A98BF00556AAD /* CompanyCollectionViewCell.xib */,
 				2D0E744B2779948200556AAD /* PostModel.swift */,
 			);
 			path = Model;
@@ -205,6 +211,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D0E7458277A98BF00556AAD /* CompanyCollectionViewCell.xib in Resources */,
 				2D0E74542779D0C900556AAD /* README.md in Resources */,
 				2D0E74522779D02C00556AAD /* .gitignore in Resources */,
 				2DC6A56827788BC5003F6A6D /* LaunchScreen.storyboard in Resources */,
@@ -223,6 +230,7 @@
 			files = (
 				2D0E74502779996E00556AAD /* Activity.swift in Sources */,
 				2DCAFBF4277952020051F940 /* EngRigesterViewController.swift in Sources */,
+				2D0E7457277A98BF00556AAD /* CompanyCollectionViewCell.swift in Sources */,
 				2DCAFBF82779526C0051F940 /* ViewRequestViewController.swift in Sources */,
 				2DCAFBF2277951D70051F940 /* EngLoginViewController.swift in Sources */,
 				2DC6A55C27788BC1003F6A6D /* AppDelegate.swift in Sources */,

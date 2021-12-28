@@ -18,7 +18,7 @@ class RigesterUserViewController: UIViewController {
             userImageProfil.layer.borderWidth = 3.0
             userImageProfil.layer.cornerRadius = userImageProfil.bounds.height/2
             userImageProfil.isUserInteractionEnabled = true
-            let tabGesture = UIGestureRecognizer(target: self, action: #selector(selectImage))
+            let tabGesture = UITapGestureRecognizer(target: self, action: #selector(selectImage))
             userImageProfil.addGestureRecognizer(tabGesture)
         }
     }
@@ -30,7 +30,7 @@ class RigesterUserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        imagePickerController.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -65,7 +65,8 @@ class RigesterUserViewController: UIViewController {
                                 print("URL",url.absoluteString)
                             let dataBase = Firestore.firestore()
                             let userData:[String:String] = ["id":authReselt.user.uid,
-                                "name":name , "email":email,
+                                "name":name ,
+                                "email":email,
                                 "imageUrl":url.absoluteString]
                                 dataBase.collection("users").document(authReselt.user.uid).setData(userData){
                                     error in
