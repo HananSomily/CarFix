@@ -32,6 +32,8 @@
 		2DCAFBF6277952210051F940 /* EngRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCAFBF5277952210051F940 /* EngRequestViewController.swift */; };
 		2DCAFBF82779526C0051F940 /* ViewRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCAFBF72779526C0051F940 /* ViewRequestViewController.swift */; };
 		2DCAFBFA277957850051F940 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2DCAFBF9277957850051F940 /* GoogleService-Info.plist */; };
+		2DEF33F6277C2E6E00D19897 /* EngRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEF33F4277C2E6E00D19897 /* EngRequestTableViewCell.swift */; };
+		2DEF33F7277C2E6E00D19897 /* EngRequestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DEF33F5277C2E6E00D19897 /* EngRequestTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,8 @@
 		2DCAFBF5277952210051F940 /* EngRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngRequestViewController.swift; sourceTree = "<group>"; };
 		2DCAFBF72779526C0051F940 /* ViewRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRequestViewController.swift; sourceTree = "<group>"; };
 		2DCAFBF9277957850051F940 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2DEF33F4277C2E6E00D19897 /* EngRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngRequestTableViewCell.swift; sourceTree = "<group>"; };
+		2DEF33F5277C2E6E00D19897 /* EngRequestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EngRequestTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				2DC6A56127788BC1003F6A6D /* Main.storyboard */,
+				2DEF33F4277C2E6E00D19897 /* EngRequestTableViewCell.swift */,
+				2DEF33F5277C2E6E00D19897 /* EngRequestTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -213,6 +219,7 @@
 			files = (
 				2D0E7458277A98BF00556AAD /* CompanyCollectionViewCell.xib in Resources */,
 				2D0E74542779D0C900556AAD /* README.md in Resources */,
+				2DEF33F7277C2E6E00D19897 /* EngRequestTableViewCell.xib in Resources */,
 				2D0E74522779D02C00556AAD /* .gitignore in Resources */,
 				2DC6A56827788BC5003F6A6D /* LaunchScreen.storyboard in Resources */,
 				2DC6A56527788BC5003F6A6D /* Assets.xcassets in Resources */,
@@ -242,6 +249,7 @@
 				2DCAFBF0277951990051F940 /* DetailsViewController.swift in Sources */,
 				2DC6A55E27788BC1003F6A6D /* SceneDelegate.swift in Sources */,
 				2D0E744A2779909F00556AAD /* UserModel.swift in Sources */,
+				2DEF33F6277C2E6E00D19897 /* EngRequestTableViewCell.swift in Sources */,
 				2DCAFBEA277950ED0051F940 /* LoginUserViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

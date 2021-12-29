@@ -11,6 +11,7 @@ class HomeUserViewController: UIViewController {
     let imagePickerController = UIImagePickerController()
 
     var selectedPosts: Post?
+    
     var customer: User?
     var selectedPostImage:UIImage?
     
@@ -30,7 +31,7 @@ class HomeUserViewController: UIViewController {
     @IBOutlet weak var cerantLocationLabel: UILabel!
     @IBOutlet weak var descriptionTextField: UITextField! {
         didSet{
-            descriptionTextField.delegate = self
+         //   descriptionTextField.delegate = self
         }
     }
     @IBOutlet weak var nameOfCompanyLabel: UILabel!
@@ -52,47 +53,103 @@ class HomeUserViewController: UIViewController {
 //        }
             if let selectedPosts = selectedPosts ,
             let selectedImage = selectedPostImage {
-                userNameLable.text = selectedPosts.user.name
-                userEmailLable.text = selectedPosts.user.email
+
+//                userNameLable.text = selectedPosts.user.name
+//                userEmailLable.text = selectedPosts.user.email
                 descriptionTextField.text = selectedPosts.description
                 takeImage.image = selectedImage
                 actionSave.setTitle("Update Post", for: .normal)
-                let deleteBarButton = UIBarButtonItem(image: UIImage(systemName: "trash.fill"), style: .plain, target: self, action: #selector(handleDelete))
-                self.navigationItem.rightBarButtonItem = deleteBarButton
+//                let deleteBarButton = UIBarButtonItem(image: UIImage(systemName: "trash.fill"), style: .plain, target: self, action: #selector(handleDelete))
+//                self.navigationItem.rightBarButtonItem = deleteBarButton
             }else {
                 actionSave.setTitle("Add Post", for: .normal)
                 self.navigationItem.rightBarButtonItem = nil
             }
-                
+       // getPosts()
+
           
         }
+//    func getPosts() {
+//        let ref = Firestore.firestore()
+//                ref.collection("posts").addSnapshotListener { snapshot, error in
+//                    if let error = error {
+//                        print("DB ERROR Posts",error.localizedDescription)
+//                    }
+//                    if let snapshot = snapshot {
+//                        for document in snapshot.documents {
+//                            let data = document.data()
+//                            if let userId = data["userId"] as? String {
+//                                ref.collection("users").document(userId).getDocument { userSnapshot, error in
+//                                    if let error = error {
+//                                        print("ERROR user Data",error.localizedDescription)
+//
+//                                    }
+//                                    if let userSnapshot = userSnapshot,
+//                                       let userData = userSnapshot.data(){
+//                                        let user = User(dict:userData)
+//                                        let post = Post(dict:data,userId:document.documentID,user:user)
+//                                       // self.posts.append(post)
+////                                        DispatchQueue.main.async {
+////                                            self.postsTableView.reloadData()
+////                                        }
+//
+//                                    }
+//                                }
+//
+//                            }
+//                        }
+//                    }
+//                }
+////        ref.collection("posts").order(by: "createdAt",descending: true).addSnapshotListener { snapshot, error in
+////            if let error = error {
+////                print("DB ERROR Posts",error.localizedDescription)
+////            }
+////            if let snapshot = snapshot {
+////                print("POST CANGES:",snapshot.documentChanges.count)
+////                snapshot.documentChanges.forEach { diff in
+////                    let postData = diff.document.data()
+//////                    switch diff.type {
+//////                    case .added :
+//////
+////                        if let userId = postData["userId"] as? String {
+////                            ref.collection("users").document(userId).getDocument { userSnapshot, error in
+////                                if let error = error {
+////                                    print("ERROR user Data",error.localizedDescription)
+////
+////                                }
+////            }
+////        }
+////    }
+////            }
+////        }
+//    }
 //print(customer)
         
 
-@objc func handleDelete (_ sender: UIBarButtonItem) {
-    let ref = Firestore.firestore().collection("posts")
-    if let selectedPost = selectedPosts {
-        Activity.showIndicator(parentView: self.view, childView: activityIndicator)
-        ref.document(selectedPost.id).delete { error in
-            if let error = error {
-                print("Error in db delete",error)
-            }else {
-                // Create a reference to the file to delete
-                let storageRef = Storage.storage().reference(withPath: "posts/\(selectedPost.user.id)/\(selectedPost.id)")
-                // Delete the file
-                storageRef.delete { error in
-                    if let error = error {
-                        print("Error in storage delete",error)
-                    } else {
-                        self.activityIndicator.stopAnimating()
-                        self.navigationController?.popViewController(animated: true)
-                    }
-                }
-                
-            }
-        }
-    }
-}
+//@objc func handleDelete (_ sender: UIBarButtonItem) {
+//    let ref = Firestore.firestore().collection("posts")
+//    if let selectedPost = selectedPosts {
+//        Activity.showIndicator(parentView: self.view, childView: activityIndicator)
+//        ref.document(selectedPost.userId).delete { error in
+//            if let error = error {
+//                print("Error in db delete",error)
+//            }else {
+//                // Create a reference to the file to delete
+//                let storageRef = Storage.storage().reference(withPath: "posts/\(selectedPost.user.id)/\(selectedPost.userId)")
+//                // Delete the file
+//                storageRef.delete { error in
+//                    if let error = error {
+//                        print("Error in storage delete",error)
+//                    } else {
+//                        self.activityIndicator.stopAnimating()
+//                        self.navigationController?.popViewController(animated: true)
+//                    }
+//                }
+//
+//            }
+//        }
+//    }
+//}
     @IBAction func go(_ sender: Any) {
         
         if let image = takeImage.image,
@@ -100,9 +157,9 @@ class HomeUserViewController: UIViewController {
            let description = descriptionTextField.text ,
             let currentUser = Auth.auth().currentUser {
                 Activity.showIndicator(parentView: self.view, childView: activityIndicator)
-                var postId = ""
+            var postId = ""
             if let selectedPosts = selectedPosts {
-                postId = selectedPosts.id
+                postId = selectedPosts.userId
             }else {
                 postId = "\(Firebase.UUID())"
             }
@@ -110,17 +167,17 @@ class HomeUserViewController: UIViewController {
         let updloadMeta = StorageMetadata.init()
                 updloadMeta.contentType = "image/jpeg"
         storageRef.putData(imageData, metadata: updloadMeta) { storageMeta, error in
-                    if let error = error {
-        print("Upload error",error.localizedDescription)
+        if let error = error {
+       print("Upload error",error.localizedDescription)
                     }
                     storageRef.downloadURL { url, error in
-                        var postData = [String:Any]()
-                        if let url = url {
-                            let db = Firestore.firestore()
-                            let ref = db.collection("posts")
+                var postData = [String:Any]()
+                if let url = url {
+                    let db = Firestore.firestore()
+                    let ref = db.collection("posts")
                     if let selectedPost = self.selectedPosts {
                                 postData = [
-                            "id":selectedPost.user.id,
+                            "userId":selectedPost.user.id,
                             "description":description,
                             "imageUrl":url.absoluteString,
                             "createdAt":selectedPost.createdAt ?? FieldValue.serverTimestamp(),
@@ -128,7 +185,7 @@ class HomeUserViewController: UIViewController {
                                 ]
                     } else {
                         postData = [
-                            "id":currentUser.uid,
+                            "userId":currentUser.uid,
                             "description":description,
                             "imageUrl":url.absoluteString,
                             "createdAt":FieldValue.serverTimestamp(),
@@ -146,17 +203,28 @@ class HomeUserViewController: UIViewController {
                 }
              }
         }
+  //  }
+    @IBAction func toUpdateOrDelet(_ sender: Any) {
+        performSegue(withIdentifier: "toDetels", sender: selectedPosts)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//      //  if segue.identifier != nil {
+//        if segue.identifier == "toDetels" {
+//            let vc = segue.destination as! DetailsViewController
+//        vc.readLabel.text = descriptionTextField.text
+//            vc.viewImage! = takeImage
+//            print(selectedPosts)
+////        }else {
+////            let vc = segue.destination as! DetailsViewController
+////            vc.selectedPost = selectedPost
+////            vc.selectedPostImage = selectedPostImage
+////        }
+//  }
+// //   }
+//}
+}
+//}
 
 extension HomeUserViewController : UICollectionViewDelegate , UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -181,41 +249,44 @@ extension HomeUserViewController: UIImagePickerControllerDelegate, UINavigationC
         showAlert()
     }
     
-    func showAlert() {
-        let alert = UIAlertController(title: "choose problem Picture", message: "where do you want to pick your image from?", preferredStyle: .actionSheet)
-        let cameraAction = UIAlertAction(title: "Camera", style: .default) { Action in
-            self.getImage(from: .camera)
-        }
-        let galaryAction = UIAlertAction(title: "photo Album", style: .default) { Action in
-            self.getImage(from: .photoLibrary)
-        }
-        let dismissAction = UIAlertAction(title: "Cancle", style: .destructive) { Action in
-            self.dismiss(animated: true, completion: nil)
-        }
-        alert.addAction(cameraAction)
-        alert.addAction(galaryAction)
-        alert.addAction(dismissAction)
+    private func showAlert() {
+        
+        let alert = UIAlertController(title: "Choose Profile Picture", message: "From where you want to pick this image?", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action: UIAlertAction) in
+            self.getImage(fromSourceType: .camera)
+        }))
+        alert.addAction(UIAlertAction(title: "Photo Album", style: .default, handler: {(action: UIAlertAction) in
+            self.getImage(fromSourceType: .photoLibrary)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-    func getImage( from sourceType: UIImagePickerController.SourceType) {
+    //get image from source type
+    private func getImage(fromSourceType sourceType: UIImagePickerController.SourceType) {
         
+        //Check is source type available
         if UIImagePickerController.isSourceTypeAvailable(sourceType) {
+            
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.delegate = self
             imagePickerController.sourceType = sourceType
             self.present(imagePickerController, animated: true, completion: nil)
         }
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let chosenImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return}
+        guard let chosenImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
         takeImage.image = chosenImage
         dismiss(animated: true, completion: nil)
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
+    
 }
-extension HomeUserViewController:UITextFieldDelegate{
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-}
+
+//extension HomeUserViewController:UITextFieldDelegate{
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//        return true
+//    }
+//}

@@ -298,20 +298,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Cvg-ul-p3P">
-                                <rect key="frame" x="16" y="503" width="229" height="123"/>
+                                <rect key="frame" x="16" y="503" width="219" height="123"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.52444199079999998" green="0.59094854799999996" blue="0.57314634419999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MFg-iD-nsJ">
-                                <rect key="frame" x="272" y="552" width="41" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="go"/>
-                                <connections>
-                                    <action selector="go:" destination="NBz-AC-EKc" eventType="touchUpInside" id="Qrz-cM-XXA"/>
-                                    <segue destination="t2J-US-UDn" kind="show" identifier="ViewProblem" id="mmh-go-ewf"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOF-DW-xeN">
                                 <rect key="frame" x="20" y="330" width="215" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -351,6 +341,25 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tyn-Gb-wvP">
+                                <rect key="frame" x="257" y="587" width="67" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="toUpdateOrDelet:" destination="NBz-AC-EKc" eventType="touchUpInside" id="XwH-0t-8Ui"/>
+                                    <segue destination="t2J-US-UDn" kind="show" identifier="toDetels" id="CLE-gQ-3yZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MFg-iD-nsJ">
+                                <rect key="frame" x="257" y="518" width="68" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="send"/>
+                                <connections>
+                                    <action selector="go:" destination="NBz-AC-EKc" eventType="touchUpInside" id="Qrz-cM-XXA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rxq-1d-Mvr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -404,7 +413,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="close"/>
                                 <connections>
-                                    <action selector="actionDelet:" destination="t2J-US-UDn" eventType="touchUpInside" id="UkH-1X-VEn"/>
+                                    <action selector="actionDelet:" destination="t2J-US-UDn" eventType="touchUpInside" id="PKF-pI-qKc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cU8-mB-5ry">
@@ -414,7 +423,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="update"/>
                                 <connections>
-                                    <action selector="actionUpdate:" destination="t2J-US-UDn" eventType="touchUpInside" id="1oK-1W-4p1"/>
+                                    <action selector="actionUpdate:" destination="t2J-US-UDn" eventType="touchUpInside" id="foK-UD-WXn"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uz6-uQ-qmR">
@@ -430,6 +439,7 @@
                     <navigationItem key="navigationItem" id="VYA-DS-iiR"/>
                     <connections>
                         <outlet property="DisplayPeoplem" destination="uz6-uQ-qmR" id="oBK-tJ-DEg"/>
+                        <outlet property="readLabel" destination="5Ky-eb-AgP" id="kVK-3w-U6t"/>
                         <outlet property="viewImage" destination="QfU-Ap-2VR" id="k4P-Pf-gWv"/>
                     </connections>
                 </viewController>
@@ -675,8 +685,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D0E-yX-XNg">
-                                <rect key="frame" x="20" y="84" width="335" height="131"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D0E-yX-XNg">
+                                <rect key="frame" x="20" y="56" width="335" height="179"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cursor.rays" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ZgU-1k-lGw">
                                         <rect key="frame" x="7" y="9" width="83" height="67"/>
@@ -718,6 +729,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ngr-Lu-0uB" id="oqq-R5-o9l">
                                             <rect key="frame" x="0.0" y="0.0" width="339" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -725,14 +737,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wbK-ze-R2k"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="wbK-ze-R2k" firstAttribute="bottom" secondItem="D0E-yX-XNg" secondAttribute="bottom" constant="452" id="91B-fc-d8i"/>
-                            <constraint firstItem="D0E-yX-XNg" firstAttribute="leading" secondItem="wbK-ze-R2k" secondAttribute="leading" constant="20" id="955-Iv-BzK"/>
-                            <constraint firstItem="D0E-yX-XNg" firstAttribute="top" secondItem="wbK-ze-R2k" secondAttribute="top" constant="40" id="OpO-1c-Z29"/>
-                            <constraint firstItem="wbK-ze-R2k" firstAttribute="trailing" secondItem="D0E-yX-XNg" secondAttribute="trailing" constant="20" id="Sc2-IK-IJc"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Xai-Z6-hhJ"/>
+                    <connections>
+                        <outlet property="postsTableView" destination="1bi-wa-4tQ" id="D6J-dr-QBk"/>
+                        <segue destination="RJr-qP-uo6" kind="show" identifier="view" id="Kaj-1c-XW5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uSD-gK-rah" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -764,6 +774,9 @@
                                 <color key="backgroundColor" red="0.85981243659999995" green="0.96884864270000004" blue="0.93966227619999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Accept"/>
+                                <connections>
+                                    <action selector="accept:" destination="RJr-qP-uo6" eventType="touchUpInside" id="Ahh-Ov-VuK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mZ0-Wz-GfE">
                                 <rect key="frame" x="26" y="503" width="142" height="31"/>
@@ -771,12 +784,19 @@
                                 <color key="backgroundColor" red="0.85981243659999995" green="0.96884864270000004" blue="0.93966227619999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Refuse"/>
+                                <connections>
+                                    <action selector="refece:" destination="RJr-qP-uo6" eventType="touchUpInside" id="HL4-Ha-uAW"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wHv-0L-FdA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="24J-b7-8KN"/>
+                    <connections>
+                        <outlet property="viewImageCar" destination="euU-Cu-DbC" id="UfA-ua-7YQ"/>
+                        <outlet property="viewProblemCarLabel" destination="j8o-Pe-5gb" id="SK2-st-pbZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="et4-SI-oeT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

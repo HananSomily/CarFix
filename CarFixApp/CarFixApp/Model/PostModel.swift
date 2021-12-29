@@ -8,12 +8,12 @@
 import Foundation
 import Firebase
 struct Post {
-var id:String = ""
+var userId:String = ""
 var user :User
 var imageUrl : String = ""
 var description:String = ""
     var createdAt:Timestamp?
-    init(dict:[String:Any],id:String , user:User){
+    init(dict:[String:Any],userId:String , user:User){
     if let description = dict["description"]as? String,
     let imageUrl = dict["imageUrl"] as? String,
     let createdAt = dict["createdAt"] as? Timestamp{
@@ -21,7 +21,7 @@ var description:String = ""
         self.imageUrl = imageUrl
         self.createdAt = createdAt
         }
-        self.id = id
+        self.userId = userId
         self.user = user
     }
 }

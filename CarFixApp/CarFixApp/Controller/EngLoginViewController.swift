@@ -26,7 +26,7 @@ class EngLoginViewController: UIViewController {
             Auth.auth().signIn(withEmail: email, password: passward){
                 authResult,error in
                 if let _ = authResult{
-                    if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeUserNavigation") as? UINavigationController {
+                    if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeEngNavigationBar") as? UINavigationController {
                         viewController.modalPresentationStyle = .fullScreen
                         Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
                         self.present(viewController, animated: true, completion: nil)

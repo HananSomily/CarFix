@@ -11,12 +11,13 @@ class DetailsViewController: UIViewController {
     let imagePickerController = UIImagePickerController()
     let activityIndicator = UIActivityIndicatorView()
 
-    var postes:Post?
+    //var postes:Post?
     
     var selectedPosts: Post?
-    var customer: User?
+    //var customer: User?
     var selectedPostImage:UIImage?
     
+    @IBOutlet weak var readLabel: UILabel!
     @IBOutlet weak var DisplayPeoplem: UITextField!
     
     @IBOutlet weak var viewImage: UIImageView! {
@@ -28,15 +29,15 @@ class DetailsViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        DisplayPeoplem.text = postes?.description
+       // DisplayPeoplem.text = postes?.description
        // viewImage.image = postes?.imageUrl
         // Do any additional setup after loading the view.
-   
+   print(selectedPosts,"this")
     
-        if let selectedPosts = selectedPosts ,
-        let selectedImage = selectedPostImage {
-            DisplayPeoplem.text = selectedPosts.description
-            viewImage.image = selectedImage
+//        if let selectedPosts = selectedPosts ,
+//        let selectedImage = selectedPostImage {
+        readLabel.text = selectedPosts?.description
+//            viewImage.image = selectedImage
 //            actionSave.setTitle("Update Post", for: .normal)
 //            let deleteBarButton = UIBarButtonItem(image: UIImage(systemName: "trash.fill"), style: .plain, target: self, action: #selector(handleDelete))
 //            self.navigationItem.rightBarButtonItem = deleteBarButton
@@ -44,7 +45,7 @@ class DetailsViewController: UIViewController {
 //            actionSave.setTitle("Add Post", for: .normal)
 //            self.navigationItem.rightBarButtonItem = nil
 //        }
-    }
+   // }
     
     }
     /*
@@ -57,30 +58,30 @@ class DetailsViewController: UIViewController {
     }
     */
     
-    @objc func handleDelete (_ sender: UIBarButtonItem) {
-        let ref = Firestore.firestore().collection("posts")
-        if let selectedPost = selectedPosts {
-            Activity.showIndicator(parentView: self.view, childView: activityIndicator)
-            ref.document(selectedPost.id).delete { error in
-                if let error = error {
-                    print("Error in db delete",error)
-                }else {
-                    // Create a reference to the file to delete
-                    let storageRef = Storage.storage().reference(withPath: "posts/\(selectedPost.user.id)/\(selectedPost.id)")
-                    // Delete the file
-                    storageRef.delete { error in
-                        if let error = error {
-                            print("Error in storage delete",error)
-                        } else {
-                            self.activityIndicator.stopAnimating()
-                            self.navigationController?.popViewController(animated: true)
-                        }
-                    }
-                    
-                }
-            }
-        }
-    }
+//    @objc func handleDelete (_ sender: UIBarButtonItem) {
+//        let ref = Firestore.firestore().collection("posts")
+//        if let selectedPost = selectedPosts {
+//            Activity.showIndicator(parentView: self.view, childView: activityIndicator)
+//            ref.document(selectedPost.userId).delete { error in
+//                if let error = error {
+//                    print("Error in db delete",error)
+//                }else {
+//                    // Create a reference to the file to delete
+//                    let storageRef = Storage.storage().reference(withPath: "posts/\(selectedPost.user.id)/\(selectedPost.userId)")
+//                    // Delete the file
+//                    storageRef.delete { error in
+//                        if let error = error {
+//                            print("Error in storage delete",error)
+//                        } else {
+//                            self.activityIndicator.stopAnimating()
+//                            self.navigationController?.popViewController(animated: true)
+//                        }
+//                    }
+//
+//                }
+//            }
+//        }
+//    }
     
     @IBAction func actionUpdate(_ sender: Any) {
         
@@ -91,7 +92,7 @@ class DetailsViewController: UIViewController {
                 Activity.showIndicator(parentView: self.view, childView: activityIndicator)
                 var postId = ""
             if let selectedPosts = selectedPosts {
-                postId = selectedPosts.id
+                postId = selectedPosts.userId
             }else {
                 postId = "\(Firebase.UUID())"
             }
@@ -134,9 +135,34 @@ class DetailsViewController: UIViewController {
                     }
                 }
              }
+        print("++++update")
         }
         
     @IBAction func actionDelet(_ sender: Any) {
+                let ref = Firestore.firestore().collection("posts")
+                if let selectedPost = selectedPosts {
+                    Activity.showIndicator(parentView: self.view, childView: activityIndicator)
+                    ref.document(selectedPost.userId).delete { error in
+                        if let error = error {
+                            print("Error in db delete",error)
+                        }else {
+                            // Create a reference to the file to delete
+                            let storageRef = Storage.storage().reference(withPath: "posts/\(selectedPost.user.id)/\(selectedPost.userId)")
+                            // Delete the file
+                            storageRef.delete { error in
+                                if let error = error {
+                                    print("Error in storage delete",error)
+                                } else {
+                                    self.activityIndicator.stopAnimating()
+                                    self.navigationController?.popViewController(animated: true)
+                                }
+                            }
+        
+                        }
+                    }
+                }
+        //    }
+        print("---- delet")
     }
     
 }
@@ -147,35 +173,37 @@ extension DetailsViewController: UIImagePickerControllerDelegate, UINavigationCo
         showAlert()
     }
     
-    func showAlert() {
-        let alert = UIAlertController(title: "choose problem Picture", message: "where do you want to pick your image from?", preferredStyle: .actionSheet)
-        let cameraAction = UIAlertAction(title: "Camera", style: .default) { Action in
-            self.getImage(from: .camera)
-        }
-        let galaryAction = UIAlertAction(title: "photo Album", style: .default) { Action in
-            self.getImage(from: .photoLibrary)
-        }
-        let dismissAction = UIAlertAction(title: "Cancle", style: .destructive) { Action in
-            self.dismiss(animated: true, completion: nil)
-        }
-        alert.addAction(cameraAction)
-        alert.addAction(galaryAction)
-        alert.addAction(dismissAction)
+    private func showAlert() {
+        
+        let alert = UIAlertController(title: "Choose Profile Picture", message: "From where you want to pick this image?", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action: UIAlertAction) in
+            self.getImage(fromSourceType: .camera)
+        }))
+        alert.addAction(UIAlertAction(title: "Photo Album", style: .default, handler: {(action: UIAlertAction) in
+            self.getImage(fromSourceType: .photoLibrary)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-    func getImage( from sourceType: UIImagePickerController.SourceType) {
+    //get image from source type
+    private func getImage(fromSourceType sourceType: UIImagePickerController.SourceType) {
         
+        //Check is source type available
         if UIImagePickerController.isSourceTypeAvailable(sourceType) {
+            
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.delegate = self
             imagePickerController.sourceType = sourceType
             self.present(imagePickerController, animated: true, completion: nil)
         }
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let chosenImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return}
+        guard let chosenImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
         viewImage.image = chosenImage
         dismiss(animated: true, completion: nil)
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
+    
 }

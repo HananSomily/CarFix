@@ -9,9 +9,22 @@ import UIKit
 
 class ViewRequestViewController: UIViewController {
 
+    
+    
+    var selected:Post?
+    var selectedImage:UIImage?
+    @IBOutlet weak var viewProblemCarLabel: UILabel!
+    
+    @IBOutlet weak var viewImageCar: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if let selected = selected ,
+           let selectedImage = selectedImage {
+            viewProblemCarLabel.text = selected.description
+            viewImageCar.image = selectedImage
+            
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -25,5 +38,12 @@ class ViewRequestViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    
+    @IBAction func refece(_ sender: Any) {
+    }
+    
+    @IBAction func accept(_ sender: Any) {
+    }
+    
 }
