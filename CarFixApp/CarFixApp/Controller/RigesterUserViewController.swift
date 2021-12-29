@@ -39,6 +39,8 @@ class RigesterUserViewController: UIViewController {
         if let image = userImageProfil.image,
            let imageData = image.jpegData(compressionQuality: 0.80),
            let name = userNameTextField.text ,
+           // customer = true ,
+         //  let phoneNumber = userPhoneTextField.text,
            let email = userEmailTextField.text ,
            let passward = userPasswardTextField.text ,
            let confirPassward = userConfirPassawrdTextField.text,
@@ -64,9 +66,11 @@ class RigesterUserViewController: UIViewController {
                             if let url = url{
                                 print("URL",url.absoluteString)
                             let dataBase = Firestore.firestore()
-                            let userData:[String:String] = ["id":authReselt.user.uid,
+                            let userData:[String:Any] = ["id":authReselt.user.uid,
                                 "name":name ,
                                 "email":email,
+                              // "customer": true ,
+                             //  "phoneNumber":phoneNumber,
                                 "imageUrl":url.absoluteString]
                                 dataBase.collection("users").document(authReselt.user.uid).setData(userData){
                                     error in

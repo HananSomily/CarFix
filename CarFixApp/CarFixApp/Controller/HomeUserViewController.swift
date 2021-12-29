@@ -10,8 +10,19 @@ import Firebase
 class HomeUserViewController: UIViewController {
     let imagePickerController = UIImagePickerController()
 
-    var selectedPosts: Post?
     
+    
+    @IBOutlet weak var malfucationTableView: UITableView!
+    {
+            didSet {
+                malfucationTableView.delegate = self
+                malfucationTableView.dataSource = self
+                malfucationTableView.register(UINib(nibName: "malfunctionsCarTableViewCell", bundle: nil), forCellReuseIdentifier: "malfunctionsCell")
+            }
+        }
+    var selectedPosts: Post?
+    var posts = [Post]()
+
     var customer: User?
     var selectedPostImage:UIImage?
     
@@ -60,182 +71,109 @@ class HomeUserViewController: UIViewController {
                              print("ss\(user)")
                              self.userNameLable.text = user.name
                              self.userEmailLable.text = user.email
-                             self.userPhoneLable.text = "\(user.phoneNumber)"
+                           //  self.userPhoneLable.text = "\(user.phoneNumber)"
                          }
                 }
-        
-            if let selectedPosts = selectedPosts ,
-            let selectedImage = selectedPostImage {
 
-//                userNameLable.text = selectedPosts.user.name
-//                userEmailLable.text = selectedPosts.user.email
-                descriptionTextField.text = selectedPosts.description
-                takeImage.image = selectedImage
-                actionSave.setTitle("Update Post", for: .normal)
-//                let deleteBarButton = UIBarButtonItem(image: UIImage(systemName: "trash.fill"), style: .plain, target: self, action: #selector(handleDelete))
-//                self.navigationItem.rightBarButtonItem = deleteBarButton
-            }else {
-                actionSave.setTitle("Add Post", for: .normal)
-                self.navigationItem.rightBarButtonItem = nil
-            }
-       // getPosts()
+        getPosts()
 
           
         }
-//    func getPosts() {
-//        let ref = Firestore.firestore()
-//                ref.collection("posts").addSnapshotListener { snapshot, error in
-//                    if let error = error {
-//                        print("DB ERROR Posts",error.localizedDescription)
-//                    }
-//                    if let snapshot = snapshot {
-//                        for document in snapshot.documents {
-//                            let data = document.data()
-//                            if let userId = data["userId"] as? String {
-//                                ref.collection("users").document(userId).getDocument { userSnapshot, error in
-//                                    if let error = error {
-//                                        print("ERROR user Data",error.localizedDescription)
-//
-//                                    }
-//                                    if let userSnapshot = userSnapshot,
-//                                       let userData = userSnapshot.data(){
-//                                        let user = User(dict:userData)
-//                                        let post = Post(dict:data,userId:document.documentID,user:user)
-//                                       // self.posts.append(post)
-////                                        DispatchQueue.main.async {
-////                                            self.postsTableView.reloadData()
-////                                        }
-//
-//                                    }
-//                                }
-//
-//                            }
-//                        }
-//                    }
-//                }
-////        ref.collection("posts").order(by: "createdAt",descending: true).addSnapshotListener { snapshot, error in
-////            if let error = error {
-////                print("DB ERROR Posts",error.localizedDescription)
-////            }
-////            if let snapshot = snapshot {
-////                print("POST CANGES:",snapshot.documentChanges.count)
-////                snapshot.documentChanges.forEach { diff in
-////                    let postData = diff.document.data()
-//////                    switch diff.type {
-//////                    case .added :
-//////
-////                        if let userId = postData["userId"] as? String {
-////                            ref.collection("users").document(userId).getDocument { userSnapshot, error in
-////                                if let error = error {
-////                                    print("ERROR user Data",error.localizedDescription)
-////
-////                                }
-////            }
-////        }
-////    }
-////            }
-////        }
-//    }
-//print(customer)
-        
-
-//@objc func handleDelete (_ sender: UIBarButtonItem) {
-//    let ref = Firestore.firestore().collection("posts")
-//    if let selectedPost = selectedPosts {
-//        Activity.showIndicator(parentView: self.view, childView: activityIndicator)
-//        ref.document(selectedPost.userId).delete { error in
-//            if let error = error {
-//                print("Error in db delete",error)
-//            }else {
-//                // Create a reference to the file to delete
-//                let storageRef = Storage.storage().reference(withPath: "posts/\(selectedPost.user.id)/\(selectedPost.userId)")
-//                // Delete the file
-//                storageRef.delete { error in
-//                    if let error = error {
-//                        print("Error in storage delete",error)
-//                    } else {
-//                        self.activityIndicator.stopAnimating()
-//                        self.navigationController?.popViewController(animated: true)
-//                    }
-//                }
-//
-//            }
-//        }
-//    }
-//}
-    @IBAction func go(_ sender: Any) {
-        
-        if let image = takeImage.image,
-           let imageData = image.jpegData(compressionQuality: 0.80),
-           let description = descriptionTextField.text ,
-            let currentUser = Auth.auth().currentUser {
-                Activity.showIndicator(parentView: self.view, childView: activityIndicator)
-            var postId = ""
-            if let selectedPosts = selectedPosts {
-                postId = selectedPosts.userId
-            }else {
-                postId = "\(Firebase.UUID())"
+    
+    func getPosts() {
+        let ref = Firestore.firestore()
+        ref.collection("posts").order(by: "createdAt",descending: true).addSnapshotListener { snapshot, error in
+            if let error = error {
+                print("DB ERROR Posts",error.localizedDescription)
             }
-        let storageRef = Storage.storage().reference(withPath: "posts/\(currentUser.uid)/\(postId)")
-        let updloadMeta = StorageMetadata.init()
-                updloadMeta.contentType = "image/jpeg"
-        storageRef.putData(imageData, metadata: updloadMeta) { storageMeta, error in
-        if let error = error {
-       print("Upload error",error.localizedDescription)
-                    }
-                    storageRef.downloadURL { url, error in
-                var postData = [String:Any]()
-                if let url = url {
-                    let db = Firestore.firestore()
-                    let ref = db.collection("posts")
-                    if let selectedPost = self.selectedPosts {
-                                postData = [
-                            "userId":selectedPost.user.id,
-                            "description":description,
-                            "imageUrl":url.absoluteString,
-                            "createdAt":selectedPost.createdAt ?? FieldValue.serverTimestamp(),
-                            "updatedAt": FieldValue.serverTimestamp()
-                                ]
-                    } else {
-                        postData = [
-                            "userId":currentUser.uid,
-                            "description":description,
-                            "imageUrl":url.absoluteString,
-                            "createdAt":FieldValue.serverTimestamp(),
-                            "updatedAt": FieldValue.serverTimestamp()                        ]
-                    }
-                            ref.document(postId).setData(postData) { error in
+            if let snapshot = snapshot {
+                print("POST CANGES:",snapshot.documentChanges.count)
+                snapshot.documentChanges.forEach { diff in
+                    let postData = diff.document.data()
+
+                    switch diff.type {
+                    case .added :
+                        
+                        if let userId = postData["userId"] as? String {
+                            ref.collection("users").document(userId).getDocument { userSnapshot, error in
                                 if let error = error {
-                                    print("FireStore Error",error.localizedDescription)
+                                    print("ERROR user Data",error.localizedDescription)
+                                    
                                 }
-                                Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
-                                self.navigationController?.popViewController(animated: true)
+                                if let userSnapshot = userSnapshot,
+                                   let userData = userSnapshot.data(){
+                                    let user = User(dict:userData)
+                                    let post = Post(dict:postData,userId:diff.document.documentID,user:user)
+                                    self.malfucationTableView.beginUpdates()
+                                    if snapshot.documentChanges.count != 1 {
+                                        self.posts.append(post)
+                                      
+                                        self.malfucationTableView.insertRows(at: [IndexPath(row:self.posts.count - 1,section: 0)],with: .automatic)
+                                    }else {
+                                        self.posts.insert(post,at:0)
+                                      
+                                        self.malfucationTableView.insertRows(at: [IndexPath(row: 0,section: 0)],with: .automatic)
+                                    }
+                                  
+                                    self.malfucationTableView.endUpdates()
+                                    
+                                    
+                                }
                             }
+                        }
+                    case .modified:
+                        let postId = diff.document.documentID
+                        if let currentPost = self.posts.first(where: {$0.userId == postId}),
+                           let updateIndex = self.posts.firstIndex(where: {$0.userId == postId}){
+                            let newPost = Post(dict:postData, userId: postId, user: currentPost.user)
+                            self.posts[updateIndex] = newPost
+                         
+                                self.malfucationTableView.beginUpdates()
+                                self.malfucationTableView.deleteRows(at: [IndexPath(row: updateIndex,section: 0)], with: .left)
+                                self.malfucationTableView.insertRows(at: [IndexPath(row: updateIndex,section: 0)],with: .left)
+                                self.malfucationTableView.endUpdates()
+                            
+                        }
+                    case .removed:
+                        let postId = diff.document.documentID
+                        if let deleteIndex = self.posts.firstIndex(where: {$0.userId == postId}){
+                            self.posts.remove(at: deleteIndex)
+                          
+                                self.malfucationTableView.beginUpdates()
+                                self.malfucationTableView.deleteRows(at: [IndexPath(row: deleteIndex,section: 0)], with: .automatic)
+                                self.malfucationTableView.endUpdates()
+                            
                         }
                     }
                 }
-             }
+            }
         }
-  //  }
-    @IBAction func toUpdateOrDelet(_ sender: Any) {
-        performSegue(withIdentifier: "toDetels", sender: self)
-//        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//            if let identifier = segue.identifier {
-//                if identifier == "toDetels" {
-//                    let vc = segue.destination as! DetailsViewController
-//                    vc.selectedPosts = selectedPosts
-//                    vc.selectedPostImage = selectedPostImage
-    //                }else {
-    //                    let vc = segue.destination as! DetailsViewController
-    //                    vc.selectedPost = selectedPost
-    //                    vc.selectedPostImage = selectedPostImage
-    //                }
-           // }
-            
-     //   }
- //   }
     }
     
+    @IBAction func go(_ sender: Any) {
+        
+
+        }
+   //}
+    @IBAction func toUpdateOrDelet(_ sender: Any) {
+//        selectedPosts?.description = descriptionTextField.text!
+//        selectedPostImage = takeImage.image
+//        print(selectedPosts,"***")
+//        func configure(with post:Post) {
+//            cerantLocationLabel.text = post.description
+//            takeImage.loadImageUsingCache(with: post.imageUrl)
+//        }
+
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "toDetels" {
+                let vc = segue.destination as! DetailsViewController
+                vc.selectedPosts = selectedPosts
+                vc.selectedPostImage = selectedPostImage
+            }
+        }
+    }
 
     @IBAction func handleLogout(_ sender: Any) {
         do {
@@ -250,13 +188,35 @@ class HomeUserViewController: UIViewController {
         
     }
     
-
-
-    
 }
 //}
 
-
+extension HomeUserViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return posts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "malfunctionsCell") as! malfunctionsCarTableViewCell
+        return cell.configure(with: posts[indexPath.row])
+    }
+    
+    
+}
+extension HomeUserViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! malfunctionsCarTableViewCell
+        selectedPostImage = cell.malfunctionImage.image
+        selectedPosts = posts[indexPath.row]
+//            if let currentUser = Auth.auth().currentUser,
+//               currentUser.uid == posts[indexPath.row].user.id{
+            performSegue(withIdentifier: "toDetels", sender: self)
+        }
+   // }
+}
 extension HomeUserViewController : UICollectionViewDelegate , UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return carsComp.count
@@ -315,9 +275,3 @@ extension HomeUserViewController: UIImagePickerControllerDelegate, UINavigationC
     
 }
 
-//extension HomeUserViewController:UITextFieldDelegate{
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        textField.resignFirstResponder()
-//        return true
-//    }
-//}

@@ -10,11 +10,8 @@ import Firebase
 class DetailsViewController: UIViewController {
     let imagePickerController = UIImagePickerController()
     let activityIndicator = UIActivityIndicatorView()
-
-    //var postes:Post?
     
     var selectedPosts: Post?
-    //var customer: User?
     var selectedPostImage:UIImage?
     
     @IBOutlet weak var readLabel: UILabel!
@@ -29,65 +26,20 @@ class DetailsViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if let selectedPosts = selectedPosts ,
         let selectedPostImage = selectedPostImage {
             readLabel.text = selectedPosts.description
             viewImage.image = selectedPostImage
         }
-       // DisplayPeoplem.text = postes?.description
-       // viewImage.image = postes?.imageUrl
-        // Do any additional setup after loading the view.
-   print(selectedPosts,"this")
-    
-//        if let selectedPosts = selectedPosts ,
-//        let selectedImage = selectedPostImage {
-        //readLabel.text = selectedPosts?.description
-//            viewImage.image = selectedImage
-//            actionSave.setTitle("Update Post", for: .normal)
-//            let deleteBarButton = UIBarButtonItem(image: UIImage(systemName: "trash.fill"), style: .plain, target: self, action: #selector(handleDelete))
-//            self.navigationItem.rightBarButtonItem = deleteBarButton
-//        }else {
-//            actionSave.setTitle("Add Post", for: .normal)
-//            self.navigationItem.rightBarButtonItem = nil
-//        }
-   // }
-    
-    }
-    /*
-    // MARK: - Navigation
+        
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+  // print(selectedPosts,"this")
+  //  v()
+    
     }
-    */
-    
-//    @objc func handleDelete (_ sender: UIBarButtonItem) {
-//        let ref = Firestore.firestore().collection("posts")
-//        if let selectedPost = selectedPosts {
-//            Activity.showIndicator(parentView: self.view, childView: activityIndicator)
-//            ref.document(selectedPost.userId).delete { error in
-//                if let error = error {
-//                    print("Error in db delete",error)
-//                }else {
-//                    // Create a reference to the file to delete
-//                    let storageRef = Storage.storage().reference(withPath: "posts/\(selectedPost.user.id)/\(selectedPost.userId)")
-//                    // Delete the file
-//                    storageRef.delete { error in
-//                        if let error = error {
-//                            print("Error in storage delete",error)
-//                        } else {
-//                            self.activityIndicator.stopAnimating()
-//                            self.navigationController?.popViewController(animated: true)
-//                        }
-//                    }
-//
-//                }
-//            }
-//        }
-//    }
-    
+   
+
     @IBAction func actionUpdate(_ sender: Any) {
         
         if let image = viewImage.image,

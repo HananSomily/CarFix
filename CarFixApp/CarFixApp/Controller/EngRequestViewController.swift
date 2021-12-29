@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 class EngRequestViewController: UIViewController {
+    
         var posts = [Post]()
         var selectedPost:Post?
         var selectedPostImage:UIImage?
@@ -39,9 +40,10 @@ class EngRequestViewController: UIViewController {
                                 let userData = userSnapshot.data(){
                                  let user = User(dict:userData)
                                  print("ss\(user)")
+                               //  user.id
                                  self.engNameLabel.text = user.name
                                  self.engEmail.text = user.email
-                                 self.engPhone.text = "\(user.phoneNumber)"
+                                 //self.engPhone.text = "\(user.phoneNumber)"
                                  print("s\(user.name)")
                                  print("m***")
                                  
@@ -67,7 +69,7 @@ class EngRequestViewController: UIViewController {
                     print("POST CANGES:",snapshot.documentChanges.count)
                     snapshot.documentChanges.forEach { diff in
                         let postData = diff.document.data()
-//                        self.engNameLabel.text = self.selectedPost?.user.name
+
                         switch diff.type {
                         case .added :
                             
