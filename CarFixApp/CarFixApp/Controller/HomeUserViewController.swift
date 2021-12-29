@@ -46,11 +46,24 @@ class HomeUserViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        if let customer = customer {
-//            userNameLable.text = customer.name
-//            userEmailLable.text = customer.email
-//            userPhoneLable.text = "\(customer.phoneNumber)"
-//        }
+
+        let ref = Firestore.firestore()
+
+                ref.collection("users").document(Auth.auth().currentUser!.uid).getDocument { userSnapshot, error in
+                         if let error = error {
+                             print("ERROR user Data",error.localizedDescription)
+                            print("dddddd")
+                         }
+                         if let userSnapshot = userSnapshot,
+                            let userData = userSnapshot.data(){
+                             let user = User(dict:userData)
+                             print("ss\(user)")
+                             self.userNameLable.text = user.name
+                             self.userEmailLable.text = user.email
+                             self.userPhoneLable.text = "\(user.phoneNumber)"
+                         }
+                }
+        
             if let selectedPosts = selectedPosts ,
             let selectedImage = selectedPostImage {
 
@@ -205,26 +218,44 @@ class HomeUserViewController: UIViewController {
         }
   //  }
     @IBAction func toUpdateOrDelet(_ sender: Any) {
-        performSegue(withIdentifier: "toDetels", sender: selectedPosts)
+        performSegue(withIdentifier: "toDetels", sender: self)
+//        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//            if let identifier = segue.identifier {
+//                if identifier == "toDetels" {
+//                    let vc = segue.destination as! DetailsViewController
+//                    vc.selectedPosts = selectedPosts
+//                    vc.selectedPostImage = selectedPostImage
+    //                }else {
+    //                    let vc = segue.destination as! DetailsViewController
+    //                    vc.selectedPost = selectedPost
+    //                    vc.selectedPostImage = selectedPostImage
+    //                }
+           // }
+            
+     //   }
+ //   }
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//      //  if segue.identifier != nil {
-//        if segue.identifier == "toDetels" {
-//            let vc = segue.destination as! DetailsViewController
-//        vc.readLabel.text = descriptionTextField.text
-//            vc.viewImage! = takeImage
-//            print(selectedPosts)
-////        }else {
-////            let vc = segue.destination as! DetailsViewController
-////            vc.selectedPost = selectedPost
-////            vc.selectedPostImage = selectedPostImage
-////        }
-//  }
-// //   }
-//}
+
+    @IBAction func handleLogout(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeNavigationController") as? UITabBarController {
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+            }
+        } catch  {
+            print("ERROR in signout",error.localizedDescription)
+        }
+        
+    }
+    
+
+
+    
 }
 //}
+
 
 extension HomeUserViewController : UICollectionViewDelegate , UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -29,6 +29,11 @@ class DetailsViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let selectedPosts = selectedPosts ,
+        let selectedPostImage = selectedPostImage {
+            readLabel.text = selectedPosts.description
+            viewImage.image = selectedPostImage
+        }
        // DisplayPeoplem.text = postes?.description
        // viewImage.image = postes?.imageUrl
         // Do any additional setup after loading the view.
@@ -36,7 +41,7 @@ class DetailsViewController: UIViewController {
     
 //        if let selectedPosts = selectedPosts ,
 //        let selectedImage = selectedPostImage {
-        readLabel.text = selectedPosts?.description
+        //readLabel.text = selectedPosts?.description
 //            viewImage.image = selectedImage
 //            actionSave.setTitle("Update Post", for: .normal)
 //            let deleteBarButton = UIBarButtonItem(image: UIImage(systemName: "trash.fill"), style: .plain, target: self, action: #selector(handleDelete))

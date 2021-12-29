@@ -9,21 +9,29 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--View Controller-->
         <scene sceneID="WQl-4y-ZHX">
             <objects>
                 <viewController id="m1p-WY-hcQ" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y39-6a-4ad">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tj6-2O-5ok">
+                                <rect key="frame" x="154" y="183" width="67" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="8zK-h1-qdh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" image="house" catalog="system" id="h2Y-9M-9eM"/>
+                    <navigationItem key="navigationItem" id="gdz-rG-DBo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f8G-92-KmV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1797" y="1102"/>
+            <point key="canvasLocation" x="-858.39999999999998" y="1101.4992503748126"/>
         </scene>
         <!--user-->
         <scene sceneID="qcP-Ic-YNx">
@@ -318,7 +326,7 @@
                                         <color key="tintColor" red="0.52444199079999998" green="0.59094854799999996" blue="0.57314634419999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6K-59-RtO">
-                                        <rect key="frame" x="124" y="39" width="171" height="21"/>
+                                        <rect key="frame" x="124" y="39" width="118" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -338,6 +346,16 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hb4-mU-Rdh">
+                                        <rect key="frame" x="254" y="22" width="41" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.52444199079999998" green="0.59094854799999996" blue="0.57314634419999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="xmark.octagon" catalog="system"/>
+                                        <connections>
+                                            <action selector="handleLogout:" destination="NBz-AC-EKc" eventType="touchUpInside" id="bbx-xk-1SX"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                             </view>
@@ -447,10 +465,11 @@
             </objects>
             <point key="canvasLocation" x="3196" y="-832.53373313343332"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--BigingNavi-->
         <scene sceneID="EpA-mj-TCg">
             <objects>
-                <tabBarController storyboardIdentifier="loadingNavigationTabBar" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sW2-g0-xni" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeNavigationController" title="BigingNavi" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sW2-g0-xni" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="cqh-LJ-m9d"/>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rKK-14-a9Q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -466,7 +485,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="NIK-xQ-mgg" kind="relationship" relationship="viewControllers" id="4If-en-0dd"/>
-                        <segue destination="m1p-WY-hcQ" kind="relationship" relationship="viewControllers" id="549-WD-7F3"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="7HE-rY-RuI"/>
                     </connections>
                 </tabBarController>
@@ -555,7 +573,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="255" y="645"/>
+            <point key="canvasLocation" x="1192.8" y="644.52773613193403"/>
         </scene>
         <!--Eng Rigester View Controller-->
         <scene sceneID="ves-JY-xNa">
@@ -675,7 +693,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xhh-Cl-8AT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1244" y="1002"/>
+            <point key="canvasLocation" x="2183.1999999999998" y="1001.649175412294"/>
         </scene>
         <!--Eng Request View Controller-->
         <scene sceneID="rJ2-Dn-t3u">
@@ -686,7 +704,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D0E-yX-XNg">
-                                <rect key="frame" x="20" y="56" width="335" height="179"/>
+                                <rect key="frame" x="20" y="66" width="280" height="169"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cursor.rays" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ZgU-1k-lGw">
@@ -695,21 +713,21 @@
                                         <color key="tintColor" red="0.52444199079999998" green="0.59094854799999996" blue="0.57314634419999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vqt-kO-Tlm">
-                                        <rect key="frame" x="124" y="39" width="171" height="21"/>
+                                        <rect key="frame" x="124" y="39" width="148" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zt3-4N-dNy">
-                                        <rect key="frame" x="8" y="101" width="313" height="21"/>
+                                        <rect key="frame" x="8" y="101" width="264" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="phone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biB-Oy-O5F">
-                                        <rect key="frame" x="8" y="138" width="313" height="21"/>
+                                        <rect key="frame" x="8" y="138" width="264" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -734,12 +752,26 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1d-k9-U6F">
+                                <rect key="frame" x="308" y="123" width="42" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.52444199079999998" green="0.59094854799999996" blue="0.57314634419999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="xmark.circle" catalog="system"/>
+                                <connections>
+                                    <action selector="handleLogout:" destination="rzw-B6-VYf" eventType="touchUpInside" id="X66-da-Nfe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wbK-ze-R2k"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Xai-Z6-hhJ"/>
                     <connections>
+                        <outlet property="engEmail" destination="zt3-4N-dNy" id="hfs-0K-85h"/>
+                        <outlet property="engImage" destination="ZgU-1k-lGw" id="N3R-gT-wRB"/>
+                        <outlet property="engNameLabel" destination="Vqt-kO-Tlm" id="Fxv-Q0-vK6"/>
+                        <outlet property="engPhone" destination="biB-Oy-O5F" id="Srh-sq-JUg"/>
                         <outlet property="postsTableView" destination="1bi-wa-4tQ" id="D6J-dr-QBk"/>
                         <segue destination="RJr-qP-uo6" kind="show" identifier="view" id="Kaj-1c-XW5"/>
                     </connections>
@@ -776,6 +808,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Accept"/>
                                 <connections>
                                     <action selector="accept:" destination="RJr-qP-uo6" eventType="touchUpInside" id="Ahh-Ov-VuK"/>
+                                    <segue destination="uNm-An-q9C" kind="unwind" unwindAction="backToSegue:" id="nfN-pz-zxh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mZ0-Wz-GfE">
@@ -799,6 +832,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="et4-SI-oeT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="uNm-An-q9C" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="6032.8000000000002" y="375.56221889055473"/>
         </scene>
@@ -840,6 +874,25 @@
             </objects>
             <point key="canvasLocation" x="3924" y="375.56221889055473"/>
         </scene>
+        <!--Item 2-->
+        <scene sceneID="p99-jX-j0P">
+            <objects>
+                <navigationController storyboardIdentifier="hj" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ICw-QY-OVp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item 2" image="house" catalog="system" id="h2Y-9M-9eM"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="raE-fY-1xU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="m1p-WY-hcQ" kind="relationship" relationship="rootViewController" id="BAj-20-NBN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bq0-EG-hP4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1797.5999999999999" y="1101.4992503748126"/>
+        </scene>
     </scenes>
     <resources>
         <image name="brain.head.profile" catalog="system" width="114" height="128"/>
@@ -852,6 +905,8 @@
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="x.circle" catalog="system" width="128" height="121"/>
+        <image name="xmark.circle" catalog="system" width="128" height="121"/>
+        <image name="xmark.octagon" catalog="system" width="128" height="112"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

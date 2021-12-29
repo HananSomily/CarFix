@@ -12,15 +12,48 @@ class EngRequestViewController: UIViewController {
         var selectedPost:Post?
         var selectedPostImage:UIImage?
         
-        @IBOutlet weak var postsTableView: UITableView! {
+    @IBOutlet weak var engNameLabel: UILabel!
+    @IBOutlet weak var engImage: UIImageView!
+    @IBOutlet weak var engEmail: UILabel!
+    @IBOutlet weak var engPhone: UILabel!
+    @IBOutlet weak var postsTableView: UITableView! {
             didSet {
                 postsTableView.delegate = self
                 postsTableView.dataSource = self
                 postsTableView.register(UINib(nibName: "EngRequestTableViewCell", bundle: nil), forCellReuseIdentifier: "problem")
             }
         }
+//    let storageRef = Storage.storage().reference(withPath: "engineer/\(currentUser.uid)/")
+
         override func viewDidLoad() {
             super.viewDidLoad()
+            
+            let ref = Firestore.firestore()
+
+                    ref.collection("engineer").document(Auth.auth().currentUser!.uid).getDocument { userSnapshot, error in
+                             if let error = error {
+                                 print("ERROR user Data",error.localizedDescription)
+                                print("dddddd")
+                             }
+                             if let userSnapshot = userSnapshot,
+                                let userData = userSnapshot.data(){
+                                 let user = User(dict:userData)
+                                 print("ss\(user)")
+                                 self.engNameLabel.text = user.name
+                                 self.engEmail.text = user.email
+                                 self.engPhone.text = "\(user.phoneNumber)"
+                                 print("s\(user.name)")
+                                 print("m***")
+                                 
+              //  ref.collection("engineer").document(currentUser.)
+//            engEmail.text = currentUser?.email
+//               // engNameLabel.text = ref.
+//            engPhone.text = currentUser?.phoneNumber
+           // engImage.image = currentUser.
+
+                        // engNameLabel.text =
+            }
+                    }
             getPosts()
             // Do any additional setup after loading the view.
         }
@@ -34,6 +67,7 @@ class EngRequestViewController: UIViewController {
                     print("POST CANGES:",snapshot.documentChanges.count)
                     snapshot.documentChanges.forEach { diff in
                         let postData = diff.document.data()
+//                        self.engNameLabel.text = self.selectedPost?.user.name
                         switch diff.type {
                         case .added :
                             
@@ -96,7 +130,7 @@ class EngRequestViewController: UIViewController {
         @IBAction func handleLogout(_ sender: Any) {
             do {
                 try Auth.auth().signOut()
-                if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LandingNavigationController") as? UINavigationController {
+                if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeNavigationController") as? UITabBarController {
                     vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)
                 }
@@ -120,6 +154,9 @@ class EngRequestViewController: UIViewController {
             }
             
         }
+    }
+    @IBAction func backTo(segue:UIStoryboardSegue){
+        
     }
 }
     extension EngRequestViewController: UITableViewDataSource {
