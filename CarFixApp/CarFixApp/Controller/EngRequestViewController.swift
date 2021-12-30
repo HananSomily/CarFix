@@ -24,17 +24,15 @@ class EngRequestViewController: UIViewController {
                 postsTableView.register(UINib(nibName: "EngRequestTableViewCell", bundle: nil), forCellReuseIdentifier: "problem")
             }
         }
-//    let storageRef = Storage.storage().reference(withPath: "engineer/\(currentUser.uid)/")
 
         override func viewDidLoad() {
             super.viewDidLoad()
-            
-            let ref = Firestore.firestore()
+            //   ______________*** profile *** _______________
 
-                    ref.collection("engineer").document(Auth.auth().currentUser!.uid).getDocument { userSnapshot, error in
-                             if let error = error {
-                                 print("ERROR user Data",error.localizedDescription)
-                                print("dddddd")
+            let ref = Firestore.firestore()
+            ref.collection("engineer").document(Auth.auth().currentUser!.uid).getDocument { userSnapshot, error in
+                if let error = error {
+                print("ERROR user Data",error.localizedDescription)
                              }
                              if let userSnapshot = userSnapshot,
                                 let userData = userSnapshot.data(){
@@ -43,21 +41,13 @@ class EngRequestViewController: UIViewController {
                                //  user.id
                                  self.engNameLabel.text = user.name
                                  self.engEmail.text = user.email
-                                 //self.engPhone.text = "\(user.phoneNumber)"
-                                 print("s\(user.name)")
-                                 print("m***")
-                                 
-              //  ref.collection("engineer").document(currentUser.)
-//            engEmail.text = currentUser?.email
-//               // engNameLabel.text = ref.
-//            engPhone.text = currentUser?.phoneNumber
-           // engImage.image = currentUser.
+                                 self.engPhone.text = "\(user.phoneNumber)"
+             }
+        }
+            //   ______________*** profile *** _______________
 
-                        // engNameLabel.text =
-            }
-                    }
             getPosts()
-            // Do any additional setup after loading the view.
+
         }
         func getPosts() {
             let ref = Firestore.firestore()
@@ -79,6 +69,7 @@ class EngRequestViewController: UIViewController {
                                         print("ERROR user Data",error.localizedDescription)
                                         
                                     }
+                                    print("^^^^^")
                                     if let userSnapshot = userSnapshot,
                                        let userData = userSnapshot.data(){
                                         let user = User(dict:userData)
@@ -111,7 +102,7 @@ class EngRequestViewController: UIViewController {
                                     self.postsTableView.deleteRows(at: [IndexPath(row: updateIndex,section: 0)], with: .left)
                                     self.postsTableView.insertRows(at: [IndexPath(row: updateIndex,section: 0)],with: .left)
                                     self.postsTableView.endUpdates()
-                                
+                                print("%%%%%%%")
                             }
                         case .removed:
                             let postId = diff.document.documentID
@@ -121,7 +112,7 @@ class EngRequestViewController: UIViewController {
                                     self.postsTableView.beginUpdates()
                                     self.postsTableView.deleteRows(at: [IndexPath(row: deleteIndex,section: 0)], with: .automatic)
                                     self.postsTableView.endUpdates()
-                                
+                                print("|||||||")
                             }
                         }
                     }
@@ -163,6 +154,7 @@ class EngRequestViewController: UIViewController {
 }
     extension EngRequestViewController: UITableViewDataSource {
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            print(posts,"&&^^^")
             return posts.count
         }
         

@@ -41,6 +41,8 @@ class EngRigesterViewController: UIViewController {
            let imageData = image.jpegData(compressionQuality: 0.80),
            let name = engNameTextField.text ,
            let email = engEmailTextField.text ,
+           let phoneNumber = engPhoneTextField.text,
+//**
            let passward = engPasswardTextField.text ,
            let confirPassward = engConfirPassawrdTextField.text,
            passward == confirPassward {
@@ -65,9 +67,11 @@ class EngRigesterViewController: UIViewController {
                             if let url = url{
                                 print("URL",url.absoluteString)
                             let dataBase = Firestore.firestore()
-                            let userData:[String:String] = ["id":authReselt.user.uid,
+                            let userData:[String:Any] = ["id":authReselt.user.uid,
                                 "name":name ,
                                 "email":email,
+                                "customer": false ,
+                                "phoneNumber":phoneNumber,
                                 "imageUrl":url.absoluteString]
                                 dataBase.collection("engineer").document(authReselt.user.uid).setData(userData){
                                     error in

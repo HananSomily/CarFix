@@ -40,7 +40,7 @@ class RigesterUserViewController: UIViewController {
            let imageData = image.jpegData(compressionQuality: 0.80),
            let name = userNameTextField.text ,
            // customer = true ,
-         //  let phoneNumber = userPhoneTextField.text,
+           let phoneNumber = userPhoneTextField.text,
            let email = userEmailTextField.text ,
            let passward = userPasswardTextField.text ,
            let confirPassward = userConfirPassawrdTextField.text,
@@ -69,8 +69,8 @@ class RigesterUserViewController: UIViewController {
                             let userData:[String:Any] = ["id":authReselt.user.uid,
                                 "name":name ,
                                 "email":email,
-                              // "customer": true ,
-                             //  "phoneNumber":phoneNumber,
+                               "customer": true ,
+                               "phoneNumber":phoneNumber,
                                 "imageUrl":url.absoluteString]
                                 dataBase.collection("users").document(authReselt.user.uid).setData(userData){
                                     error in

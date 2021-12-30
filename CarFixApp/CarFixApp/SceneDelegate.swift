@@ -15,10 +15,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let window = window {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if let _ = Auth.auth().currentUser {
-                let navigationController = storyboard.instantiateViewController(withIdentifier: "HomeUserNavigation") 
-                window.rootViewController = navigationController
-                window.makeKeyAndVisible()
+            if let currentUser = Auth.auth().currentUser {
+                let db = Firestore.firestore()
+                db.collection("users").document(currentUser.uid).getDocument { userSnapshot , error in
+                    if let error = error {
+                        print(error)
+                    }
+                  if let userSnapshot = userSnapshot,
+                     let userData = userSnapshot.data(){
+                      let user = User(dict: userData)
+                      let storybaord = UIStoryboard(name: "Main", bundle: nil)
+                      if user.customer {
+                    let mainTabBar = storyboard.instantiateViewController(withIdentifier: "HomeUserNavigation")
+                          window.rootViewController = mainTabBar
+                          window.makeKeyAndVisible()
+                      } else {
+                          
+                    let mainTabBar = storyboard.instantiateViewController(withIdentifier: "HomeEngNavigationBar")
+                            window.rootViewController = mainTabBar
+                            window.makeKeyAndVisible()
+                      }
+                  }
+                }
+               
             }
         }
     }
