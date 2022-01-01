@@ -7,7 +7,9 @@
 
 import UIKit
 import Firebase
-class HomeUserViewController: UIViewController {
+import CoreLocation
+
+class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
     let imagePickerController = UIImagePickerController()
 
     
@@ -25,6 +27,8 @@ class HomeUserViewController: UIViewController {
 
     var customer: User?
     var selectedPostImage:UIImage?
+    
+    var locationCity:CLLocationManager!
     
     @IBOutlet weak var userNameLable: UILabel!
     @IBOutlet weak var userImageProfile: UIImageView!
@@ -72,6 +76,7 @@ class HomeUserViewController: UIViewController {
                              self.userNameLable.text = user.name
                              self.userEmailLable.text = user.email
                              self.userPhoneLable.text = "\(user.phoneNumber)"
+                            // self.userImageProfile.loadImageUsingCache(with: customer?.imageUrl)
                          }
                 }
 
@@ -83,12 +88,52 @@ class HomeUserViewController: UIViewController {
         getPosts()
 
           
+                   //  _____________ **** location **** _____________
+        locationCity = CLLocationManager()
+        locationCity.delegate = self
+        locationCity.desiredAccuracy = kCLLocationAccuracyBest
+        locationCity.requestAlwaysAuthorization()
+    if CLLocationManager.locationServicesEnabled() {
+        print("location enp")
+        locationCity.startUpdatingLocation()
+    }
+    else {
+        print("not found")
+        }
+                 //  _____________ **** location **** _____________
         }
     
+    //  _____________ **** location **** _____________
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let cerentLocation = locations[0] as CLLocation
+        let geocoder = CLGeocoder()
+        geocoder.reverseGeocodeLocation(cerentLocation) { placemarks, error in
+            if (error != nil){
+                print("error")
+            }
+            let placemark = placemarks! as [CLPlacemark]
+            if (placemark.count>0){
+                let place = placemarks![0]
+                let locality = place.locality ?? ""
+                let area = place.administrativeArea ?? ""
+                let country = place.country ?? ""
+                print("locality **** \(locations)")
+                print("area \(area)")
+                print("country\(country)")
+                self.cerantLocationLabel.text = "\(locality) , \(area)"
+            }
+        }
+    }
+    //  _____________ **** location **** _____________
+
+    //
+    // .whereField("userId", isEqualTo: selectedPosts?.user.id as Any).order(by: "createdAt").addSnapshotListener
     func getPosts() {
         let ref = Firestore.firestore()
       //  if customer?.id == selectedPosts?.userId
-        ref.collection("posts").order(by: "createdAt",descending: true).addSnapshotListener { snapshot, error in
+        
+        ref.collection("posts").order(by: "createdAt",descending: true).addSnapshotListener{ snapshot, error in
             if let error = error {
                 print("DB ERROR Posts",error.localizedDescription)
             }

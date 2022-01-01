@@ -30,6 +30,12 @@ class LoginUserViewController: UIViewController {
             Activity.showIndicator(parentView: self.view, childView: activityIndicator)
             Auth.auth().signIn(withEmail: email, password: passward){
                 authResult,error in
+                
+                if let error = error {
+                    Alert.showAlert(strTitle: "Error", strMessage: error.localizedDescription, viewController: self)
+                    Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
+                }
+                
                 if let _ = authResult{
                     if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeUserNavigation") as? UINavigationController {
                         viewController.modalPresentationStyle = .fullScreen
@@ -42,5 +48,8 @@ class LoginUserViewController: UIViewController {
     }
     
     @IBAction func handelRegister(_ sender: Any) {
+    }
+    @IBAction func backTo(segue:UIStoryboardSegue){
+        
     }
 }

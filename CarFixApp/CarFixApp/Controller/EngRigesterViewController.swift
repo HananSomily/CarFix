@@ -95,6 +95,7 @@ class EngRigesterViewController: UIViewController {
     
     @IBAction func exit(_ sender: Any) {
     }
+    
 }
 extension EngRigesterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     

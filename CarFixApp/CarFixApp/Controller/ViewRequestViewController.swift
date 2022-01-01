@@ -21,6 +21,7 @@ class ViewRequestViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     
     @IBOutlet weak var companyLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let selected = selected ,

@@ -25,6 +25,12 @@ class EngLoginViewController: UIViewController {
             Activity.showIndicator(parentView: self.view, childView: activityIndicator)
             Auth.auth().signIn(withEmail: email, password: passward){
                 authResult,error in
+                
+                if let error = error {
+                    Alert.showAlert(strTitle: "Error", strMessage: error.localizedDescription, viewController: self)
+                    Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
+                }
+                
                 if let _ = authResult{
                     if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeEngNavigationBar") as? UINavigationController {
                         viewController.modalPresentationStyle = .fullScreen
@@ -37,6 +43,9 @@ class EngLoginViewController: UIViewController {
     }
     
     @IBAction func handelRegister(_ sender: Any) {
+    }
+    @IBAction func backTo(segue:UIStoryboardSegue){
+        
     }
 }
 

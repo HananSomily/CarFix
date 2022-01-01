@@ -11,12 +11,14 @@ class DetailsViewController: UIViewController {
     let imagePickerController = UIImagePickerController()
     let activityIndicator = UIActivityIndicatorView()
     
+    var castomer:User?
     var selectedPosts: Post?
     var selectedPostImage:UIImage?
     
     @IBOutlet weak var readLabel: UILabel!
     @IBOutlet weak var DisplayPeoplem: UITextField!
-    
+    @IBOutlet weak var chkeing: UILabel!
+
     @IBOutlet weak var viewImage: UIImageView! {
         didSet{
             viewImage.isUserInteractionEnabled = true
@@ -32,6 +34,22 @@ class DetailsViewController: UIViewController {
             readLabel.text = selectedPosts.description
             viewImage.image = selectedPostImage
         }
+        
+//        let db = Firestore.firestore()
+//        db.collection("posts").order(by: "userId").addSnapshotListener
+// { (querySnapshot, err) in
+//            if let err = err {
+//                print("Error getting documents: \(err)??????***")
+//            } else {
+//                for document in querySnapshot!.documents {
+//                    let user = Firestore.firestore().collection("users").document("id")
+//
+//                    if user == db {
+//                    print("\(document.documentID) => \(document.data())","&&&&&&&")
+//                }
+//                }
+//            }
+//        }
         
 
   // print(selectedPosts,"this")
