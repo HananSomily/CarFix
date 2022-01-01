@@ -57,7 +57,7 @@ class HomeUserViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        malfucationTableView.reloadData()
         //    _____________  PROFIL _______________
 
         let ref = Firestore.firestore()
@@ -71,7 +71,7 @@ class HomeUserViewController: UIViewController {
                              print("+++\(user)+++")
                              self.userNameLable.text = user.name
                              self.userEmailLable.text = user.email
-                           //  self.userPhoneLable.text = "\(user.phoneNumber)"
+                             self.userPhoneLable.text = "\(user.phoneNumber)"
                          }
                 }
 
@@ -87,14 +87,20 @@ class HomeUserViewController: UIViewController {
     
     func getPosts() {
         let ref = Firestore.firestore()
+      //  if customer?.id == selectedPosts?.userId
         ref.collection("posts").order(by: "createdAt",descending: true).addSnapshotListener { snapshot, error in
             if let error = error {
                 print("DB ERROR Posts",error.localizedDescription)
             }
+
             if let snapshot = snapshot {
-                print("Customer add CANGES:",snapshot.documentChanges.count)
+                print(" CANGES:",snapshot.documentChanges.count)
                 snapshot.documentChanges.forEach { diff in
                     let postData = diff.document.data()
+                   // if self.customer?.id == self.selectedPosts?.userId {
+                    switch diff.type {
+                    case .added :
+                    
                         if let userId = postData["userId"] as? String {
                             ref.collection("users").document(userId).getDocument { userSnapshot, error in
                                 if let error = error {
@@ -110,14 +116,17 @@ class HomeUserViewController: UIViewController {
                                         self.posts.append(post)
 
                                         self.malfucationTableView.insertRows(at: [IndexPath(row:self.posts.count - 1,section: 0)],with: .automatic)
-//                                    }else {
-//                                        self.posts.insert(post,at:0)
-//
-//                                        self.malfucationTableView.insertRows(at: [IndexPath(row: 0,section: 0)],with: .automatic)
+                                    }else {
+                                        self.posts.insert(post,at:0)
+
+                                        self.malfucationTableView.insertRows(at: [IndexPath(row: 0,section: 0)],with: .automatic)
                                     }
 
                                     self.malfucationTableView.endUpdates()
-                                    
+                                }
+                            }
+                        }
+                    case .modified:
                     let postId = diff.document.documentID
                     if let currentPost = self.posts.first(where: {$0.userId == postId}),
                        let updateIndex = self.posts.firstIndex(where: {$0.userId == postId}){
@@ -128,22 +137,32 @@ class HomeUserViewController: UIViewController {
                             self.malfucationTableView.deleteRows(at: [IndexPath(row: updateIndex,section: 0)], with: .left)
                             self.malfucationTableView.insertRows(at: [IndexPath(row: updateIndex,section: 0)],with: .left)
                             self.malfucationTableView.endUpdates()
-                    
-                    
                                 }
+                    case .removed:
+                        let postId = diff.document.documentID
+                        if let deleteIndex = self.posts.firstIndex(where: {$0.userId == postId}){
+
+                            self.posts.remove(at: deleteIndex)
+                                self.malfucationTableView.beginUpdates()
+                                self.malfucationTableView.deleteRows(at: [IndexPath(row: deleteIndex,section: 0)], with: .automatic)
+                                self.malfucationTableView.endUpdates()
+                            print("|||||||")
                             }
                         }
                       }
+               // }
                    }
                 }
              }
-         }
+    //}
     
     @IBAction func go(_ sender: Any) {
         
         if let image = takeImage.image,
            let imageData = image.jpegData(compressionQuality: 0.75),
            let description = descriptionTextField.text,
+           let location = cerantLocationLabel.text,
+           let companyName = nameOfCompanyLabel.text ,
            let currentUser = Auth.auth().currentUser {
             Activity.showIndicator(parentView: self.view, childView: activityIndicator)
             var postId = ""
@@ -164,23 +183,27 @@ class HomeUserViewController: UIViewController {
                     if let url = url {
                         let db = Firestore.firestore()
                         let ref = db.collection("posts")
-                      //  if let selectedPost = self.selectedPosts {
-//                            postData = [
-//                                "userId":selectedPost.user.id,
-//                                "description":description,
-//                                "imageUrl":url.absoluteString,
-//                                "createdAt":selectedPost.createdAt ?? FieldValue.serverTimestamp(),
-//                                "updatedAt": FieldValue.serverTimestamp()
-//                            ]
-//                        }else {
+                        if let selectedPost = self.selectedPosts {
+                            postData = [
+                                "userId":selectedPost.user.id,
+                                "description":description,
+                                "companyName": companyName,
+                                "location":location,
+                                "imageUrl":url.absoluteString,
+                                "createdAt":selectedPost.createdAt ?? FieldValue.serverTimestamp(),
+                                "updatedAt": FieldValue.serverTimestamp()
+                            ]
+                        }else {
                             postData = [
                                 "userId":currentUser.uid,
                                 "description":description,
+                                "companyName": companyName,
+                                "location":location,
                                 "imageUrl":url.absoluteString,
                                 "createdAt":FieldValue.serverTimestamp(),
                                 "updatedAt": FieldValue.serverTimestamp()
                             ]
-                       // }
+                        }
                         ref.document(postId).setData(postData) { error in
                             if let error = error {
                                 print("FireStore Error",error.localizedDescription)

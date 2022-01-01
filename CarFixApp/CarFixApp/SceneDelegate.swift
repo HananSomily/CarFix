@@ -24,20 +24,44 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                   if let userSnapshot = userSnapshot,
                      let userData = userSnapshot.data(){
                       let user = User(dict: userData)
-                      let storybaord = UIStoryboard(name: "Main", bundle: nil)
+                     // let storybaord = UIStoryboard(name: "Main", bundle: nil)
                       if user.customer {
                     let mainTabBar = storyboard.instantiateViewController(withIdentifier: "HomeUserNavigation")
                           window.rootViewController = mainTabBar
                           window.makeKeyAndVisible()
-                      } else {
-                          
-                    let mainTabBar = storyboard.instantiateViewController(withIdentifier: "HomeEngNavigationBar")
-                            window.rootViewController = mainTabBar
-                            window.makeKeyAndVisible()
+//                      } else {
+//
+//                    let mainTabBar = storyboard.instantiateViewController(withIdentifier: "HomeEngNavigationBar")
+//                            window.rootViewController = mainTabBar
+//                            window.makeKeyAndVisible()
                       }
                   }
                 }
-               
+                db.collection("engineer").document(currentUser.uid).getDocument { userSnapshot , error in
+                    if let error = error {
+                        print(error)
+                    }
+                  if let userSnapshot = userSnapshot,
+                     let userData = userSnapshot.data(){
+                      let user = User(dict: userData)
+                     // let storybaord = UIStoryboard(name: "Main", bundle: nil)
+                      if !user.customer {
+                    let mainTabBar = storyboard.instantiateViewController(withIdentifier: "HomeEngNavigationBar")
+                          window.rootViewController = mainTabBar
+                          window.makeKeyAndVisible()
+//                      } else {
+//
+//                    let mainTabBar = storyboard.instantiateViewController(withIdentifier: "HomeEngNavigationBar")
+//                            window.rootViewController = mainTabBar
+//                            window.makeKeyAndVisible()
+                      }
+                  }
+                }
+            } else {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let mainTabBar = storyboard.instantiateViewController(withIdentifier: "HomeNavigationController")
+                      window.rootViewController = mainTabBar
+                      window.makeKeyAndVisible()
             }
         }
     }

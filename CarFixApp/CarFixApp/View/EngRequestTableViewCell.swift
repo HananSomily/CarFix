@@ -13,6 +13,8 @@ class EngRequestTableViewCell: UITableViewCell {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var carDescript: UILabel!
+    
+    @IBOutlet weak var companyName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,6 +30,7 @@ class EngRequestTableViewCell: UITableViewCell {
     }
     
     func configure(with post:Post) -> UITableViewCell {
+        companyName.text = post.companyName
         carDescript.text = post.description
         carImage.loadImageUsingCache(with: post.imageUrl)
         userName.text = post.user.name

@@ -67,7 +67,7 @@ class DetailsViewController: UIViewController {
                             let ref = db.collection("posts")
                     if let selectedPost = self.selectedPosts {
                                 postData = [
-                            "id":selectedPost.user.id,
+                            "userId":selectedPost.user.id,
                             "description":description,
                             "imageUrl":url.absoluteString,
                             "createdAt":selectedPost.createdAt ?? FieldValue.serverTimestamp(),
@@ -75,7 +75,7 @@ class DetailsViewController: UIViewController {
                                 ]
                     } else {
                         postData = [
-                            "id":currentUser.uid,
+                            "userId":currentUser.uid,
                             "description":description,
                             "imageUrl":url.absoluteString,
                             "createdAt":FieldValue.serverTimestamp(),

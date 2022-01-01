@@ -18,12 +18,17 @@ class ViewRequestViewController: UIViewController {
     
     @IBOutlet weak var viewImageCar: UIImageView!
     
+    @IBOutlet weak var locationLabel: UILabel!
+    
+    @IBOutlet weak var companyLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         if let selected = selected ,
            let selectedImage = selectedImage {
             viewProblemCarLabel.text = selected.description
             viewImageCar.image = selectedImage
+            locationLabel.text = selected.location
+            companyLabel.text = selected.companyName
             
         }
         // Do any additional setup after loading the view.
