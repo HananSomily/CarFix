@@ -12,6 +12,50 @@ class EngRigesterViewController: UIViewController {
     let imagePickerController = UIImagePickerController()
     var activityIndicator = UIActivityIndicatorView()
     
+    
+    // ------------------- localize -----------------
+
+    
+    @IBOutlet weak var helloLabel: UILabel!{
+        didSet{
+            helloLabel.text = "hhhi"
+       }
+    }
+        @IBOutlet weak var emailLabel: UILabel!{
+            didSet{
+                emailLabel.text = "Email".localized
+            }
+        }
+    @IBOutlet weak var nameLabel: UILabel!{
+        didSet{
+            nameLabel.text = "Name".localized
+        }
+    }
+    @IBOutlet weak var passwardLabel: UILabel!{
+        didSet{
+            passwardLabel.text = "Passward".localized
+        }
+    }
+    @IBOutlet weak var checkPassLabel: UILabel!{
+        didSet{
+            checkPassLabel.text = "Passwardcheck".localized
+        }
+    }
+    @IBOutlet weak var phoneLabel: UILabel!{
+        didSet{
+            phoneLabel.text = "Phone".localized
+        }
+    }
+    
+    @IBOutlet weak var regsterButton: UIButton!{
+        didSet{
+            regsterButton.setTitle("register".localized, for: .normal)
+        }
+    }
+    // ------------------- localize -----------------
+
+    
+    
     @IBOutlet weak var engImageProfil: UIImageView!{
         didSet{
             engImageProfil.layer.borderColor = UIColor.systemBlue.cgColor

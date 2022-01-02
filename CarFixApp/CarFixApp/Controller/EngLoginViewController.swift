@@ -9,8 +9,81 @@ import UIKit
 import Firebase
 class EngLoginViewController: UIViewController {
     var activityIndicator = UIActivityIndicatorView()
-    @IBOutlet weak var emailEngTextField: UITextField!
     
+             // ------------------- localize -----------------
+    @IBOutlet weak var helloLabel: UILabel! {
+        didSet{
+            helloLabel.text = "hellllo"
+        }
+    }
+    @IBOutlet weak var emailLabel: UILabel!{
+        didSet{
+            emailLabel.text = "Email".localized
+        }
+    }
+    @IBOutlet weak var passwardLabel: UILabel!{
+        didSet{
+            passwardLabel.text = "Passward".localized
+        }
+    }
+    @IBOutlet weak var logInLabel: UIButton!{
+        didSet{
+            logInLabel.setTitle("log in".localized, for: .normal)
+        }
+    }
+    @IBOutlet weak var orLabel: UILabel!{
+        didSet{
+            orLabel.text = "OR".localized
+        }
+    }
+    @IBOutlet weak var registerLabel: UIButton!{
+        didSet{
+            registerLabel.setTitle("register".localized, for: .normal)
+        }
+    }
+    @IBOutlet weak var tabBarChangeName: UITabBarItem!{
+        didSet{
+            
+        }
+    }
+             // ------------------- localize -----------------
+    
+    
+    // ---------+++++ language Segment +++++------------
+    
+    @IBOutlet weak var languageSegmentControl: UISegmentedControl! {
+        didSet {
+            if let lang = UserDefaults.standard.string(forKey: "currentLanguage") {
+                switch lang {
+                case "ar":
+                    languageSegmentControl.selectedSegmentIndex = 0
+                case "en":
+                    languageSegmentControl.selectedSegmentIndex = 1
+                default:
+                    let localLang =  Locale.current.languageCode
+                     if localLang == "ar" {
+                         languageSegmentControl.selectedSegmentIndex = 0
+                     }else {
+                         languageSegmentControl.selectedSegmentIndex = 1
+                     }
+                  
+                }
+            
+            }else {
+                let localLang =  Locale.current.languageCode
+                 if localLang == "ar" {
+                     languageSegmentControl.selectedSegmentIndex = 0
+                 }else {
+                     languageSegmentControl.selectedSegmentIndex = 1
+                 }
+            }
+        }
+    }
+    
+    // ---------+++++ language Segment +++++------------
+
+    
+    @IBOutlet weak var emailEngTextField: UITextField!
     @IBOutlet weak var passwardEngTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +91,6 @@ class EngLoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
     @IBAction func handelLogin(_ sender: Any) {
         if let email = emailEngTextField.text ,
            let passward = passwardEngTextField.text {
@@ -41,6 +113,20 @@ class EngLoginViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func segmentedLangouge(_ sender: UISegmentedControl) {
+        
+        if let lang = sender.titleForSegment(at:sender.selectedSegmentIndex)?.lowercased() {
+            UserDefaults.standard.set(lang, forKey: "currentLanguage")
+            Bundle.setLanguage(lang)
+            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+               let sceneDelegate = windowScene.delegate as? SceneDelegate {
+                sceneDelegate.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "HomeNavigationController")
+            }
+        }
+    }
+            
     
     @IBAction func handelRegister(_ sender: Any) {
     }

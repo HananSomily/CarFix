@@ -108,7 +108,6 @@ class EngRequestViewController: UIViewController {
                             let postId = diff.document.documentID
                             if let deleteIndex = self.posts.firstIndex(where: {$0.userId == postId}){
                                 self.posts.remove(at: deleteIndex)
-                              
                                     self.postsTableView.beginUpdates()
                                     self.postsTableView.deleteRows(at: [IndexPath(row: deleteIndex,section: 0)], with: .automatic)
                                     self.postsTableView.endUpdates()

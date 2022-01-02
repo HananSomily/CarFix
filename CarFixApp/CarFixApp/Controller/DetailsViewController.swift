@@ -11,6 +11,24 @@ class DetailsViewController: UIViewController {
     let imagePickerController = UIImagePickerController()
     let activityIndicator = UIActivityIndicatorView()
     
+    // ------------------- localize -----------------
+    
+    @IBOutlet weak var closeButton: UIButton!{
+        didSet{
+            closeButton.setTitle("close".localized, for: .normal)
+        }
+    }
+
+    @IBOutlet weak var updateButton: UIButton!{
+    didSet{
+        updateButton.setTitle("update".localized, for: .normal)
+        }
+    }
+    
+    
+    // ------------------- localize -----------------
+
+    
     var castomer:User?
     var selectedPosts: Post?
     var selectedPostImage:UIImage?
@@ -19,6 +37,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var DisplayPeoplem: UITextField!
     @IBOutlet weak var chkeing: UILabel!
 
+    @IBOutlet weak var nameOfCompanyLabel: UILabel!
     @IBOutlet weak var viewImage: UIImageView! {
         didSet{
             viewImage.isUserInteractionEnabled = true
@@ -26,6 +45,8 @@ class DetailsViewController: UIViewController {
             viewImage.addGestureRecognizer(tabGesture)
         }
     }
+    
+    @IBOutlet weak var locationUserLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,28 +54,10 @@ class DetailsViewController: UIViewController {
         let selectedPostImage = selectedPostImage {
             readLabel.text = selectedPosts.description
             viewImage.image = selectedPostImage
+            locationUserLabel.text = selectedPosts.location
+            nameOfCompanyLabel.text = selectedPosts.companyName
         }
-        
-//        let db = Firestore.firestore()
-//        db.collection("posts").order(by: "userId").addSnapshotListener
-// { (querySnapshot, err) in
-//            if let err = err {
-//                print("Error getting documents: \(err)??????***")
-//            } else {
-//                for document in querySnapshot!.documents {
-//                    let user = Firestore.firestore().collection("users").document("id")
-//
-//                    if user == db {
-//                    print("\(document.documentID) => \(document.data())","&&&&&&&")
-//                }
-//                }
-//            }
-//        }
-        
 
-  // print(selectedPosts,"this")
-  //  v()
-    
     }
    
 
@@ -63,6 +66,8 @@ class DetailsViewController: UIViewController {
         if let image = viewImage.image,
            let imageData = image.jpegData(compressionQuality: 0.80),
            let description = DisplayPeoplem.text ,
+           let location = locationUserLabel.text,
+           let companyName = nameOfCompanyLabel.text ,
             let currentUser = Auth.auth().currentUser {
                 Activity.showIndicator(parentView: self.view, childView: activityIndicator)
                 var postId = ""
@@ -88,6 +93,8 @@ class DetailsViewController: UIViewController {
                             "userId":selectedPost.user.id,
                             "description":description,
                             "imageUrl":url.absoluteString,
+                            "companyName": companyName,
+                            "location":location,
                             "createdAt":selectedPost.createdAt ?? FieldValue.serverTimestamp(),
                             "updatedAt": FieldValue.serverTimestamp()
                                 ]
@@ -97,7 +104,8 @@ class DetailsViewController: UIViewController {
                             "description":description,
                             "imageUrl":url.absoluteString,
                             "createdAt":FieldValue.serverTimestamp(),
-                            "updatedAt": FieldValue.serverTimestamp()                        ]
+                            "updatedAt": FieldValue.serverTimestamp()
+                        ]
                     }
                             ref.document(postId).setData(postData) { error in
                                 if let error = error {

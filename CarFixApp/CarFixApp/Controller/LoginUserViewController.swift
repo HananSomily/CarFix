@@ -9,7 +9,76 @@ import UIKit
 import Firebase
 class LoginUserViewController: UIViewController {
     var activityIndicator = UIActivityIndicatorView()
+    
+    // ------------------- localize -----------------
+    @IBOutlet weak var helloLabel: UILabel!{
+        didSet{
+            helloLabel.text = "customer".localized
+        }
+    }
+    @IBOutlet weak var emailLabel: UILabel!{
+        didSet{
+            emailLabel.text = "Email".localized
+        }
+    }
+    @IBOutlet weak var passawrdLabel: UILabel!{
+        didSet{
+            passawrdLabel.text = "Passward".localized
+        }
+    }
+    @IBOutlet weak var logInButton: UIButton!{
+        didSet{
+            logInButton.setTitle("log in".localized, for: .normal)
+        }
+    }
+    @IBOutlet weak var orLabel: UILabel!{
+        didSet{
+            orLabel.text = "OR".localized
+        }
+    }
+    @IBOutlet weak var registerButton: UIButton!{
+        didSet{
+            registerButton.setTitle("register".localized, for: .normal)
+        }
+    }
+    
+    // ------------------- localize -----------------
 
+    // ---------+++++ language Segment +++++------------
+    
+    @IBOutlet weak var languageSegmentControl: UISegmentedControl! {
+        didSet {
+            if let lang = UserDefaults.standard.string(forKey: "currentLanguage") {
+                switch lang {
+                case "ar":
+                    languageSegmentControl.selectedSegmentIndex = 0
+                case "en":
+                    languageSegmentControl.selectedSegmentIndex = 1
+                default:
+                    let localLang =  Locale.current.languageCode
+                     if localLang == "ar" {
+                         languageSegmentControl.selectedSegmentIndex = 0
+                     }else {
+                         languageSegmentControl.selectedSegmentIndex = 1
+                     }
+                  
+                }
+            
+            }else {
+                let localLang =  Locale.current.languageCode
+                 if localLang == "ar" {
+                     languageSegmentControl.selectedSegmentIndex = 0
+                 }else {
+                     languageSegmentControl.selectedSegmentIndex = 1
+                 }
+            }
+        }
+    }
+    
+    // ---------+++++ language Segment +++++------------
+
+
+    
     @IBOutlet weak var emailUserTextField: UITextField!
     
     @IBOutlet weak var passwardUserTextField: UITextField!
@@ -51,5 +120,28 @@ class LoginUserViewController: UIViewController {
     }
     @IBAction func backTo(segue:UIStoryboardSegue){
         
+    }
+    @IBAction func changeLangouge(_ sender: Any) {
+    }
+    
+    @IBAction func segmentedLangouge(_ sender: UISegmentedControl) {
+        
+        if let lang = sender.titleForSegment(at:sender.selectedSegmentIndex)?.lowercased() {
+            UserDefaults.standard.set(lang, forKey: "currentLanguage")
+            Bundle.setLanguage(lang)
+            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+               let sceneDelegate = windowScene.delegate as? SceneDelegate {
+                sceneDelegate.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "HomeNavigationController")
+            }
+        }
+    }
+            
+}
+
+
+extension String{
+    var localized: String {
+        return NSLocalizedString(self, tableName: "localize", bundle: .main, value: self, comment: self)
     }
 }

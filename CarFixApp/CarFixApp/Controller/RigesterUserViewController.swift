@@ -11,6 +11,50 @@ import Firebase
 class RigesterUserViewController: UIViewController {
     let imagePickerController = UIImagePickerController()
     var activityIndicator = UIActivityIndicatorView()
+    
+    
+    // ------------------- localize -----------------
+
+    
+    @IBOutlet weak var helloLabel: UILabel!{
+        didSet{
+            helloLabel.text = "hhhi"
+       }
+    }
+        @IBOutlet weak var emailLabel: UILabel!{
+            didSet{
+                emailLabel.text = "Email".localized
+            }
+        }
+    @IBOutlet weak var nameLabel: UILabel!{
+        didSet{
+            nameLabel.text = "Name".localized
+        }
+    }
+    @IBOutlet weak var passwardLabel: UILabel!{
+        didSet{
+            passwardLabel.text = "Passward".localized
+        }
+    }
+    @IBOutlet weak var checkPassLabel: UILabel!{
+        didSet{
+            checkPassLabel.text = "Passwardcheck".localized
+        }
+    }
+    @IBOutlet weak var phoneLabel: UILabel!{
+        didSet{
+            phoneLabel.text = "Phone".localized
+        }
+    }
+    
+    @IBOutlet weak var regsterButton: UIButton!{
+        didSet{
+            regsterButton.setTitle("register".localized, for: .normal)
+        }
+    }
+    // ------------------- localize -----------------
+
+    
 
     @IBOutlet weak var userImageProfil: UIImageView!{
         didSet{
@@ -133,3 +177,9 @@ extension RigesterUserViewController: UIImagePickerControllerDelegate, UINavigat
         picker.dismiss(animated: true, completion: nil)
     }
 }
+
+//extension String{
+//    var localized: String {
+//        return NSLocalizedString(self, tableName: "localize", bundle: .main, value: self, comment: self)
+//    }
+//}

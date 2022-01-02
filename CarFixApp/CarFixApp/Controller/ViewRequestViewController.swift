@@ -10,16 +10,29 @@ import Firebase
 class ViewRequestViewController: UIViewController {
 
     let activityIndicator = UIActivityIndicatorView()
+    
+    // ------------------- localize -----------------
+    
+    @IBOutlet weak var referceButton: UIButton! {
+        didSet{
+            referceButton.setTitle("Refuse", for: .normal)
+        }
+    }
+    @IBOutlet weak var acceptButton: UIButton!{
+        didSet{
+            acceptButton.setTitle("Accept", for: .normal)
+        }
+    }
+    
+    // ------------------- localize -----------------
+
 
 
     var selected:Post?
     var selectedImage:UIImage?
     @IBOutlet weak var viewProblemCarLabel: UILabel!
-    
     @IBOutlet weak var viewImageCar: UIImageView!
-    
     @IBOutlet weak var locationLabel: UILabel!
-    
     @IBOutlet weak var companyLabel: UILabel!
     
     override func viewDidLoad() {

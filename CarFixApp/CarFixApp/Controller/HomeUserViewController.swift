@@ -12,7 +12,24 @@ import CoreLocation
 class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
     let imagePickerController = UIImagePickerController()
 
+    // ------------------- localize -----------------
+
     
+    
+    @IBOutlet weak var viewButton: UIButton!{
+        didSet{
+            viewButton.setTitle("view".localized, for: .normal)
+        }
+    }
+    
+    @IBOutlet weak var addButton: UIButton!{
+        didSet{
+            addButton.setTitle("send".localized, for: .normal)
+        }
+    }
+    
+    // ------------------- localize -----------------
+
     
     @IBOutlet weak var malfucationTableView: UITableView!
     {
@@ -132,7 +149,7 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
     func getPosts() {
         let ref = Firestore.firestore()
       //  if customer?.id == selectedPosts?.userId
-        
+        //.whereField("userId", isEqualTo: Auth.auth().currentUser!.uid)
         ref.collection("posts").order(by: "createdAt",descending: true).addSnapshotListener{ snapshot, error in
             if let error = error {
                 print("DB ERROR Posts",error.localizedDescription)
@@ -340,7 +357,7 @@ extension HomeUserViewController : UICollectionViewDelegate , UICollectionViewDa
         return CGSize(width: 30, height: 30)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        return nameOfCompanyLabel.text = String(carsComp[indexPath.row])
+        return nameOfCompanyLabel.text = String(carsComp[indexPath.row]).localized
     }
 }
 extension HomeUserViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
