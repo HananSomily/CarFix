@@ -336,7 +336,7 @@ extension HomeUserViewController: UITableViewDataSource {
 }
 extension HomeUserViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 70
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! malfunctionsCarTableViewCell
