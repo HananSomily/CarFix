@@ -102,6 +102,8 @@ class DetailsViewController: UIViewController {
                         postData = [
                             "userId":currentUser.uid,
                             "description":description,
+                            "companyName": companyName,
+                            "location":location,
                             "imageUrl":url.absoluteString,
                             "createdAt":FieldValue.serverTimestamp(),
                             "updatedAt": FieldValue.serverTimestamp()

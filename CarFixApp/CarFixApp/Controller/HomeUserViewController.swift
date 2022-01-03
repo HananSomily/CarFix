@@ -150,7 +150,8 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
         let ref = Firestore.firestore()
       //  if customer?.id == selectedPosts?.userId
         //.whereField("userId", isEqualTo: Auth.auth().currentUser!.uid)
-        ref.collection("posts").order(by: "createdAt",descending: true).addSnapshotListener{ snapshot, error in
+        //.order(by: "createdAt",descending: true).
+        ref.collection("posts").whereField("userId", isEqualTo: Auth.auth().currentUser!.uid).addSnapshotListener{ snapshot, error in
             if let error = error {
                 print("DB ERROR Posts",error.localizedDescription)
             }
@@ -187,6 +188,7 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
                                     self.malfucationTableView.endUpdates()
                                 }
                             }
+                            print("$$$$$")
                         }
                     case .modified:
                     let postId = diff.document.documentID
@@ -199,6 +201,7 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
                             self.malfucationTableView.deleteRows(at: [IndexPath(row: updateIndex,section: 0)], with: .left)
                             self.malfucationTableView.insertRows(at: [IndexPath(row: updateIndex,section: 0)],with: .left)
                             self.malfucationTableView.endUpdates()
+                        print("%%%%%%%")
                                 }
                     case .removed:
                         let postId = diff.document.documentID
@@ -281,16 +284,17 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
     }
 
    //}
-    @IBAction func toUpdateOrDelet(_ sender: Any) {
-//        selectedPosts?.description = descriptionTextField.text!
-//        selectedPostImage = takeImage.image
-//        print(selectedPosts,"***")
-//        func configure(with post:Post) {
-//            cerantLocationLabel.text = post.description
-//            takeImage.loadImageUsingCache(with: post.imageUrl)
-//        }
-
-    }
+//    @IBAction func toUpdateOrDelet(_ sender: Any) {
+//toDetels
+    /////        selectedPosts?.description = descriptionTextField.text!
+////        selectedPostImage = takeImage.image
+////        print(selectedPosts,"***")
+////        func configure(with post:Post) {
+////            cerantLocationLabel.text = post.description
+////            takeImage.loadImageUsingCache(with: post.imageUrl)
+////        }
+//
+//    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "toDetels" {
@@ -319,6 +323,7 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
 
 extension HomeUserViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("*****" , posts)
         return posts.count
     }
     

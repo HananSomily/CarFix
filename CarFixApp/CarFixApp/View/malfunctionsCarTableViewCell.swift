@@ -26,7 +26,7 @@ class malfunctionsCarTableViewCell: UITableViewCell {
     func configure(with post:Post) -> UITableViewCell {
         malfunctionLabel.text = post.description
         malfunctionImage.loadImageUsingCache(with: post.imageUrl)
-
+print(";;;;;;",post , ";;;;;;")
         return self
     }
     

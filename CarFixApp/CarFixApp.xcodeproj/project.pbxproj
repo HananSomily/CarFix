@@ -118,6 +118,7 @@
 				2D10C9D22780FB6A0078A747 /* Alert.swift */,
 				2D0E744D2779995800556AAD /* imageView.swift */,
 				2D0E744F2779996E00556AAD /* Activity.swift */,
+				2D25B15527818908005F4C10 /* Bundle.swift */,
 				2DCAFBE62779502C0051F940 /* Model */,
 				2DCAFBE7277950420051F940 /* View */,
 				2DCAFBE82779504B0051F940 /* Controller */,
@@ -136,7 +137,6 @@
 			children = (
 				2D0E74492779909F00556AAD /* UserModel.swift */,
 				2D0E744B2779948200556AAD /* PostModel.swift */,
-				2D25B15527818908005F4C10 /* Bundle.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
