@@ -17,13 +17,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="186" height="87"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lsu-lq-P52">
-                        <rect key="frame" x="0.0" y="0.0" width="186" height="86"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lsu-lq-P52">
+                        <rect key="frame" x="0.0" y="0.0" width="186" height="87"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNV-vp-O7h">
-                        <rect key="frame" x="0.0" y="17" width="186" height="57"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNV-vp-O7h">
+                        <rect key="frame" x="0.0" y="15" width="186" height="57"/>
                         <color key="backgroundColor" red="0.73082096429999999" green="0.72953043230000003" blue="0.81143465910000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="displayP3"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -32,6 +30,16 @@
                     </label>
                 </subviews>
                 <color key="backgroundColor" name="Color-6"/>
+                <constraints>
+                    <constraint firstItem="lsu-lq-P52" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="1vf-co-his"/>
+                    <constraint firstItem="oNV-vp-O7h" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="8Pa-vl-xKm"/>
+                    <constraint firstAttribute="trailing" secondItem="lsu-lq-P52" secondAttribute="trailing" id="J0X-bZ-hno"/>
+                    <constraint firstAttribute="bottom" secondItem="oNV-vp-O7h" secondAttribute="bottom" constant="15" id="OKa-Bl-Xrw"/>
+                    <constraint firstAttribute="bottom" secondItem="lsu-lq-P52" secondAttribute="bottom" id="UUi-dN-DSV"/>
+                    <constraint firstItem="lsu-lq-P52" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="spQ-Hd-54Q"/>
+                    <constraint firstAttribute="trailing" secondItem="oNV-vp-O7h" secondAttribute="trailing" id="tKw-Hx-LeZ"/>
+                    <constraint firstItem="oNV-vp-O7h" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="vL2-3O-0ul"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
