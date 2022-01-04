@@ -61,6 +61,7 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
     }
     var carsComp = ["changan","Chevrolet","Ford","hondae","hyundai","jeep","KIA","Lexus","mazda","MG","nissan","toyota"]
     @IBOutlet weak var cerantLocationLabel: UILabel!
+   // @IBOutlet weak var descriptionTextField: UITextView!
     @IBOutlet weak var descriptionTextField: UITextField! {
         didSet{
          //   descriptionTextField.delegate = self
