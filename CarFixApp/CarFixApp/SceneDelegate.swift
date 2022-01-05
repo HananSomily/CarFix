@@ -49,11 +49,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     let mainTabBar = storyboard.instantiateViewController(withIdentifier: "HomeEngNavigationBar")
                           window.rootViewController = mainTabBar
                           window.makeKeyAndVisible()
-//                      } else {
-//
-//                    let mainTabBar = storyboard.instantiateViewController(withIdentifier: "HomeEngNavigationBar")
-//                            window.rootViewController = mainTabBar
-//                            window.makeKeyAndVisible()
                       }
                   }
                 }

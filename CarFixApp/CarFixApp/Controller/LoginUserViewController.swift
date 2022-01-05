@@ -11,6 +11,12 @@ class LoginUserViewController: UIViewController {
     var activityIndicator = UIActivityIndicatorView()
     
     // ------------------- localize -----------------
+    
+    @IBOutlet weak var lanougeAction: UIButton!{
+        didSet{
+            lanougeAction.setTitle("English".localized, for: .normal)
+        }
+    }
     @IBOutlet weak var helloLabel: UILabel!{
         didSet{
             helloLabel.text = "customer".localized
@@ -51,48 +57,46 @@ class LoginUserViewController: UIViewController {
 
     
     
-    
     @IBOutlet weak var loginDisign: UIStackView!{
         didSet{
             loginDisign.layer.cornerRadius = 5
             loginDisign.layer.masksToBounds = false
             loginDisign.layer.shadowColor = UIColor.white.cgColor
             loginDisign.layer.shadowOpacity = 0.5
-            //loginDisign.layer.shadowRadius = 8
         }
     }
     
     
     // ---------+++++ language Segment +++++------------
     
-    @IBOutlet weak var languageSegmentControl: UISegmentedControl! {
-        didSet {
-            if let lang = UserDefaults.standard.string(forKey: "currentLanguage") {
-                switch lang {
-                case "ar":
-                    languageSegmentControl.selectedSegmentIndex = 0
-                case "en":
-                    languageSegmentControl.selectedSegmentIndex = 1
-                default:
-                    let localLang =  Locale.current.languageCode
-                     if localLang == "ar" {
-                         languageSegmentControl.selectedSegmentIndex = 0
-                     }else {
-                         languageSegmentControl.selectedSegmentIndex = 1
-                     }
-                  
-                }
-            
-            }else {
-                let localLang =  Locale.current.languageCode
-                 if localLang == "ar" {
-                     languageSegmentControl.selectedSegmentIndex = 0
-                 }else {
-                     languageSegmentControl.selectedSegmentIndex = 1
-                 }
-            }
-        }
-    }
+//    @IBOutlet weak var languageSegmentControl: UISegmentedControl! {
+//        didSet {
+//            if let lang = UserDefaults.standard.string(forKey: "currentLanguage") {
+//                switch lang {
+//                case "ar":
+//                    languageSegmentControl.selectedSegmentIndex = 0
+//                case "en":
+//                    languageSegmentControl.selectedSegmentIndex = 1
+//                default:
+//                    let localLang =  Locale.current.languageCode
+//                     if localLang == "ar" {
+//                         languageSegmentControl.selectedSegmentIndex = 0
+//                     }else {
+//                         languageSegmentControl.selectedSegmentIndex = 1
+//                     }
+//
+//                }
+//
+//            }else {
+//                let localLang =  Locale.current.languageCode
+//                 if localLang == "ar" {
+//                     languageSegmentControl.selectedSegmentIndex = 0
+//                 }else {
+//                     languageSegmentControl.selectedSegmentIndex = 1
+//                 }
+//            }
+//        }
+//    }
     
     // ---------+++++ language Segment +++++------------
 
@@ -116,12 +120,13 @@ class LoginUserViewController: UIViewController {
 //
 //    }
     @IBAction func handelLogin(_ sender: Any) {
+//        let db = Firestore.firestore()
+//        db.collection("users").document("customer")
         if let email = emailUserTextField.text ,
            let passward = passwardUserTextField.text {
             Activity.showIndicator(parentView: self.view, childView: activityIndicator)
             Auth.auth().signIn(withEmail: email, password: passward){
                 authResult,error in
-                
                 if let error = error {
                     Alert.showAlert(strTitle: "Error", strMessage: error.localizedDescription, viewController: self)
                     Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
@@ -162,18 +167,18 @@ class LoginUserViewController: UIViewController {
       }
     }
     
-    @IBAction func segmentedLangouge(_ sender: UISegmentedControl) {
-        
-        if let lang = sender.titleForSegment(at:sender.selectedSegmentIndex)?.lowercased() {
-            UserDefaults.standard.set(lang, forKey: "currentLanguage")
-            Bundle.setLanguage(lang)
-            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-               let sceneDelegate = windowScene.delegate as? SceneDelegate {
-                sceneDelegate.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "HomeNavigationController")
-            }
-        }
-    }
+//    @IBAction func segmentedLangouge(_ sender: UISegmentedControl) {
+//
+//        if let lang = sender.titleForSegment(at:sender.selectedSegmentIndex)?.lowercased() {
+//            UserDefaults.standard.set(lang, forKey: "currentLanguage")
+//            Bundle.setLanguage(lang)
+//            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+//            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+//               let sceneDelegate = windowScene.delegate as? SceneDelegate {
+//                sceneDelegate.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "HomeNavigationController")
+//            }
+//        }
+//    }
             
 }
 

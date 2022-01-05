@@ -11,6 +11,14 @@ class EngLoginViewController: UIViewController {
     var activityIndicator = UIActivityIndicatorView()
     
              // ------------------- localize -----------------
+    
+    
+    @IBOutlet weak var langougeDisin: UIButton!{
+        didSet{
+            langougeDisin.setTitle("English".localized, for: .normal)
+        }
+    }
+    
     @IBOutlet weak var helloLabel: UILabel! {
         didSet{
             helloLabel.text = "hellllo"
@@ -69,34 +77,32 @@ class EngLoginViewController: UIViewController {
     
     // ---------+++++ language Segment +++++------------
     
-    @IBOutlet weak var languageSegmentControl: UISegmentedControl! {
-        didSet {
-            if let lang = UserDefaults.standard.string(forKey: "currentLanguage") {
-                switch lang {
-                case "ar":
-                    languageSegmentControl.selectedSegmentIndex = 0
-                case "en":
-                    languageSegmentControl.selectedSegmentIndex = 1
-                default:
-                    let localLang =  Locale.current.languageCode
-                     if localLang == "ar" {
-                         languageSegmentControl.selectedSegmentIndex = 0
-                     }else {
-                         languageSegmentControl.selectedSegmentIndex = 1
-                     }
-                  
-                }
-            
-            }else {
-                let localLang =  Locale.current.languageCode
-                 if localLang == "ar" {
-                     languageSegmentControl.selectedSegmentIndex = 0
-                 }else {
-                     languageSegmentControl.selectedSegmentIndex = 1
-                 }
-            }
-        }
-    }
+//    @IBOutlet weak var languageSegmentControl: UISegmentedControl! {
+//        didSet {
+//            if let lang = UserDefaults.standard.string(forKey: "currentLanguage") {
+//                switch lang {
+//                case "ar":
+//                    languageSegmentControl.selectedSegmentIndex = 0
+//                case "en":
+//                    languageSegmentControl.selectedSegmentIndex = 1
+//                default:
+//                    let localLang =  Locale.current.languageCode
+//                     if localLang == "ar" {
+//                         languageSegmentControl.selectedSegmentIndex = 0
+//                     }else {
+//                         languageSegmentControl.selectedSegmentIndex = 1
+//                     }
+//                }
+//            }else {
+//                let localLang =  Locale.current.languageCode
+//                 if localLang == "ar" {
+//                     languageSegmentControl.selectedSegmentIndex = 0
+//                 }else {
+//                     languageSegmentControl.selectedSegmentIndex = 1
+//                 }
+//            }
+//        }
+//    }
     
     // ---------+++++ language Segment +++++------------
 
@@ -155,18 +161,18 @@ class EngLoginViewController: UIViewController {
       }
     }
     
-    @IBAction func segmentedLangouge(_ sender: UISegmentedControl) {
-        
-        if let lang = sender.titleForSegment(at:sender.selectedSegmentIndex)?.lowercased() {
-            UserDefaults.standard.set(lang, forKey: "currentLanguage")
-            Bundle.setLanguage(lang)
-            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-               let sceneDelegate = windowScene.delegate as? SceneDelegate {
-                sceneDelegate.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "HomeNavigationController")
-            }
-        }
-    }
+//    @IBAction func segmentedLangouge(_ sender: UISegmentedControl) {
+//
+//        if let lang = sender.titleForSegment(at:sender.selectedSegmentIndex)?.lowercased() {
+//            UserDefaults.standard.set(lang, forKey: "currentLanguage")
+//            Bundle.setLanguage(lang)
+//            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+//            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+//               let sceneDelegate = windowScene.delegate as? SceneDelegate {
+//                sceneDelegate.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "HomeNavigationController")
+//            }
+//        }
+//    }
             
     
     @IBAction func handelRegister(_ sender: Any) {
