@@ -26,14 +26,41 @@ class ViewRequestViewController: UIViewController {
     
     // ------------------- localize -----------------
 
-
+    @IBOutlet weak var disin: UIStackView!{
+        didSet{
+            disin.layer.masksToBounds = true
+            disin.layer.cornerRadius = 8
+        }
+    }
+    
 
     var selected:Post?
     var selectedImage:UIImage?
-    @IBOutlet weak var viewProblemCarLabel: UILabel!
-    @IBOutlet weak var viewImageCar: UIImageView!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var companyLabel: UILabel!
+    @IBOutlet weak var viewProblemCarLabel: UILabel!{
+        didSet{
+            viewProblemCarLabel.layer.masksToBounds = true
+            viewProblemCarLabel.layer.cornerRadius = 8
+        }
+    }
+    @IBOutlet weak var viewImageCar: UIImageView! {
+        didSet{
+            viewImageCar.layer.masksToBounds = true
+            viewImageCar.layer.cornerRadius = 10
+        }
+    }
+    @IBOutlet weak var locationLabel: UILabel!{
+        didSet{
+            locationLabel.layer.masksToBounds = true
+            locationLabel.layer.cornerRadius = 8
+        }
+    }
+    
+    @IBOutlet weak var companyLabel: UILabel!{
+        didSet{
+            companyLabel.layer.masksToBounds = true
+            companyLabel.layer.cornerRadius = 8
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,9 +70,13 @@ class ViewRequestViewController: UIViewController {
             viewImageCar.image = selectedImage
             locationLabel.text = selected.location
             companyLabel.text = selected.companyName
-            
+           
         }
         // Do any additional setup after loading the view.
+        
+        let backButton = UIBarButtonItem()
+         backButton.title = ""
+         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
     
     

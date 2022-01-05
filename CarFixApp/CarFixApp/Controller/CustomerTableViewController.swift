@@ -34,6 +34,10 @@ class CustomerTableViewController: UIViewController {
         malfucationTableView.layer.shadowOpacity = 0.8
         malfucationTableView.layer.shadowRadius = 8
 
+        
+        let backButton = UIBarButtonItem()
+         backButton.title = ""
+         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
        // malfucationTableView.frame = malfucationTableView.frame.inset(by: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
 
 

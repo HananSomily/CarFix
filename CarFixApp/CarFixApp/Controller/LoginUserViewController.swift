@@ -144,6 +144,22 @@ class LoginUserViewController: UIViewController {
         
     }
     @IBAction func changeLangouge(_ sender: Any) {
+        var lang = UserDefaults.standard.string(forKey: "currentLanguage")
+                 if lang == "ar" {
+                     Bundle.setLanguage(lang ?? "ar")
+                     UIView.appearance().semanticContentAttribute = .forceRightToLeft
+                    lang = "en"
+                }else{
+                    Bundle.setLanguage(lang ?? "en")
+                    UIView.appearance().semanticContentAttribute = .forceLeftToRight
+                    lang = "ar"
+                }
+                UserDefaults.standard.set(lang, forKey: "currentLanguage")
+                let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+                if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                   let sceneDelegate = windowScene.delegate as? SceneDelegate {
+                    sceneDelegate.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "HomeNavigationController")
+      }
     }
     
     @IBAction func segmentedLangouge(_ sender: UISegmentedControl) {

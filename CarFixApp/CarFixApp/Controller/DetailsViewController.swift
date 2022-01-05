@@ -25,9 +25,21 @@ class DetailsViewController: UIViewController {
         }
     }
     
-    
     // ------------------- localize -----------------
 
+    // ------------------- Disin -----------------
+    
+    @IBOutlet weak var labelDisin: UIStackView!{
+        didSet{
+            labelDisin.layer.masksToBounds = true
+            labelDisin.layer.cornerRadius = 5
+        }
+    }
+    
+    
+    // ------------------- Disin -----------------
+
+    
     
     var castomer:User?
     var selectedPosts: Post?
@@ -36,7 +48,12 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var readLabel: UILabel!
 //    @IBOutlet weak var DisplayPeoplem: UITextField!
     
-    @IBOutlet weak var updateProplemTextView: UITextView!
+    @IBOutlet weak var updateProplemTextView: UITextView!{
+        didSet{
+            updateProplemTextView.layer.masksToBounds = true
+            updateProplemTextView.layer.cornerRadius = 5
+        }
+    }
 //    @IBOutlet weak var chkeing: UILabel!
 
     @IBOutlet weak var nameOfCompanyLabel: UILabel!
@@ -45,6 +62,8 @@ class DetailsViewController: UIViewController {
             viewImage.isUserInteractionEnabled = true
             let tabGesture = UITapGestureRecognizer(target: self, action: #selector(selectImage))
             viewImage.addGestureRecognizer(tabGesture)
+            viewImage.layer.masksToBounds = true
+            viewImage.layer.cornerRadius = 5
         }
     }
     
@@ -65,6 +84,9 @@ class DetailsViewController: UIViewController {
                 tap.cancelsTouchesInView = false
                 view.addGestureRecognizer(tap)
         
+        let backButton = UIBarButtonItem()
+         backButton.title = ""
+         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
    
 

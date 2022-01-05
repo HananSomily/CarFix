@@ -43,7 +43,7 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xyw-9b-buz">
                                                         <rect key="frame" x="47" y="9" width="90" height="26"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" name="Color-22"/>
+                                                        <color key="backgroundColor" name="Color-13"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -55,7 +55,7 @@
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="company" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URW-n1-kgZ">
                                                 <rect key="frame" x="142" y="5" width="168" height="35"/>
-                                                <color key="backgroundColor" name="Color-22"/>
+                                                <color key="backgroundColor" name="Color-13"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="L3S-Av-Fkb"/>
                                                 </constraints>
@@ -67,7 +67,7 @@
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="descript" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0l-Cd-sWj">
                                         <rect key="frame" x="0.0" y="41" width="310" height="35"/>
-                                        <color key="backgroundColor" name="Color-20"/>
+                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="Twk-oU-sLm"/>
                                         </constraints>
@@ -116,12 +116,12 @@
         </tableViewCell>
     </objects>
     <resources>
-        <namedColor name="Color-20">
-            <color red="0.74658696338383845" green="0.66067161990986356" blue="0.50195859596316661" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="Color-13">
+            <color red="0.76099997758865356" green="0.81599998474121094" blue="0.80800002813339233" alpha="0.60500001907348633" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <namedColor name="Color-22">
-            <color red="0.53333336109999996" green="0.1411764771" blue="0.31372550129999999" alpha="0.84504346026490063" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="tertiaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

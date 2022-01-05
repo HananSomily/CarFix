@@ -80,6 +80,10 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
       //  malfucationTableView.reloadData()
+        
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+                tap.cancelsTouchesInView = false
+                view.addGestureRecognizer(tap)
         //    _____________  PROFIL _______________
 
         let ref = Firestore.firestore()

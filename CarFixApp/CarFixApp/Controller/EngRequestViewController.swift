@@ -51,6 +51,13 @@ class EngRequestViewController: UIViewController {
             postsTableView.layer.shadowOpacity = 0.8
             postsTableView.layer.shadowRadius = 8
             
+//            if (postsTableView.contentSize.height < postsTableView.frame.size.height) {
+//                //postsTableView.isScrollEnabled = false
+//             }
+//            else {
+//               postsTableView.isScrollEnabled = true
+//             }
+            
             getPosts()
 
         }
