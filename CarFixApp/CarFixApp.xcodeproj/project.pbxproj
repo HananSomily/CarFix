@@ -19,6 +19,8 @@
 		2D0E7457277A98BF00556AAD /* CompanyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E7455277A98BF00556AAD /* CompanyCollectionViewCell.swift */; };
 		2D0E7458277A98BF00556AAD /* CompanyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D0E7456277A98BF00556AAD /* CompanyCollectionViewCell.xib */; };
 		2D10C9D32780FB6A0078A747 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D10C9D22780FB6A0078A747 /* Alert.swift */; };
+		2D10CBD72785781000586400 /* UserTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D10CBD62785781000586400 /* UserTabBarController.swift */; };
+		2D10CBD92785832500586400 /* CustomerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D10CBD82785832500586400 /* CustomerTableViewController.swift */; };
 		2D25B15627818908005F4C10 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D25B15527818908005F4C10 /* Bundle.swift */; };
 		2D25B15D27819089005F4C10 /* localize.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D25B15F27819089005F4C10 /* localize.strings */; };
 		2DC3AB86277CD1F2003272E0 /* malfunctionsCarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC3AB84277CD1F2003272E0 /* malfunctionsCarTableViewCell.swift */; };
@@ -51,6 +53,8 @@
 		2D0E7455277A98BF00556AAD /* CompanyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCollectionViewCell.swift; sourceTree = "<group>"; };
 		2D0E7456277A98BF00556AAD /* CompanyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyCollectionViewCell.xib; sourceTree = "<group>"; };
 		2D10C9D22780FB6A0078A747 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		2D10CBD62785781000586400 /* UserTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserTabBarController.swift; path = CarFixApp/View/UserTabBarController.swift; sourceTree = SOURCE_ROOT; };
+		2D10CBD82785832500586400 /* CustomerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTableViewController.swift; sourceTree = "<group>"; };
 		2D25B15527818908005F4C10 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		2D25B1572781897A005F4C10 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
 		2D25B1582781897A005F4C10 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 		2DCAFBE7277950420051F940 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2D10CBD62785781000586400 /* UserTabBarController.swift */,
 				2DC6A56127788BC1003F6A6D /* Main.storyboard */,
 				2D0E7455277A98BF00556AAD /* CompanyCollectionViewCell.swift */,
 				2D0E7456277A98BF00556AAD /* CompanyCollectionViewCell.xib */,
@@ -158,6 +163,7 @@
 		2DCAFBE82779504B0051F940 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2D10CBD82785832500586400 /* CustomerTableViewController.swift */,
 				2DCAFBE9277950ED0051F940 /* LoginUserViewController.swift */,
 				2DCAFBEB277951200051F940 /* RigesterUserViewController.swift */,
 				2DCAFBED277951490051F940 /* HomeUserViewController.swift */,
@@ -257,7 +263,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D10CBD72785781000586400 /* UserTabBarController.swift in Sources */,
 				2D10C9D32780FB6A0078A747 /* Alert.swift in Sources */,
+				2D10CBD92785832500586400 /* CustomerTableViewController.swift in Sources */,
 				2D0E74502779996E00556AAD /* Activity.swift in Sources */,
 				2DCAFBF4277952020051F940 /* EngRigesterViewController.swift in Sources */,
 				2D0E7457277A98BF00556AAD /* CompanyCollectionViewCell.swift in Sources */,

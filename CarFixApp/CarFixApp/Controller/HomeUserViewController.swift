@@ -30,15 +30,15 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
     
     // ------------------- localize -----------------
 
-    
-    @IBOutlet weak var malfucationTableView: UITableView!
-    {
-            didSet {
-                malfucationTableView.delegate = self
-                malfucationTableView.dataSource = self
-                malfucationTableView.register(UINib(nibName: "malfunctionsCarTableViewCell", bundle: nil), forCellReuseIdentifier: "malfunctionsCell")
-            }
-        }
+//
+//    @IBOutlet weak var malfucationTableView: UITableView!
+//    {
+//            didSet {
+//                malfucationTableView.delegate = self
+//                malfucationTableView.dataSource = self
+//                malfucationTableView.register(UINib(nibName: "malfunctionsCarTableViewCell", bundle: nil), forCellReuseIdentifier: "malfunctionsCell")
+//            }
+//        }
     var selectedPosts: Post?
     var posts = [Post]()
 
@@ -79,7 +79,7 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        malfucationTableView.reloadData()
+      //  malfucationTableView.reloadData()
         //    _____________  PROFIL _______________
 
         let ref = Firestore.firestore()
@@ -103,7 +103,7 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
         let selectedPostImage = selectedPostImage {
             cerantLocationLabel.text = selectedPosts.description
         }
-        getPosts()
+       // getPosts()
 
           
                    //  _____________ **** location **** _____________
@@ -147,79 +147,79 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
 
     //
     // .whereField("userId", isEqualTo: selectedPosts?.user.id as Any).order(by: "createdAt").addSnapshotListener
-    func getPosts() {
-        let ref = Firestore.firestore()
-      //  if customer?.id == selectedPosts?.userId
-        //.whereField("userId", isEqualTo: Auth.auth().currentUser!.uid)
-        //.order(by: "createdAt",descending: true).
-        ref.collection("posts").whereField("userId", isEqualTo: Auth.auth().currentUser!.uid).addSnapshotListener{ snapshot, error in
-            if let error = error {
-                print("DB ERROR Posts",error.localizedDescription)
-            }
-
-            if let snapshot = snapshot {
-                print(" CANGES:",snapshot.documentChanges.count)
-                snapshot.documentChanges.forEach { diff in
-                    let postData = diff.document.data()
-                   // if self.customer?.id == self.selectedPosts?.userId {
-                    switch diff.type {
-                    case .added :
-                    
-                        if let userId = postData["userId"] as? String {
-                            ref.collection("users").document(userId).getDocument { userSnapshot, error in
-                                if let error = error {
-                                    print("ERROR user Data",error.localizedDescription)
-
-                                }
-                                if let userSnapshot = userSnapshot,
-                                   let userData = userSnapshot.data(){
-                                    let user = User(dict:userData)
-                        let post = Post(dict:postData,userId:diff.document.documentID,user:user)
-                                    self.malfucationTableView.beginUpdates()
-                                    if snapshot.documentChanges.count != 1 {
-                                        self.posts.append(post)
-
-                                        self.malfucationTableView.insertRows(at: [IndexPath(row:self.posts.count - 1,section: 0)],with: .automatic)
-                                    }else {
-                                        self.posts.insert(post,at:0)
-
-                                        self.malfucationTableView.insertRows(at: [IndexPath(row: 0,section: 0)],with: .automatic)
-                                    }
-
-                                    self.malfucationTableView.endUpdates()
-                                }
-                            }
-                            print("$$$$$")
-                        }
-                    case .modified:
-                    let postId = diff.document.documentID
-                    if let currentPost = self.posts.first(where: {$0.userId == postId}),
-                       let updateIndex = self.posts.firstIndex(where: {$0.userId == postId}){
-                        let newPost = Post(dict:postData, userId: postId, user: currentPost.user)
-                        self.posts[updateIndex] = newPost
-                     print(newPost,"NEW+++")
-                            self.malfucationTableView.beginUpdates()
-                            self.malfucationTableView.deleteRows(at: [IndexPath(row: updateIndex,section: 0)], with: .left)
-                            self.malfucationTableView.insertRows(at: [IndexPath(row: updateIndex,section: 0)],with: .left)
-                            self.malfucationTableView.endUpdates()
-                        print("%%%%%%%")
-                                }
-                    case .removed:
-                        let postId = diff.document.documentID
-                        if let deleteIndex = self.posts.firstIndex(where: {$0.userId == postId}){
-
-                            self.posts.remove(at: deleteIndex)
-                                self.malfucationTableView.beginUpdates()
-                                self.malfucationTableView.deleteRows(at: [IndexPath(row: deleteIndex,section: 0)], with: .automatic)
-                                self.malfucationTableView.endUpdates()
-                            print("|||||||")
-                            }
-                        }
-                      }
-               // }
-                   }
-                }
-             }
+//    func getPosts() {
+//        let ref = Firestore.firestore()
+//      //  if customer?.id == selectedPosts?.userId
+//        //.whereField("userId", isEqualTo: Auth.auth().currentUser!.uid)
+//        //.order(by: "createdAt",descending: true).
+//        ref.collection("posts").whereField("userId", isEqualTo: Auth.auth().currentUser!.uid).addSnapshotListener{ snapshot, error in
+//            if let error = error {
+//                print("DB ERROR Posts",error.localizedDescription)
+//            }
+//
+//            if let snapshot = snapshot {
+//                print(" CANGES:",snapshot.documentChanges.count)
+//                snapshot.documentChanges.forEach { diff in
+//                    let postData = diff.document.data()
+//                   // if self.customer?.id == self.selectedPosts?.userId {
+//                    switch diff.type {
+//                    case .added :
+//
+//                        if let userId = postData["userId"] as? String {
+//                            ref.collection("users").document(userId).getDocument { userSnapshot, error in
+//                                if let error = error {
+//                                    print("ERROR user Data",error.localizedDescription)
+//
+//                                }
+//                                if let userSnapshot = userSnapshot,
+//                                   let userData = userSnapshot.data(){
+//                                    let user = User(dict:userData)
+//                        let post = Post(dict:postData,userId:diff.document.documentID,user:user)
+//                                    self.malfucationTableView.beginUpdates()
+//                                    if snapshot.documentChanges.count != 1 {
+//                                        self.posts.append(post)
+//
+//                                        self.malfucationTableView.insertRows(at: [IndexPath(row:self.posts.count - 1,section: 0)],with: .automatic)
+//                                    }else {
+//                                        self.posts.insert(post,at:0)
+//
+//                                        self.malfucationTableView.insertRows(at: [IndexPath(row: 0,section: 0)],with: .automatic)
+//                                    }
+//
+//                                    self.malfucationTableView.endUpdates()
+//                                }
+//                            }
+//                            print("$$$$$")
+//                        }
+//                    case .modified:
+//                    let postId = diff.document.documentID
+//                    if let currentPost = self.posts.first(where: {$0.userId == postId}),
+//                       let updateIndex = self.posts.firstIndex(where: {$0.userId == postId}){
+//                        let newPost = Post(dict:postData, userId: postId, user: currentPost.user)
+//                        self.posts[updateIndex] = newPost
+//                     print(newPost,"NEW+++")
+//                            self.malfucationTableView.beginUpdates()
+//                            self.malfucationTableView.deleteRows(at: [IndexPath(row: updateIndex,section: 0)], with: .left)
+//                            self.malfucationTableView.insertRows(at: [IndexPath(row: updateIndex,section: 0)],with: .left)
+//                            self.malfucationTableView.endUpdates()
+//                        print("%%%%%%%")
+//                                }
+//                    case .removed:
+//                        let postId = diff.document.documentID
+//                        if let deleteIndex = self.posts.firstIndex(where: {$0.userId == postId}){
+//
+//                            self.posts.remove(at: deleteIndex)
+//                                self.malfucationTableView.beginUpdates()
+//                                self.malfucationTableView.deleteRows(at: [IndexPath(row: deleteIndex,section: 0)], with: .automatic)
+//                                self.malfucationTableView.endUpdates()
+//                            print("|||||||")
+//                            }
+//                        }
+//                      }
+//               // }
+//                   }
+//                }
+//             }
     //}
     
     @IBAction func go(_ sender: Any) {
@@ -285,17 +285,17 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
     }
 
    //}
-//    @IBAction func toUpdateOrDelet(_ sender: Any) {
+    @IBAction func toUpdateOrDelet(_ sender: Any) {
 //toDetels
-    /////        selectedPosts?.description = descriptionTextField.text!
-////        selectedPostImage = takeImage.image
-////        print(selectedPosts,"***")
-////        func configure(with post:Post) {
-////            cerantLocationLabel.text = post.description
-////            takeImage.loadImageUsingCache(with: post.imageUrl)
-////        }
-//
-//    }
+    ///        selectedPosts?.description = descriptionTextField.text!
+//        selectedPostImage = takeImage.image
+//        print(selectedPosts,"***")
+//        func configure(with post:Post) {
+//            cerantLocationLabel.text = post.description
+//            takeImage.loadImageUsingCache(with: post.imageUrl)
+//        }
+
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
             if identifier == "toDetels" {
@@ -322,33 +322,33 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
 }
 //}
 
-extension HomeUserViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("*****" , posts)
-        return posts.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "malfunctionsCell") as! malfunctionsCarTableViewCell
-        return cell.configure(with: posts[indexPath.row])
-    }
-    
-    
-}
-extension HomeUserViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
-    }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! malfunctionsCarTableViewCell
-        selectedPostImage = cell.malfunctionImage.image
-        selectedPosts = posts[indexPath.row]
-//            if let currentUser = Auth.auth().currentUser,
-//               currentUser.uid == posts[indexPath.row].user.id{
-            performSegue(withIdentifier: "toDetels", sender: self)
-        }
-   // }
-}
+//extension HomeUserViewController: UITableViewDataSource {
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        print("*****" , posts)
+//        return posts.count
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "malfunctionsCell") as! malfunctionsCarTableViewCell
+//        return cell.configure(with: posts[indexPath.row])
+//    }
+//
+//
+//}
+//extension HomeUserViewController: UITableViewDelegate {
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 70
+//    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let cell = tableView.cellForRow(at: indexPath) as! malfunctionsCarTableViewCell
+//        selectedPostImage = cell.malfunctionImage.image
+//        selectedPosts = posts[indexPath.row]
+////            if let currentUser = Auth.auth().currentUser,
+////               currentUser.uid == posts[indexPath.row].user.id{
+//            performSegue(withIdentifier: "toDetels", sender: self)
+//        }
+//   // }
+//}
 extension HomeUserViewController : UICollectionViewDelegate , UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return carsComp.count

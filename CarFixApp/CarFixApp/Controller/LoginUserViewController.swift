@@ -42,8 +42,27 @@ class LoginUserViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var massegeRegisterLabel: UILabel!{
+        didSet{
+            massegeRegisterLabel.text = "Don't have acount".localized
+        }
+    }
     // ------------------- localize -----------------
 
+    
+    
+    
+    @IBOutlet weak var loginDisign: UIStackView!{
+        didSet{
+            loginDisign.layer.cornerRadius = 5
+            loginDisign.layer.masksToBounds = false
+            loginDisign.layer.shadowColor = UIColor.white.cgColor
+            loginDisign.layer.shadowOpacity = 0.5
+            //loginDisign.layer.shadowRadius = 8
+        }
+    }
+    
+    
     // ---------+++++ language Segment +++++------------
     
     @IBOutlet weak var languageSegmentControl: UISegmentedControl! {
@@ -86,6 +105,9 @@ class LoginUserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+                tap.cancelsTouchesInView = false
+                view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
     }
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -22,7 +22,7 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNV-vp-O7h">
                         <rect key="frame" x="0.0" y="15" width="186" height="57"/>
-                        <color key="backgroundColor" red="0.73082096429999999" green="0.72953043230000003" blue="0.81143465910000001" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.73082096429999999" green="0.72953043230000003" blue="0.81143465910000001" alpha="0.71864652317880795" colorSpace="custom" customColorSpace="displayP3"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>

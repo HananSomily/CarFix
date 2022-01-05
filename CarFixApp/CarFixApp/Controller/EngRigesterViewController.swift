@@ -77,6 +77,9 @@ class EngRigesterViewController: UIViewController {
 
         imagePickerController.delegate = self
         // Do any additional setup after loading the view.
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+                tap.cancelsTouchesInView = false
+                view.addGestureRecognizer(tap)
     }
     
     @IBAction func handelRegister(_ sender: Any) {

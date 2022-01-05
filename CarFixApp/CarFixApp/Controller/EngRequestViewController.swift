@@ -46,6 +46,11 @@ class EngRequestViewController: UIViewController {
         }
             //   ______________*** profile *** _______________
 
+            postsTableView.layer.masksToBounds = false
+            postsTableView.layer.shadowColor = UIColor.gray.cgColor
+            postsTableView.layer.shadowOpacity = 0.8
+            postsTableView.layer.shadowRadius = 8
+            
             getPosts()
 
         }
@@ -159,6 +164,17 @@ class EngRequestViewController: UIViewController {
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "problem") as! EngRequestTableViewCell
+            
+            cell.layer.masksToBounds = false
+            cell.layer.shadowColor = UIColor.blue.cgColor
+            cell.layer.shadowOpacity = 0.8
+            cell.layer.shadowRadius = 50
+            cell.layer.shadowOffset = CGSize(width: 0 , height: 0)
+            cell.layer.borderColor = UIColor.brown.cgColor
+            cell.layer.borderWidth = 1.5
+            cell.layer.cornerRadius = 10
+            cell.clipsToBounds = true
+            
             return cell.configure(with: posts[indexPath.row])
         }
         
@@ -166,7 +182,7 @@ class EngRequestViewController: UIViewController {
     }
     extension EngRequestViewController: UITableViewDelegate {
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 200
+            return 150
         }
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             let cell = tableView.cellForRow(at: indexPath) as! EngRequestTableViewCell
@@ -177,5 +193,20 @@ class EngRequestViewController: UIViewController {
                 performSegue(withIdentifier: "view", sender: self)
             }
        // }
+        func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
+        {
+            let verticalPadding: CGFloat = 8
+
+            let maskLayer = CALayer()
+            cell.layer.masksToBounds = false
+                    cell.layer.borderColor = UIColor.brown.cgColor
+                    cell.layer.borderWidth = 4.5
+                    cell.layer.cornerRadius = 10
+                    cell.clipsToBounds = true
+            maskLayer.cornerRadius = 10    //if you want round edges
+            maskLayer.backgroundColor = UIColor.black.cgColor
+            maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)
+            cell.layer.mask = maskLayer
+        }
     }
 

@@ -34,8 +34,10 @@ class DetailsViewController: UIViewController {
     var selectedPostImage:UIImage?
     
     @IBOutlet weak var readLabel: UILabel!
-    @IBOutlet weak var DisplayPeoplem: UITextField!
-    @IBOutlet weak var chkeing: UILabel!
+//    @IBOutlet weak var DisplayPeoplem: UITextField!
+    
+    @IBOutlet weak var updateProplemTextView: UITextView!
+//    @IBOutlet weak var chkeing: UILabel!
 
     @IBOutlet weak var nameOfCompanyLabel: UILabel!
     @IBOutlet weak var viewImage: UIImageView! {
@@ -58,6 +60,11 @@ class DetailsViewController: UIViewController {
             nameOfCompanyLabel.text = selectedPosts.companyName
         }
 
+        
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+                tap.cancelsTouchesInView = false
+                view.addGestureRecognizer(tap)
+        
     }
    
 
@@ -65,7 +72,7 @@ class DetailsViewController: UIViewController {
         
         if let image = viewImage.image,
            let imageData = image.jpegData(compressionQuality: 0.80),
-           let description = DisplayPeoplem.text ,
+           let description = updateProplemTextView.text ,
            let location = locationUserLabel.text,
            let companyName = nameOfCompanyLabel.text ,
             let currentUser = Auth.auth().currentUser {
