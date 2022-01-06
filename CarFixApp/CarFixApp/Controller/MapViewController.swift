@@ -19,6 +19,27 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDe
     override func loadView() {
        mapView = MKMapView()
         mapView.mapType = .hybrid
+        
+//        let request = MKLocalSearch.Request()
+//        request.pointOfInterestFilter = MKPointOfInterestFilter.excludingAll
+//        request.naturalLanguageQuery = "Fix Car"
+//        request.region = mapView.region
+        
+        let request = MKLocalSearch.Request()
+        request.naturalLanguageQuery = "Fix Car"
+        request.region = mapView.region
+        //let pin = MKPointAnnotation()
+      //  pin.coordinate = CLLocationSourceInformation(request)
+            //.naturalLanguageQuery = "Fix Car"
+       // pin.title = "Fix Car"
+        //mapView.addAnnotation(pin)
+//        mapView.pointOfInterestFilter = .some(MKPointOfInterestFilter(including: [MKPointOfInterestCategory.]))
+       
+//        let request = MKLocalSearch.Request()
+//                request.naturalLanguageQuery = "carfix"
+//        request.region = mapView.region
+//              let search = MKLocalSearch(request: request)
+
         view = mapView
     }
     //---------------------------------- //
@@ -41,7 +62,6 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDe
         
         locationManager.startUpdatingLocation()
        // mapView.userLocation = .
-
         self.mapView.showsUserLocation = true
     }
 
@@ -53,3 +73,22 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDe
     }
 
 }
+//extension MapViewController : UISearchResultsUpdating {
+//    func updateSearchResults(for searchController: UISearchController) {
+//        guard let mapView = mapView,
+//            let searchBarText = searchController.searchBar.text else { return }
+//
+//        let request = MKLocalSearch.Request()
+//        request.naturalLanguageQuery = "Fix Car"
+//        request.region = mapView.region
+//        let search = MKLocalSearch(request: request)
+//
+//        search.start { response, _ in
+//            guard let response = response else {
+//                return
+//            }
+////            self.locationManager = response.mapItems
+//            //self.tableView.reloadData()
+//        }
+//    }
+//}

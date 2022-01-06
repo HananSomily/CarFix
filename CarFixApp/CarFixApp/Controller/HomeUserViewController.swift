@@ -53,7 +53,15 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
     var locationCity:CLLocationManager!
     
     @IBOutlet weak var userNameLable: UILabel!
-    @IBOutlet weak var userImageProfile: UIImageView!
+    @IBOutlet weak var userImageProfile: UIImageView! {
+        didSet{
+            userImageProfile.layer.shadowOpacity = 0.8
+            userImageProfile.layer.shadowRadius = 50
+            userImageProfile.layer.shadowOffset = CGSize(width: 0 , height: 0)
+            userImageProfile.layer.cornerRadius = 10
+            userImageProfile.clipsToBounds = true
+        }
+    }
     @IBOutlet weak var userPhoneLable: UILabel!
     @IBOutlet weak var userEmailLable: UILabel!
     
@@ -70,6 +78,17 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
     @IBOutlet weak var descriptionTextField: UITextField! {
         didSet{
          //   descriptionTextField.delegate = self
+        }
+    }
+    
+    @IBOutlet weak var viewDisin: UIView!{
+        didSet{
+            viewDisin.layer.masksToBounds = false
+            viewDisin.layer.shadowOpacity = 0.8
+            viewDisin.layer.shadowRadius = 50
+            viewDisin.layer.shadowOffset = CGSize(width: 0 , height: 0)
+            viewDisin.layer.cornerRadius = 10
+            viewDisin.clipsToBounds = true
         }
     }
     @IBOutlet weak var nameOfCompanyLabel: UILabel!

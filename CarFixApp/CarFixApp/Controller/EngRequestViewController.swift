@@ -14,7 +14,15 @@ class EngRequestViewController: UIViewController {
         var selectedPostImage:UIImage?
         
     @IBOutlet weak var engNameLabel: UILabel!
-    @IBOutlet weak var engImage: UIImageView!
+    @IBOutlet weak var engImage: UIImageView! {
+        didSet{
+            engImage.layer.shadowOpacity = 0.8
+            engImage.layer.shadowRadius = 50
+            engImage.layer.shadowOffset = CGSize(width: 0 , height: 0)
+            engImage.layer.cornerRadius = 10
+            engImage.clipsToBounds = true
+        }
+    }
     @IBOutlet weak var engEmail: UILabel!
     @IBOutlet weak var engPhone: UILabel!
     @IBOutlet weak var postsTableView: UITableView! {
@@ -25,6 +33,19 @@ class EngRequestViewController: UIViewController {
             }
         }
 
+    
+    @IBOutlet weak var viewDisin: UIView!{
+        didSet{
+            viewDisin.layer.masksToBounds = false
+            viewDisin.layer.shadowOpacity = 0.8
+            viewDisin.layer.shadowRadius = 50
+            viewDisin.layer.shadowOffset = CGSize(width: 0 , height: 0)
+            viewDisin.layer.cornerRadius = 10
+            viewDisin.clipsToBounds = true
+        }
+    }
+    
+    
         override func viewDidLoad() {
             super.viewDidLoad()
             //   ______________*** profile *** _______________
@@ -47,10 +68,10 @@ class EngRequestViewController: UIViewController {
         }
             //   ______________*** profile *** _______________
 
-            postsTableView.layer.masksToBounds = false
-            postsTableView.layer.shadowColor = UIColor.gray.cgColor
-            postsTableView.layer.shadowOpacity = 0.8
-            postsTableView.layer.shadowRadius = 8
+//            postsTableView.layer.masksToBounds = false
+//            postsTableView.layer.shadowColor = UIColor.gray.cgColor
+//            postsTableView.layer.shadowOpacity = 0.8
+//            postsTableView.layer.shadowRadius = 8
             
 //            if (postsTableView.contentSize.height < postsTableView.frame.size.height) {
 //                //postsTableView.isScrollEnabled = false
