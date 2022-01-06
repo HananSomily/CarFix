@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D0DB62C2786C255008CD3AA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DB62B2786C255008CD3AA /* MapViewController.swift */; };
 		2D0E74442779708D00556AAD /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2D0E74432779708D00556AAD /* FirebaseAuth */; };
 		2D0E74462779708D00556AAD /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2D0E74452779708D00556AAD /* FirebaseFirestore */; };
 		2D0E74482779708D00556AAD /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2D0E74472779708D00556AAD /* FirebaseStorage */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D0DB62B2786C255008CD3AA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		2D0E74492779909F00556AAD /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		2D0E744B2779948200556AAD /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		2D0E744D2779995800556AAD /* imageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageView.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				2DCAFBF3277952020051F940 /* EngRigesterViewController.swift */,
 				2DCAFBF5277952210051F940 /* EngRequestViewController.swift */,
 				2DCAFBF72779526C0051F940 /* ViewRequestViewController.swift */,
+				2D0DB62B2786C255008CD3AA /* MapViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				2D0E74502779996E00556AAD /* Activity.swift in Sources */,
 				2DCAFBF4277952020051F940 /* EngRigesterViewController.swift in Sources */,
 				2D0E7457277A98BF00556AAD /* CompanyCollectionViewCell.swift in Sources */,
+				2D0DB62C2786C255008CD3AA /* MapViewController.swift in Sources */,
 				2DCAFBF82779526C0051F940 /* ViewRequestViewController.swift in Sources */,
 				2DCAFBF2277951D70051F940 /* EngLoginViewController.swift in Sources */,
 				2DC6A55C27788BC1003F6A6D /* AppDelegate.swift in Sources */,

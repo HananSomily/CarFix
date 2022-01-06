@@ -132,16 +132,46 @@ class EngLoginViewController: UIViewController {
                 }
                 
                 if let _ = authResult{
-                    if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeEngNavigationBar") as? UINavigationController {
-                        viewController.modalPresentationStyle = .fullScreen
-                        Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
-                        self.present(viewController, animated: true, completion: nil)
+                    if let currentUser = Auth.auth().currentUser {
+                    let db = Firestore.firestore()
+                    db.collection("users").document(currentUser.uid).getDocument { userSnapshot , error in
+                        if let error = error {
+                            print(error)
+                        }
+                      if let userSnapshot = userSnapshot,
+                         let userData = userSnapshot.data(){
+                          let user = User(dict: userData)
+                          if user.customer {
+                              if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeUserNavigation") as? UINavigationController {
+                                  viewController.modalPresentationStyle = .fullScreen
+                                  Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
+                                  self.present(viewController, animated: true, completion: nil)
+                              }
+                            }
+                          }
+                          db.collection("engineer").document(currentUser.uid).getDocument { userSnapshot , error in
+                              if let error = error {
+                                  print(error)
+                              }
+                            if let userSnapshot = userSnapshot,
+                               let userData = userSnapshot.data(){
+                                let user = User(dict: userData)
+                                if !user.customer {
+                                    if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeEngNavigationBar") as? UINavigationController {
+                                        viewController.modalPresentationStyle = .fullScreen
+                                        Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
+                                        self.present(viewController, animated: true, completion: nil)
+                                    }
+                                }
+                             }
+                          }
+                       }
                     }
                 }
             }
         }
     }
-    
+
     @IBAction func changeLangouge(_ sender: Any) {
         var lang = UserDefaults.standard.string(forKey: "currentLanguage")
                  if lang == "ar" {

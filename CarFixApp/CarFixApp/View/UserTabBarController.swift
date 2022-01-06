@@ -11,8 +11,10 @@ class UserTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBar.items?[0].title = "user".localized
-        tabBar.items?[1].title = "eng".localized
+        tabBar.items?[0].title = ""
+        //"user".localized
+        tabBar.items?[1].title = ""
+        //"Map".localized
 
         // Do any additional setup after loading the view.
     }

@@ -15,6 +15,11 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
     // ------------------- localize -----------------
 
     
+    @IBOutlet weak var mapViewButton: UIButton!{
+        didSet{
+            mapViewButton.setTitle("View Map".localized, for: .normal)
+        }
+    }
     
     @IBOutlet weak var viewButton: UIButton!{
         didSet{
@@ -98,7 +103,7 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
                              self.userNameLable.text = user.name
                              self.userEmailLable.text = user.email
                              self.userPhoneLable.text = "\(user.phoneNumber)"
-                            // self.userImageProfile.loadImageUsingCache(with: customer?.imageUrl)
+                             self.userImageProfile.loadImageUsingCache(with: user.imageUrl)
                          }
                 }
 
