@@ -194,15 +194,15 @@ class EngRequestViewController: UIViewController {
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "problem") as! EngRequestTableViewCell
             
-            cell.layer.masksToBounds = false
-            cell.layer.shadowColor = UIColor.blue.cgColor
-            cell.layer.shadowOpacity = 0.8
-            cell.layer.shadowRadius = 50
-            cell.layer.shadowOffset = CGSize(width: 0 , height: 0)
-            cell.layer.borderColor = UIColor.brown.cgColor
-            cell.layer.borderWidth = 1.5
-            cell.layer.cornerRadius = 10
-            cell.clipsToBounds = true
+//            cell.layer.masksToBounds = false
+//            cell.layer.shadowColor = UIColor.blue.cgColor
+//            cell.layer.shadowOpacity = 6.8
+//            cell.layer.shadowRadius = 50
+//            cell.layer.shadowOffset = CGSize(width: 0 , height: 0)
+//            cell.layer.borderColor = UIColor.brown.cgColor
+//            cell.layer.borderWidth = 1.5
+//           // cell.layer.cornerRadius = 10
+//            cell.clipsToBounds = true
             
             return cell.configure(with: posts[indexPath.row])
         }
@@ -228,7 +228,7 @@ class EngRequestViewController: UIViewController {
 
             let maskLayer = CALayer()
             cell.layer.masksToBounds = false
-                    cell.layer.borderColor = UIColor.brown.cgColor
+            cell.layer.borderColor = UIColor.white.cgColor
                     cell.layer.borderWidth = 4.5
                     cell.layer.cornerRadius = 10
                     cell.clipsToBounds = true
@@ -236,6 +236,9 @@ class EngRequestViewController: UIViewController {
             maskLayer.backgroundColor = UIColor.black.cgColor
             maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)
             cell.layer.mask = maskLayer
+            cell.layer.shadowColor = UIColor.blue.cgColor
+            cell.layer.shadowOpacity = 9.8
+            cell.layer.shadowRadius = 8
         }
     }
 

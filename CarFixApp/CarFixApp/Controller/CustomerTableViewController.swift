@@ -30,7 +30,7 @@ class CustomerTableViewController: UIViewController {
         malfucationTableView.reloadData()
         
         malfucationTableView.layer.masksToBounds = false
-        malfucationTableView.layer.shadowColor = UIColor.brown.cgColor
+        malfucationTableView.layer.shadowColor = UIColor.gray.cgColor
         malfucationTableView.layer.shadowOpacity = 0.8
         malfucationTableView.layer.shadowRadius = 8
 
@@ -201,7 +201,7 @@ extension CustomerTableViewController: UITableViewDelegate {
 //                cell.layer.shadowOpacity = 0.8
 //                cell.layer.shadowRadius = 50
 //                cell.layer.shadowOffset = CGSize(width: 0 , height: 0)
-                cell.layer.borderColor = UIColor.brown.cgColor
+                cell.layer.borderColor = UIColor.white.cgColor
                 cell.layer.borderWidth = 4.5
                 cell.layer.cornerRadius = 10
                 cell.clipsToBounds = true
