@@ -58,7 +58,7 @@ class EngRigesterViewController: UIViewController {
     
     @IBOutlet weak var engImageProfil: UIImageView!{
         didSet{
-            engImageProfil.layer.borderColor = UIColor.systemBlue.cgColor
+            engImageProfil.layer.borderColor = UIColor.black.cgColor
             engImageProfil.layer.borderWidth = 3.0
             engImageProfil.layer.cornerRadius = engImageProfil.bounds.height/2
             engImageProfil.isUserInteractionEnabled = true

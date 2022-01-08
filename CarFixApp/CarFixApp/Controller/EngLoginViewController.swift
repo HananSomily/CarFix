@@ -37,6 +37,8 @@ class EngLoginViewController: UIViewController {
     @IBOutlet weak var logInLabel: UIButton!{
         didSet{
             logInLabel.setTitle("log in".localized, for: .normal)
+            logInLabel.layer.masksToBounds = false
+            logInLabel.layer.cornerRadius = 8
         }
     }
     @IBOutlet weak var orLabel: UILabel!{
@@ -68,13 +70,21 @@ class EngLoginViewController: UIViewController {
         didSet{
             loginDisign.layer.cornerRadius = 5
             loginDisign.layer.masksToBounds = false
-            loginDisign.layer.shadowColor = UIColor.white.cgColor
-            loginDisign.layer.shadowOpacity = 0.5
+            loginDisign.layer.shadowColor = UIColor.black.cgColor
+            loginDisign.layer.shadowOpacity = 0.4
             //loginDisign.layer.shadowRadius = 8
         }
     }
     
     
+    @IBOutlet weak var disignViewLogIn: UIView! {
+        didSet{
+            disignViewLogIn.layer.cornerRadius = 5
+            disignViewLogIn.layer.masksToBounds = false
+            disignViewLogIn.layer.shadowColor = UIColor.white.cgColor
+            disignViewLogIn.layer.shadowOpacity = 0.7
+        }
+    }
     // ---------+++++ language Segment +++++------------
     
 //    @IBOutlet weak var languageSegmentControl: UISegmentedControl! {

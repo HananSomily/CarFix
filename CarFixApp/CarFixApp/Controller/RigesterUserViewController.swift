@@ -58,7 +58,7 @@ class RigesterUserViewController: UIViewController {
 
     @IBOutlet weak var userImageProfil: UIImageView!{
         didSet{
-            userImageProfil.layer.borderColor = UIColor.systemBlue.cgColor
+            userImageProfil.layer.borderColor = UIColor.black.cgColor
             userImageProfil.layer.borderWidth = 3.0
             userImageProfil.layer.cornerRadius = userImageProfil.bounds.height/2
             userImageProfil.isUserInteractionEnabled = true
