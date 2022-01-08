@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>we need to access to camera to take photos</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>we need access to photos to upload posts</string>
 	<key>Privacy — Location When In Use Usage Description</key>
 	<string>your location is needed to show where you are currenly on the map</string>
 	<key>UIApplicationSceneManifest</key>

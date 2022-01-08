@@ -79,10 +79,10 @@ class EngLoginViewController: UIViewController {
     
     @IBOutlet weak var disignViewLogIn: UIView! {
         didSet{
-            disignViewLogIn.layer.cornerRadius = 5
+            disignViewLogIn.layer.cornerRadius = 8
             disignViewLogIn.layer.masksToBounds = false
             disignViewLogIn.layer.shadowColor = UIColor.white.cgColor
-            disignViewLogIn.layer.shadowOpacity = 0.7
+            disignViewLogIn.layer.shadowOpacity = 0.4
         }
     }
     // ---------+++++ language Segment +++++------------

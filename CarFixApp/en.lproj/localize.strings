@@ -6,7 +6,7 @@
 "log in"="Log In";
 "register"="Register";
 "OR"="OR";
-"customer"="Customer HI";
+"customer"="Customer";
 "Name"="Name";
 "Passwardcheck"="Check Passward";
 "Phone"="Phone Number";
@@ -34,5 +34,9 @@
 "English"="عربي";
 "Map"="Map";
 "View Map"="View Map";
+"Create an account as"="Create An Account As";
+"service provider"="Service Provider";
+"about"="when you experience any malfunction in the car you can  request assistance from the engineer  , and come to you to solve the problem …";
+//""="";
 
 

@@ -22,6 +22,8 @@
 		2D10C9D32780FB6A0078A747 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D10C9D22780FB6A0078A747 /* Alert.swift */; };
 		2D10CBD72785781000586400 /* UserTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D10CBD62785781000586400 /* UserTabBarController.swift */; };
 		2D10CBD92785832500586400 /* CustomerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D10CBD82785832500586400 /* CustomerTableViewController.swift */; };
+		2D17D07E2789B62B00F92DDB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D17D07D2789B62B00F92DDB /* RegisterViewController.swift */; };
+		2D17D0802789F7EA00F92DDB /* AboutCarFixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D17D07F2789F7EA00F92DDB /* AboutCarFixViewController.swift */; };
 		2D25B15627818908005F4C10 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D25B15527818908005F4C10 /* Bundle.swift */; };
 		2D25B15D27819089005F4C10 /* localize.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D25B15F27819089005F4C10 /* localize.strings */; };
 		2DC3AB86277CD1F2003272E0 /* malfunctionsCarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC3AB84277CD1F2003272E0 /* malfunctionsCarTableViewCell.swift */; };
@@ -58,6 +60,8 @@
 		2D10CBD62785781000586400 /* UserTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserTabBarController.swift; path = CarFixApp/View/UserTabBarController.swift; sourceTree = SOURCE_ROOT; };
 		2D10CBD82785832500586400 /* CustomerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTableViewController.swift; sourceTree = "<group>"; };
 		2D10CBDB2785D82200586400 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		2D17D07D2789B62B00F92DDB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		2D17D07F2789F7EA00F92DDB /* AboutCarFixViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCarFixViewController.swift; sourceTree = "<group>"; };
 		2D25B15527818908005F4C10 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		2D25B1572781897A005F4C10 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
 		2D25B1582781897A005F4C10 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -176,6 +180,8 @@
 				2DCAFBF5277952210051F940 /* EngRequestViewController.swift */,
 				2DCAFBF72779526C0051F940 /* ViewRequestViewController.swift */,
 				2D0DB62B2786C255008CD3AA /* MapViewController.swift */,
+				2D17D07D2789B62B00F92DDB /* RegisterViewController.swift */,
+				2D17D07F2789F7EA00F92DDB /* AboutCarFixViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -276,11 +282,13 @@
 				2D0DB62C2786C255008CD3AA /* MapViewController.swift in Sources */,
 				2DCAFBF82779526C0051F940 /* ViewRequestViewController.swift in Sources */,
 				2DCAFBF2277951D70051F940 /* EngLoginViewController.swift in Sources */,
+				2D17D0802789F7EA00F92DDB /* AboutCarFixViewController.swift in Sources */,
 				2DC6A55C27788BC1003F6A6D /* AppDelegate.swift in Sources */,
 				2DC3AB86277CD1F2003272E0 /* malfunctionsCarTableViewCell.swift in Sources */,
 				2D0E744C2779948200556AAD /* PostModel.swift in Sources */,
 				2D0E744E2779995800556AAD /* imageView.swift in Sources */,
 				2DCAFBF6277952210051F940 /* EngRequestViewController.swift in Sources */,
+				2D17D07E2789B62B00F92DDB /* RegisterViewController.swift in Sources */,
 				2DCAFBEE277951490051F940 /* HomeUserViewController.swift in Sources */,
 				2DCAFBEC277951200051F940 /* RigesterUserViewController.swift in Sources */,
 				2DCAFBF0277951990051F940 /* DetailsViewController.swift in Sources */,

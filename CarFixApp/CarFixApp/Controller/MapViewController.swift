@@ -25,14 +25,14 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDe
 //        request.naturalLanguageQuery = "Fix Car"
 //        request.region = mapView.region
         
-        let request = MKLocalSearch.Request()
-        request.naturalLanguageQuery = "Fix Car"
-        request.region = mapView.region
-        //let pin = MKPointAnnotation()
-      //  pin.coordinate = CLLocationSourceInformation(request)
-            //.naturalLanguageQuery = "Fix Car"
-       // pin.title = "Fix Car"
-        //mapView.addAnnotation(pin)
+//        let request = MKLocalSearch.Request()
+//        request.naturalLanguageQuery = "Fix Car"
+//        request.region = mapView.region
+//        let pin = MKPointAnnotation()
+//        pin.coordinate = CLLocationSourceInformation(request)
+//            .naturalLanguageQuery = "Fix Car"
+//        pin.title = "Fix Car"
+//        mapView.addAnnotation(pin)
 //        mapView.pointOfInterestFilter = .some(MKPointOfInterestFilter(including: [MKPointOfInterestCategory.]))
        
 //        let request = MKLocalSearch.Request()
