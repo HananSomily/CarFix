@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import CoreLocation
+import Foundation
 
 class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
     let imagePickerController = UIImagePickerController()
@@ -35,15 +36,6 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
     
     // ------------------- localize -----------------
 
-//
-//    @IBOutlet weak var malfucationTableView: UITableView!
-//    {
-//            didSet {
-//                malfucationTableView.delegate = self
-//                malfucationTableView.dataSource = self
-//                malfucationTableView.register(UINib(nibName: "malfunctionsCarTableViewCell", bundle: nil), forCellReuseIdentifier: "malfunctionsCell")
-//            }
-//        }
     var selectedPosts: Post?
     var posts = [Post]()
 
@@ -73,12 +65,16 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
         }
     }
     var carsComp = ["changan","Chevrolet","Ford","hondae","hyundai","jeep","KIA","Lexus","mazda","MG","nissan","toyota"]
-    @IBOutlet weak var cerantLocationLabel: UILabel!
+    @IBOutlet weak var cerantLocationLabel: UILabel! {
+        didSet{
+            cerantLocationLabel.text = "location"
+        }
+    }
    // @IBOutlet weak var descriptionTextField: UITextView!
     @IBOutlet weak var descriptionTextField: UITextField! {
         didSet{
-         //   descriptionTextField.delegate = self
-        }
+            descriptionTextField.layer.cornerRadius = 20
+            descriptionTextField.clipsToBounds = true        }
     }
     
     @IBOutlet weak var viewDisin: UIView!{
@@ -91,9 +87,16 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
             viewDisin.clipsToBounds = true
         }
     }
-    @IBOutlet weak var nameOfCompanyLabel: UILabel!
+    @IBOutlet weak var nameOfCompanyLabel: UILabel!{
+        didSet{
+            nameOfCompanyLabel.text = "plese select"
+        }
+    }
     @IBOutlet weak var takeImage: UIImageView! {
         didSet{
+            
+            takeImage.layer.cornerRadius = 20
+            takeImage.clipsToBounds = true
             takeImage.isUserInteractionEnabled = true
             let tabGesture = UITapGestureRecognizer(target: self, action: #selector(selectImage))
             takeImage.addGestureRecognizer(tabGesture)
@@ -134,24 +137,28 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
        // getPosts()
 
           
-                   //  _____________ **** location **** _____________
+               //  _____________ **** location **** _____________
         locationCity = CLLocationManager()
-        locationCity.delegate = self
-        locationCity.desiredAccuracy = kCLLocationAccuracyBest
         locationCity.requestAlwaysAuthorization()
-    if CLLocationManager.locationServicesEnabled() {
+        locationCity.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationCity.delegate = self
+            locationCity.desiredAccuracy = kCLLocationAccuracyBest
+
         print("location enp")
         locationCity.startUpdatingLocation()
     }
     else {
         print("not found")
         }
-                 //  _____________ **** location **** _____________
+         //  _____________ **** location **** _____________
         }
     
     //  _____________ **** location **** _____________
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+//           print("****locations = \(locValue.latitude) \(locValue.longitude)")
         let cerentLocation = locations[0] as CLLocation
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(cerentLocation) { placemarks, error in
@@ -164,6 +171,7 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
                 let locality = place.locality ?? ""
                 let area = place.administrativeArea ?? ""
                 let country = place.country ?? ""
+//                let y = place.location?.altitude
                 print("locality **** \(locations)")
                 print("area \(area)")
                 print("country\(country)")
@@ -173,82 +181,6 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
     }
     //  _____________ **** location **** _____________
 
-    //
-    // .whereField("userId", isEqualTo: selectedPosts?.user.id as Any).order(by: "createdAt").addSnapshotListener
-//    func getPosts() {
-//        let ref = Firestore.firestore()
-//      //  if customer?.id == selectedPosts?.userId
-//        //.whereField("userId", isEqualTo: Auth.auth().currentUser!.uid)
-//        //.order(by: "createdAt",descending: true).
-//        ref.collection("posts").whereField("userId", isEqualTo: Auth.auth().currentUser!.uid).addSnapshotListener{ snapshot, error in
-//            if let error = error {
-//                print("DB ERROR Posts",error.localizedDescription)
-//            }
-//
-//            if let snapshot = snapshot {
-//                print(" CANGES:",snapshot.documentChanges.count)
-//                snapshot.documentChanges.forEach { diff in
-//                    let postData = diff.document.data()
-//                   // if self.customer?.id == self.selectedPosts?.userId {
-//                    switch diff.type {
-//                    case .added :
-//
-//                        if let userId = postData["userId"] as? String {
-//                            ref.collection("users").document(userId).getDocument { userSnapshot, error in
-//                                if let error = error {
-//                                    print("ERROR user Data",error.localizedDescription)
-//
-//                                }
-//                                if let userSnapshot = userSnapshot,
-//                                   let userData = userSnapshot.data(){
-//                                    let user = User(dict:userData)
-//                        let post = Post(dict:postData,userId:diff.document.documentID,user:user)
-//                                    self.malfucationTableView.beginUpdates()
-//                                    if snapshot.documentChanges.count != 1 {
-//                                        self.posts.append(post)
-//
-//                                        self.malfucationTableView.insertRows(at: [IndexPath(row:self.posts.count - 1,section: 0)],with: .automatic)
-//                                    }else {
-//                                        self.posts.insert(post,at:0)
-//
-//                                        self.malfucationTableView.insertRows(at: [IndexPath(row: 0,section: 0)],with: .automatic)
-//                                    }
-//
-//                                    self.malfucationTableView.endUpdates()
-//                                }
-//                            }
-//                            print("$$$$$")
-//                        }
-//                    case .modified:
-//                    let postId = diff.document.documentID
-//                    if let currentPost = self.posts.first(where: {$0.userId == postId}),
-//                       let updateIndex = self.posts.firstIndex(where: {$0.userId == postId}){
-//                        let newPost = Post(dict:postData, userId: postId, user: currentPost.user)
-//                        self.posts[updateIndex] = newPost
-//                     print(newPost,"NEW+++")
-//                            self.malfucationTableView.beginUpdates()
-//                            self.malfucationTableView.deleteRows(at: [IndexPath(row: updateIndex,section: 0)], with: .left)
-//                            self.malfucationTableView.insertRows(at: [IndexPath(row: updateIndex,section: 0)],with: .left)
-//                            self.malfucationTableView.endUpdates()
-//                        print("%%%%%%%")
-//                                }
-//                    case .removed:
-//                        let postId = diff.document.documentID
-//                        if let deleteIndex = self.posts.firstIndex(where: {$0.userId == postId}){
-//
-//                            self.posts.remove(at: deleteIndex)
-//                                self.malfucationTableView.beginUpdates()
-//                                self.malfucationTableView.deleteRows(at: [IndexPath(row: deleteIndex,section: 0)], with: .automatic)
-//                                self.malfucationTableView.endUpdates()
-//                            print("|||||||")
-//                            }
-//                        }
-//                      }
-//               // }
-//                   }
-//                }
-//             }
-    //}
     
     @IBAction func go(_ sender: Any) {
         
@@ -350,33 +282,7 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
 }
 //}
 
-//extension HomeUserViewController: UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        print("*****" , posts)
-//        return posts.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "malfunctionsCell") as! malfunctionsCarTableViewCell
-//        return cell.configure(with: posts[indexPath.row])
-//    }
-//
-//
-//}
-//extension HomeUserViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 70
-//    }
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let cell = tableView.cellForRow(at: indexPath) as! malfunctionsCarTableViewCell
-//        selectedPostImage = cell.malfunctionImage.image
-//        selectedPosts = posts[indexPath.row]
-////            if let currentUser = Auth.auth().currentUser,
-////               currentUser.uid == posts[indexPath.row].user.id{
-//            performSegue(withIdentifier: "toDetels", sender: self)
-//        }
-//   // }
-//}
+
 extension HomeUserViewController : UICollectionViewDelegate , UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return carsComp.count
@@ -385,6 +291,8 @@ extension HomeUserViewController : UICollectionViewDelegate , UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "listLogoOfCompany", for: indexPath) as! CompanyCollectionViewCell
         cell.imageOfCompany.image = UIImage(named:  carsComp[indexPath.row])
+        cell.layer.cornerRadius = 20
+        cell.clipsToBounds = true
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

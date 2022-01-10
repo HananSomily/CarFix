@@ -51,7 +51,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var updateProplemTextView: UITextView!{
         didSet{
             updateProplemTextView.layer.masksToBounds = true
-            updateProplemTextView.layer.cornerRadius = 5
+            updateProplemTextView.layer.cornerRadius = 15
         }
     }
 //    @IBOutlet weak var chkeing: UILabel!
@@ -59,15 +59,26 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var nameOfCompanyLabel: UILabel!
     @IBOutlet weak var viewImage: UIImageView! {
         didSet{
+//            viewImage.layer.cornerRadius = 20
+//            viewImage.clipsToBounds = true
             viewImage.isUserInteractionEnabled = true
             let tabGesture = UITapGestureRecognizer(target: self, action: #selector(selectImage))
             viewImage.addGestureRecognizer(tabGesture)
             viewImage.layer.masksToBounds = true
-            viewImage.layer.cornerRadius = 5
+            viewImage.layer.cornerRadius = 20
         }
     }
     
     @IBOutlet weak var locationUserLabel: UILabel!
+    
+    
+    @IBOutlet weak var Disign: UIStackView!{
+        didSet{
+            Disign.layer.cornerRadius = 20
+            Disign.clipsToBounds = true
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

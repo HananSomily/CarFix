@@ -77,13 +77,16 @@ class EngRigesterViewController: UIViewController {
 
         imagePickerController.delegate = self
         // Do any additional setup after loading the view.
-        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
-                tap.cancelsTouchesInView = false
-                view.addGestureRecognizer(tap)
+//        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+//                tap.cancelsTouchesInView = false
+//                view.addGestureRecognizer(tap)
+       
+        initalSteup()
+
     }
     
     @IBAction func handelRegister(_ sender: Any) {
-        print("somthing")
+       // print("somthing")
         if let image = engImageProfil.image,
            let imageData = image.jpegData(compressionQuality: 0.80),
            let name = engNameTextField.text ,
@@ -96,9 +99,14 @@ class EngRigesterViewController: UIViewController {
             print("ok")
             Activity.showIndicator(parentView: self.view, childView: activityIndicator)
             Auth.auth().createUser(withEmail: email, password: passward) { authResult , error in
+                
                 if let error = error {
-                    print("Registeration Auth Error",error.localizedDescription)
+                    Alert.showAlert(strTitle: "Error", strMessage: error.localizedDescription, viewController: self)
+                    Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
                 }
+//                if let error = error {
+//                    print("Registeration Auth Error",error.localizedDescription)
+//                }
                 if let authReselt = authResult{
                     let storgeRef = Storage.storage().reference(withPath: "engineer/\(authReselt.user.uid)")
                     let uploadMeta = StorageMetadata.init()
@@ -140,9 +148,71 @@ class EngRigesterViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func viewPassward(_ sender: AnyObject) {
+                engPasswardTextField.isSecureTextEntry.toggle()
+                        if  engPasswardTextField.isSecureTextEntry {
+                            if let image = UIImage(systemName: "eye.circle") {
+                                sender.setImage(image, for: .normal)
+                            }
+                        } else {
+                            if let image = UIImage(systemName: "eye.slash.circle") {
+                                sender.setImage(image, for: .normal)
+                            }
+                        }
+                    }
+    @IBAction func viewPasswardConfirm(_ sender: AnyObject) {
+                engConfirPassawrdTextField.isSecureTextEntry.toggle()
+                        if  engConfirPassawrdTextField.isSecureTextEntry {
+                            if let image = UIImage(systemName: "eye.circle") {
+                                sender.setImage(image, for: .normal)
+                            }
+                        } else {
+                            if let image = UIImage(systemName: "eye.slash.circle") {
+                                sender.setImage(image, for: .normal)
+                            }
+                        }
+                    }
+    
+    
     @IBAction func exit(_ sender: Any) {
     }
+           // -------------------- Keyboard properties ----------------
+    private func initalSteup(){
+        
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboarde)))
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    @objc private func hideKeyboarde(){
+        self.view.endEditing(true)
+    }
     
+    @objc private func keyboardWillShow(notification:NSNotification){
+//        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue{
+//            let keybordHeight = keyboardFrame.cgRectValue.height
+//            let bootomSpace = self.view.frame.height - (engEmailTextField.frame.origin.y + engEmailTextField.frame.height)
+//            self.view.frame.origin.y -= keybordHeight - bootomSpace + 10
+        //}
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+           // if keyboard size is not available for some reason, dont do anything
+           return
+        }
+      
+      // move the root view up by the distance of keyboard height
+self.view.frame.origin.y = 100 - keyboardSize.height
+    }
+    @objc private func keyboardWillHide(){
+        self.view.frame.origin.y = 0
+    }
+    deinit{
+        NotificationCenter.default.removeObserver(self , name: UIResponder.keyboardWillShowNotification,object: nil)
+        NotificationCenter.default.removeObserver(self , name: UIResponder.keyboardWillHideNotification,object: nil)
+    }
+    
+    // -------------------- Keyboard properties ----------------
+
 }
 extension EngRigesterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
@@ -183,14 +253,6 @@ extension EngRigesterViewController: UIImagePickerControllerDelegate, UINavigati
     }
 }
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 

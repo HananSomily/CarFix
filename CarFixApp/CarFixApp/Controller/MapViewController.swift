@@ -33,7 +33,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDe
 //            .naturalLanguageQuery = "Fix Car"
 //        pin.title = "Fix Car"
 //        mapView.addAnnotation(pin)
-//        mapView.pointOfInterestFilter = .some(MKPointOfInterestFilter(including: [MKPointOfInterestCategory.]))
+        mapView.pointOfInterestFilter = .some(MKPointOfInterestFilter(including: [MKPointOfInterestCategory.hotel]))
        
 //        let request = MKLocalSearch.Request()
 //                request.naturalLanguageQuery = "carfix"
@@ -63,6 +63,8 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDe
         locationManager.startUpdatingLocation()
        // mapView.userLocation = .
         self.mapView.showsUserLocation = true
+
+addAnnotation()
     }
 
 
@@ -70,6 +72,17 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDe
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         let region = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
         mapView.setRegion(region, animated: true)
+    }
+    
+    func addAnnotation(){
+        let pin = MKPointAnnotation()
+        pin.coordinate = CLLocationCoordinate2D(latitude: 24.693719, longitude: 46.723596)
+//        pin.pointOfInterestFilter = .some(MKPointOfInterestFilter(including: [MKPointOfInterestCategory.university]))
+
+       
+        pin.title = "car fix"
+        pin.subtitle = "0000"
+        mapView.addAnnotation(pin)
     }
 
 }

@@ -45,7 +45,7 @@ class ViewRequestViewController: UIViewController {
     @IBOutlet weak var viewImageCar: UIImageView! {
         didSet{
             viewImageCar.layer.masksToBounds = true
-            viewImageCar.layer.cornerRadius = 10
+            viewImageCar.layer.cornerRadius = 20
         }
     }
     @IBOutlet weak var locationLabel: UILabel!{
@@ -61,6 +61,22 @@ class ViewRequestViewController: UIViewController {
             companyLabel.layer.cornerRadius = 8
         }
     }
+    
+    
+    @IBOutlet weak var disignButton: UIStackView!{
+        didSet{
+            disignButton.layer.cornerRadius = 20
+            disignButton.clipsToBounds = true
+        }
+    }
+    
+    @IBOutlet weak var disingLableView: UIStackView!{
+        didSet{
+            disingLableView.layer.cornerRadius = 20
+            disingLableView.clipsToBounds = true
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

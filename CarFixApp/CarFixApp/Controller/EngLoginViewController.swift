@@ -21,7 +21,7 @@ class EngLoginViewController: UIViewController {
     
     @IBOutlet weak var helloLabel: UILabel! {
         didSet{
-            helloLabel.text = "hellllo"
+            helloLabel.text = "helo".localized
         }
     }
     @IBOutlet weak var emailLabel: UILabel!{
@@ -81,40 +81,10 @@ class EngLoginViewController: UIViewController {
         didSet{
             disignViewLogIn.layer.cornerRadius = 8
             disignViewLogIn.layer.masksToBounds = false
-            disignViewLogIn.layer.shadowColor = UIColor.white.cgColor
-            disignViewLogIn.layer.shadowOpacity = 0.4
+            disignViewLogIn.layer.shadowColor = UIColor.black.cgColor
+            disignViewLogIn.layer.shadowOpacity = 0.3
         }
     }
-    // ---------+++++ language Segment +++++------------
-    
-//    @IBOutlet weak var languageSegmentControl: UISegmentedControl! {
-//        didSet {
-//            if let lang = UserDefaults.standard.string(forKey: "currentLanguage") {
-//                switch lang {
-//                case "ar":
-//                    languageSegmentControl.selectedSegmentIndex = 0
-//                case "en":
-//                    languageSegmentControl.selectedSegmentIndex = 1
-//                default:
-//                    let localLang =  Locale.current.languageCode
-//                     if localLang == "ar" {
-//                         languageSegmentControl.selectedSegmentIndex = 0
-//                     }else {
-//                         languageSegmentControl.selectedSegmentIndex = 1
-//                     }
-//                }
-//            }else {
-//                let localLang =  Locale.current.languageCode
-//                 if localLang == "ar" {
-//                     languageSegmentControl.selectedSegmentIndex = 0
-//                 }else {
-//                     languageSegmentControl.selectedSegmentIndex = 1
-//                 }
-//            }
-//        }
-//    }
-    
-    // ---------+++++ language Segment +++++------------
 
     
     @IBOutlet weak var emailEngTextField: UITextField!
@@ -201,19 +171,20 @@ class EngLoginViewController: UIViewController {
       }
     }
     
-//    @IBAction func segmentedLangouge(_ sender: UISegmentedControl) {
-//
-//        if let lang = sender.titleForSegment(at:sender.selectedSegmentIndex)?.lowercased() {
-//            UserDefaults.standard.set(lang, forKey: "currentLanguage")
-//            Bundle.setLanguage(lang)
-//            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-//            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-//               let sceneDelegate = windowScene.delegate as? SceneDelegate {
-//                sceneDelegate.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "HomeNavigationController")
-//            }
-//        }
-//    }
-            
+
+    @IBAction func viewPassward(_ sender: AnyObject) {
+                passwardEngTextField.isSecureTextEntry.toggle()
+                        if  passwardEngTextField.isSecureTextEntry {
+                            if let image = UIImage(systemName: "eye.circle") {
+                                sender.setImage(image, for: .normal)
+                            }
+                        } else {
+                            if let image = UIImage(systemName: "eye.slash.circle") {
+                                sender.setImage(image, for: .normal)
+                            }
+                        }
+                    }
+
     
     @IBAction func handelRegister(_ sender: Any) {
     }
@@ -222,13 +193,5 @@ class EngLoginViewController: UIViewController {
     }
 }
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
