@@ -67,41 +67,6 @@ class LoginUserViewController: UIViewController {
     }
     
     
-    // ---------+++++ language Segment +++++------------
-    
-//    @IBOutlet weak var languageSegmentControl: UISegmentedControl! {
-//        didSet {
-//            if let lang = UserDefaults.standard.string(forKey: "currentLanguage") {
-//                switch lang {
-//                case "ar":
-//                    languageSegmentControl.selectedSegmentIndex = 0
-//                case "en":
-//                    languageSegmentControl.selectedSegmentIndex = 1
-//                default:
-//                    let localLang =  Locale.current.languageCode
-//                     if localLang == "ar" {
-//                         languageSegmentControl.selectedSegmentIndex = 0
-//                     }else {
-//                         languageSegmentControl.selectedSegmentIndex = 1
-//                     }
-//
-//                }
-//
-//            }else {
-//                let localLang =  Locale.current.languageCode
-//                 if localLang == "ar" {
-//                     languageSegmentControl.selectedSegmentIndex = 0
-//                 }else {
-//                     languageSegmentControl.selectedSegmentIndex = 1
-//                 }
-//            }
-//        }
-//    }
-    
-    // ---------+++++ language Segment +++++------------
-
-
-    
     @IBOutlet weak var emailUserTextField: UITextField!
     
     @IBOutlet weak var passwardUserTextField: UITextField!
@@ -114,14 +79,8 @@ class LoginUserViewController: UIViewController {
                 view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
     }
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let send = segue.destination as! HomeUserViewController
-//        send.customer = select
-//
-//    }
+
     @IBAction func handelLogin(_ sender: Any) {
-//        let db = Firestore.firestore()
-//        db.collection("users").document("customer")
         if let email = emailUserTextField.text ,
            let passward = passwardUserTextField.text {
             Activity.showIndicator(parentView: self.view, childView: activityIndicator)
@@ -148,6 +107,8 @@ class LoginUserViewController: UIViewController {
     @IBAction func backTo(segue:UIStoryboardSegue){
         
     }
+    // ---------+++++ language Change +++++------------
+
     @IBAction func changeLangouge(_ sender: Any) {
         var lang = UserDefaults.standard.string(forKey: "currentLanguage")
                  if lang == "ar" {
@@ -166,19 +127,7 @@ class LoginUserViewController: UIViewController {
                     sceneDelegate.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "HomeNavigationController")
       }
     }
-    
-//    @IBAction func segmentedLangouge(_ sender: UISegmentedControl) {
-//
-//        if let lang = sender.titleForSegment(at:sender.selectedSegmentIndex)?.lowercased() {
-//            UserDefaults.standard.set(lang, forKey: "currentLanguage")
-//            Bundle.setLanguage(lang)
-//            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-//            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-//               let sceneDelegate = windowScene.delegate as? SceneDelegate {
-//                sceneDelegate.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "HomeNavigationController")
-//            }
-//        }
-//    }
+    // ---------+++++ language Change +++++------------
             
 }
 

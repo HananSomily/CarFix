@@ -160,7 +160,7 @@ class DetailsViewController: UIViewController {
                     }
                 }
              }
-        print("++++update")
+       // print("++++update")
         }
         
     @IBAction func actionDelet(_ sender: Any) {
@@ -182,15 +182,12 @@ class DetailsViewController: UIViewController {
                                     self.navigationController?.popViewController(animated: true)
                                 }
                             }
-        
                         }
                     }
                 }
-        //    }
-        print("---- delet")
+//        print("---- delet")
     }
-    
-}
+ }
 
 extension DetailsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     

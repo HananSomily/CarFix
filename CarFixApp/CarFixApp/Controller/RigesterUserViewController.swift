@@ -248,8 +248,4 @@ extension RigesterUserViewController: UIImagePickerControllerDelegate, UINavigat
     }
 }
 
-//extension String{
-//    var localized: String {
-//        return NSLocalizedString(self, tableName: "localize", bundle: .main, value: self, comment: self)
-//    }
-//}
+

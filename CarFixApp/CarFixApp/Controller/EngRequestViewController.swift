@@ -201,7 +201,7 @@ class EngRequestViewController: UIViewController {
 //            cell.layer.shadowOffset = CGSize(width: 0 , height: 0)
 //            cell.layer.borderColor = UIColor.brown.cgColor
 //            cell.layer.borderWidth = 1.5
-//           // cell.layer.cornerRadius = 10
+//            cell.layer.cornerRadius = 10
 //            cell.clipsToBounds = true
             
             return cell.configure(with: posts[indexPath.row])
@@ -217,11 +217,8 @@ class EngRequestViewController: UIViewController {
             let cell = tableView.cellForRow(at: indexPath) as! EngRequestTableViewCell
             selectedPostImage = cell.carImage.image
             selectedPost = posts[indexPath.row]
-//            if let currentUser = Auth.auth().currentUser,
-//               currentUser.uid == posts[indexPath.row].user.id{
-                performSegue(withIdentifier: "view", sender: self)
+            performSegue(withIdentifier: "view", sender: self)
             }
-       // }
         func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
         {
             let verticalPadding: CGFloat = 8

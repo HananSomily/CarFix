@@ -362,7 +362,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4HE-df-g8t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1759.2" y="-710.19490254872574"/>
+            <point key="canvasLocation" x="-1798" y="-1520"/>
         </scene>
         <!--Rigester User View Controller-->
         <scene sceneID="KFu-Hj-vx7">
@@ -1144,7 +1144,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="7HE-rY-RuI"/>
                         <segue destination="ayF-As-T0k" kind="relationship" relationship="viewControllers" id="a1Z-Cc-O0t"/>
                         <segue destination="2vE-sv-m7e" kind="relationship" relationship="viewControllers" id="q2x-42-rUt"/>
-                        <segue destination="K8f-Dw-ZGO" kind="relationship" relationship="viewControllers" id="c3K-gj-WWx"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yJ2-6y-b1o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2142,7 +2141,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wKl-uk-Nrk"/>
+        <segue reference="a1Z-Cc-O0t"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="Color-39"/>
     <resources>

@@ -70,7 +70,6 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
             cerantLocationLabel.text = "location"
         }
     }
-   // @IBOutlet weak var descriptionTextField: UITextView!
     @IBOutlet weak var descriptionTextField: UITextField! {
         didSet{
             descriptionTextField.layer.cornerRadius = 20
@@ -106,7 +105,6 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-      //  malfucationTableView.reloadData()
         
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
                 tap.cancelsTouchesInView = false
@@ -134,10 +132,8 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
         let selectedPostImage = selectedPostImage {
             cerantLocationLabel.text = selectedPosts.description
         }
-       // getPosts()
-
           
-               //  _____________ **** location **** _____________
+        //  _____________ **** location **** _____________
         locationCity = CLLocationManager()
         locationCity.requestAlwaysAuthorization()
         locationCity.requestWhenInUseAuthorization()
@@ -151,7 +147,7 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
     else {
         print("not found")
         }
-         //  _____________ **** location **** _____________
+    //  _____________ **** location **** _____________
         }
     
     //  _____________ **** location **** _____________
@@ -244,16 +240,8 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
         
     }
 
-   //}
     @IBAction func toUpdateOrDelet(_ sender: Any) {
 //toDetels
-    ///        selectedPosts?.description = descriptionTextField.text!
-//        selectedPostImage = takeImage.image
-//        print(selectedPosts,"***")
-//        func configure(with post:Post) {
-//            cerantLocationLabel.text = post.description
-//            takeImage.loadImageUsingCache(with: post.imageUrl)
-//        }
 
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -280,7 +268,6 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
     }
     
 }
-//}
 
 
 extension HomeUserViewController : UICollectionViewDelegate , UICollectionViewDataSource {

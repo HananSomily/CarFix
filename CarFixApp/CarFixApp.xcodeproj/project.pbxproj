@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D01DBAB278D52B600F74E9D /* UserTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01DBAA278D52B600F74E9D /* UserTabBarController.swift */; };
 		2D0DB62C2786C255008CD3AA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DB62B2786C255008CD3AA /* MapViewController.swift */; };
 		2D0E74442779708D00556AAD /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2D0E74432779708D00556AAD /* FirebaseAuth */; };
 		2D0E74462779708D00556AAD /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2D0E74452779708D00556AAD /* FirebaseFirestore */; };
@@ -20,7 +21,6 @@
 		2D0E7457277A98BF00556AAD /* CompanyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0E7455277A98BF00556AAD /* CompanyCollectionViewCell.swift */; };
 		2D0E7458277A98BF00556AAD /* CompanyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D0E7456277A98BF00556AAD /* CompanyCollectionViewCell.xib */; };
 		2D10C9D32780FB6A0078A747 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D10C9D22780FB6A0078A747 /* Alert.swift */; };
-		2D10CBD72785781000586400 /* UserTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D10CBD62785781000586400 /* UserTabBarController.swift */; };
 		2D10CBD92785832500586400 /* CustomerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D10CBD82785832500586400 /* CustomerTableViewController.swift */; };
 		2D17D07E2789B62B00F92DDB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D17D07D2789B62B00F92DDB /* RegisterViewController.swift */; };
 		2D17D0802789F7EA00F92DDB /* AboutCarFixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D17D07F2789F7EA00F92DDB /* AboutCarFixViewController.swift */; };
@@ -48,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D01DBAA278D52B600F74E9D /* UserTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTabBarController.swift; sourceTree = "<group>"; };
 		2D0DB62B2786C255008CD3AA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		2D0E74492779909F00556AAD /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		2D0E744B2779948200556AAD /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
@@ -58,7 +59,6 @@
 		2D0E7455277A98BF00556AAD /* CompanyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCollectionViewCell.swift; sourceTree = "<group>"; };
 		2D0E7456277A98BF00556AAD /* CompanyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyCollectionViewCell.xib; sourceTree = "<group>"; };
 		2D10C9D22780FB6A0078A747 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
-		2D10CBD62785781000586400 /* UserTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserTabBarController.swift; path = CarFixApp/View/UserTabBarController.swift; sourceTree = SOURCE_ROOT; };
 		2D10CBD82785832500586400 /* CustomerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTableViewController.swift; sourceTree = "<group>"; };
 		2D10CBDB2785D82200586400 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		2D17D07D2789B62B00F92DDB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -157,7 +157,6 @@
 		2DCAFBE7277950420051F940 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2D10CBD62785781000586400 /* UserTabBarController.swift */,
 				2DC6A56127788BC1003F6A6D /* Main.storyboard */,
 				2D0E7455277A98BF00556AAD /* CompanyCollectionViewCell.swift */,
 				2D0E7456277A98BF00556AAD /* CompanyCollectionViewCell.xib */,
@@ -185,6 +184,7 @@
 				2D17D07D2789B62B00F92DDB /* RegisterViewController.swift */,
 				2D17D07F2789F7EA00F92DDB /* AboutCarFixViewController.swift */,
 				2D17D081278A21CC00F92DDB /* MapkitViewController.swift */,
+				2D01DBAA278D52B600F74E9D /* UserTabBarController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -276,7 +276,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D10CBD72785781000586400 /* UserTabBarController.swift in Sources */,
 				2D10C9D32780FB6A0078A747 /* Alert.swift in Sources */,
 				2D10CBD92785832500586400 /* CustomerTableViewController.swift in Sources */,
 				2D0E74502779996E00556AAD /* Activity.swift in Sources */,
@@ -290,6 +289,7 @@
 				2DC6A55C27788BC1003F6A6D /* AppDelegate.swift in Sources */,
 				2DC3AB86277CD1F2003272E0 /* malfunctionsCarTableViewCell.swift in Sources */,
 				2D0E744C2779948200556AAD /* PostModel.swift in Sources */,
+				2D01DBAB278D52B600F74E9D /* UserTabBarController.swift in Sources */,
 				2D0E744E2779995800556AAD /* imageView.swift in Sources */,
 				2DCAFBF6277952210051F940 /* EngRequestViewController.swift in Sources */,
 				2D17D07E2789B62B00F92DDB /* RegisterViewController.swift in Sources */,

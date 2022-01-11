@@ -48,7 +48,6 @@ class CustomerTableViewController: UIViewController {
 
     func getPosts() {
         let ref = Firestore.firestore()
-      //  if customer?.id == selectedPosts?.userId
         //.whereField("userId", isEqualTo: Auth.auth().currentUser!.uid)
         //.order(by: "createdAt",descending: true).
         ref.collection("posts").whereField("userId", isEqualTo: Auth.auth().currentUser!.uid).addSnapshotListener{ snapshot, error in
@@ -60,7 +59,6 @@ class CustomerTableViewController: UIViewController {
                 print(" CANGES:",snapshot.documentChanges.count)
                 snapshot.documentChanges.forEach { diff in
                     let postData = diff.document.data()
-                   // if self.customer?.id == self.selectedPosts?.userId {
                     switch diff.type {
                     case .added :
                     
@@ -88,7 +86,7 @@ class CustomerTableViewController: UIViewController {
                                     self.malfucationTableView.endUpdates()
                                 }
                             }
-                            print("$$$$$")
+                          //  print("$$$$$")
                         }
                     case .modified:
                     let postId = diff.document.documentID
@@ -101,7 +99,7 @@ class CustomerTableViewController: UIViewController {
                             self.malfucationTableView.deleteRows(at: [IndexPath(row: updateIndex,section: 0)], with: .left)
                             self.malfucationTableView.insertRows(at: [IndexPath(row: updateIndex,section: 0)],with: .left)
                             self.malfucationTableView.endUpdates()
-                        print("%%%%%%%")
+                       // print("%%%%%%%")
                                 }
                     case .removed:
                         let postId = diff.document.documentID
@@ -111,11 +109,10 @@ class CustomerTableViewController: UIViewController {
                                 self.malfucationTableView.beginUpdates()
                                 self.malfucationTableView.deleteRows(at: [IndexPath(row: deleteIndex,section: 0)], with: .automatic)
                                 self.malfucationTableView.endUpdates()
-                            print("|||||||")
+                          //  print("|||||||")
                             }
                         }
                       }
-               // }
                    }
                 }
              }
@@ -130,49 +127,19 @@ class CustomerTableViewController: UIViewController {
         }
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 extension CustomerTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("*****" , posts)
+     //   print("*****" , posts)
         return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "malfunctionsCell") as! malfunctionsCarTableViewCell
         
-//        let whiteRoundedView : UIView = UIView(frame: CGRect(x: 10, y: 8, width: self.view.frame.size.width - 20, height: 149))
-
-        
-//        cell.layer.masksToBounds = false
-//        cell.layer.shadowColor = UIColor.blue.cgColor
-//        cell.layer.shadowOpacity = 0.8
-//        cell.layer.shadowRadius = 50
-//        cell.layer.shadowOffset = CGSize(width: 0 , height: 0)
-//        cell.layer.borderColor = UIColor.brown.cgColor
-//        cell.layer.borderWidth = 1.5
-//        cell.layer.cornerRadius = 10
-//        cell.clipsToBounds = true
-//        cell.contentView.addSubview(whiteRoundedView)
-//            cell.contentView.sendSubviewToBack(whiteRoundedView)
-
-
         return cell.configure(with: posts[indexPath.row])
     }
-    
-    
-    
-    
     
     
 }
@@ -185,11 +152,8 @@ extension CustomerTableViewController: UITableViewDelegate {
         let cell = tableView.cellForRow(at: indexPath) as! malfunctionsCarTableViewCell
         selectedPostImage = cell.malfunctionImage.image
         selectedPosts = posts[indexPath.row]
-//            if let currentUser = Auth.auth().currentUser,
-//               currentUser.uid == posts[indexPath.row].user.id{
             performSegue(withIdentifier: "toDetels", sender: self)
         }
-   // }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
     {
@@ -197,15 +161,11 @@ extension CustomerTableViewController: UITableViewDelegate {
 
         let maskLayer = CALayer()
         cell.layer.masksToBounds = false
-//                cell.layer.shadowColor = UIColor.blue.cgColor
-//                cell.layer.shadowOpacity = 0.8
-//                cell.layer.shadowRadius = 50
-//                cell.layer.shadowOffset = CGSize(width: 0 , height: 0)
                 cell.layer.borderColor = UIColor.white.cgColor
                 cell.layer.borderWidth = 4.5
                 cell.layer.cornerRadius = 10
                 cell.clipsToBounds = true
-        maskLayer.cornerRadius = 10    //if you want round edges
+        maskLayer.cornerRadius = 10    
         maskLayer.backgroundColor = UIColor.black.cgColor
         maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)
         cell.layer.mask = maskLayer

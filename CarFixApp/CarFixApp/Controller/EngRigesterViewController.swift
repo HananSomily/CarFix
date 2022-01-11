@@ -99,14 +99,10 @@ class EngRigesterViewController: UIViewController {
             print("ok")
             Activity.showIndicator(parentView: self.view, childView: activityIndicator)
             Auth.auth().createUser(withEmail: email, password: passward) { authResult , error in
-                
                 if let error = error {
                     Alert.showAlert(strTitle: "Error", strMessage: error.localizedDescription, viewController: self)
                     Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
                 }
-//                if let error = error {
-//                    print("Registeration Auth Error",error.localizedDescription)
-//                }
                 if let authReselt = authResult{
                     let storgeRef = Storage.storage().reference(withPath: "engineer/\(authReselt.user.uid)")
                     let uploadMeta = StorageMetadata.init()
