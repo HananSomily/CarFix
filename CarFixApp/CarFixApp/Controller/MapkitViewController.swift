@@ -8,8 +8,46 @@
 //import UIKit
 //import MapKit
 //import CoreLocation
-//class MapkitViewController: UIViewController , CLLocationManagerDelegate {
-//   // var mapView : MKMapView!
+//class MapkitViewController: UIViewController {
+//    
+//    @IBOutlet weak var mapView: MKMapView!
+//
+//    
+//    let locationManager = CLLocationManager()
+//
+//      override func viewDidLoad() {
+//          super.viewDidLoad()
+//          locationManager.delegate = self
+//             locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//             locationManager.requestWhenInUseAuthorization()
+//             locationManager.requestLocation()
+//      }
+//    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        if let location = locations.first {
+//            let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+//            let region = MKCoordinateRegion(center: location.coordinate, span: span)
+//            mapView.setRegion(region, animated: true)
+//        }
+//    }
+//}
+//extension MapkitViewController : CLLocationManagerDelegate {
+//    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+//        if status == .authorizedWhenInUse {
+//            locationManager.requestLocation()
+//        }
+//    }
+//
+//    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        if let location = locations.first {
+//            print("location:: (location)")
+//        }
+//    }
+//
+//    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+//        print("error:: (error)")
+//    }
+//}
+   // var mapView : MKMapView!
 //    let locationManager = CLLocationManager()
 //
 //    @IBOutlet weak var mapView: MKMapView!

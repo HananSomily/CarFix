@@ -29,10 +29,11 @@ class DetailsViewController: UIViewController {
 
     // ------------------- Disin -----------------
     
-    @IBOutlet weak var labelDisin: UIStackView!{
+
+    @IBOutlet weak var buttonDisign: UIStackView!{
         didSet{
-            labelDisin.layer.masksToBounds = true
-            labelDisin.layer.cornerRadius = 5
+            buttonDisign.layer.masksToBounds = true
+            buttonDisign.layer.cornerRadius = 15
         }
     }
     
@@ -84,7 +85,7 @@ class DetailsViewController: UIViewController {
         
         if let selectedPosts = selectedPosts ,
         let selectedPostImage = selectedPostImage {
-            readLabel.text = selectedPosts.description
+            updateProplemTextView.text = selectedPosts.description
             viewImage.image = selectedPostImage
             locationUserLabel.text = selectedPosts.location
             nameOfCompanyLabel.text = selectedPosts.companyName

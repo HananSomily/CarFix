@@ -141,6 +141,8 @@ class EngRigesterViewController: UIViewController {
                     }
                 }
             }
+        } else {
+            Alert.showAlert(strTitle: "Error", strMessage: "Password confirmation doesn't match Password", viewController: self)
         }
     }
     

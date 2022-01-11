@@ -94,6 +94,7 @@ class RigesterUserViewController: UIViewController {
            let confirPassward = userConfirPassawrdTextField.text,
            passward == confirPassward {
             print("ok")
+            
             Activity.showIndicator(parentView: self.view, childView: activityIndicator)
             Auth.auth().createUser(withEmail: email, password: passward) { authResult , error in
                 
@@ -139,12 +140,14 @@ class RigesterUserViewController: UIViewController {
                     }
                 }
             }
+        } else {
+            Alert.showAlert(strTitle: "Error", strMessage: "Password confirmation doesn't match Password", viewController: self)
         }
     }
     
     
     @IBAction func viewPassward(_ sender: AnyObject) {
-                userPasswardTextField.isSecureTextEntry.toggle()
+           userPasswardTextField.isSecureTextEntry.toggle()
                         if  userPasswardTextField.isSecureTextEntry {
                             if let image = UIImage(systemName: "eye.circle") {
                                 sender.setImage(image, for: .normal)
