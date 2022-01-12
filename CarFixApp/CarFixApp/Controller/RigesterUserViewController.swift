@@ -188,11 +188,7 @@ private func initalSteup(){
 }
 
 @objc private func keyboardWillShow(notification:NSNotification){
-//        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue{
-//            let keybordHeight = keyboardFrame.cgRectValue.height
-//            let bootomSpace = self.view.frame.height - (engEmailTextField.frame.origin.y + engEmailTextField.frame.height)
-//            self.view.frame.origin.y -= keybordHeight - bootomSpace + 10
- //}
+
  guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
     // if keyboard size is not available for some reason, dont do anything
     return

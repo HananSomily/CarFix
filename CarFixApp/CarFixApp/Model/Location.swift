@@ -7,12 +7,24 @@
 
 import Foundation
 import UIKit
-
+import Firebase
 
 
 struct Location {
 
-    let title: String
-    let latitude: Double
-    let longitude: Double
+    var title: String
+    //= ""
+    var latitude: Double
+    //= 0.0
+    var longitude: Double
+    //= 0.0
+//    init(location:[String:Any]){
+//        if let title = location["title"] as? String ,
+//           let latitude = location["latitude"] as? Double ,
+//           let longitude = location["longitude"] as? Double {
+//            self.title = title
+//            self.latitude = latitude
+//            self.longitude = longitude
+//        }
+//    }
 }

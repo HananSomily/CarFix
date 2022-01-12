@@ -87,8 +87,20 @@ class EngLoginViewController: UIViewController {
     }
 
     
-    @IBOutlet weak var emailEngTextField: UITextField!
-    @IBOutlet weak var passwardEngTextField: UITextField!
+    @IBOutlet weak var emailEngTextField: UITextField!{
+        didSet{
+           // emailEngTextField.placeholder = "Enter Your Email"
+                //.localized
+        }
+    }
+    @IBOutlet weak var passwardEngTextField: UITextField!{
+        didSet{
+           // passwardEngTextField.placeholder = "Enter Your Passward"
+                //.localized
+//            passwardEngTextField.textContentType = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
+
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

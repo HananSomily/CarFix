@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2D01DBAB278D52B600F74E9D /* UserTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01DBAA278D52B600F74E9D /* UserTabBarController.swift */; };
 		2D01DBAD278E0B6800F74E9D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01DBAC278E0B6800F74E9D /* Location.swift */; };
+		2D01DBB5278F1F4600F74E9D /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2D01DBB4278F1F4600F74E9D /* IQKeyboardManagerSwift */; };
+		2D01DBBA278F3DF800F74E9D /* AddAnnotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01DBB9278F3DF800F74E9D /* AddAnnotationViewController.swift */; };
 		2D0DB62C2786C255008CD3AA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0DB62B2786C255008CD3AA /* MapViewController.swift */; };
 		2D0E74442779708D00556AAD /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2D0E74432779708D00556AAD /* FirebaseAuth */; };
 		2D0E74462779708D00556AAD /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2D0E74452779708D00556AAD /* FirebaseFirestore */; };
@@ -51,6 +53,7 @@
 /* Begin PBXFileReference section */
 		2D01DBAA278D52B600F74E9D /* UserTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTabBarController.swift; sourceTree = "<group>"; };
 		2D01DBAC278E0B6800F74E9D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		2D01DBB9278F3DF800F74E9D /* AddAnnotationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnnotationViewController.swift; sourceTree = "<group>"; };
 		2D0DB62B2786C255008CD3AA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		2D0E74492779909F00556AAD /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		2D0E744B2779948200556AAD /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
@@ -100,6 +103,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D0E74442779708D00556AAD /* FirebaseAuth in Frameworks */,
+				2D01DBB5278F1F4600F74E9D /* IQKeyboardManagerSwift in Frameworks */,
 				2D0E74462779708D00556AAD /* FirebaseFirestore in Frameworks */,
 				2D0E74482779708D00556AAD /* FirebaseStorage in Frameworks */,
 			);
@@ -188,6 +192,7 @@
 				2D17D07F2789F7EA00F92DDB /* AboutCarFixViewController.swift */,
 				2D17D081278A21CC00F92DDB /* MapkitViewController.swift */,
 				2D01DBAA278D52B600F74E9D /* UserTabBarController.swift */,
+				2D01DBB9278F3DF800F74E9D /* AddAnnotationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 				2D0E74432779708D00556AAD /* FirebaseAuth */,
 				2D0E74452779708D00556AAD /* FirebaseFirestore */,
 				2D0E74472779708D00556AAD /* FirebaseStorage */,
+				2D01DBB4278F1F4600F74E9D /* IQKeyboardManagerSwift */,
 			);
 			productName = CarFixApp;
 			productReference = 2DC6A55827788BC1003F6A6D /* CarFixApp.app */;
@@ -244,6 +250,7 @@
 			mainGroup = 2DC6A54F27788BC1003F6A6D;
 			packageReferences = (
 				2D0E74422779708D00556AAD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				2D01DBB3278F1F4600F74E9D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 2DC6A55927788BC1003F6A6D /* Products */;
 			projectDirPath = "";
@@ -299,6 +306,7 @@
 				2D17D07E2789B62B00F92DDB /* RegisterViewController.swift in Sources */,
 				2DCAFBEE277951490051F940 /* HomeUserViewController.swift in Sources */,
 				2DCAFBEC277951200051F940 /* RigesterUserViewController.swift in Sources */,
+				2D01DBBA278F3DF800F74E9D /* AddAnnotationViewController.swift in Sources */,
 				2DCAFBF0277951990051F940 /* DetailsViewController.swift in Sources */,
 				2DC6A55E27788BC1003F6A6D /* SceneDelegate.swift in Sources */,
 				2D0E744A2779909F00556AAD /* UserModel.swift in Sources */,
@@ -547,6 +555,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2D01DBB3278F1F4600F74E9D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		2D0E74422779708D00556AAD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -558,6 +574,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2D01DBB4278F1F4600F74E9D /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2D01DBB3278F1F4600F74E9D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
 		2D0E74432779708D00556AAD /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2D0E74422779708D00556AAD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

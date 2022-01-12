@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+//import IQKeyboardManagerSwift
 class DetailsViewController: UIViewController {
     let imagePickerController = UIImagePickerController()
     let activityIndicator = UIActivityIndicatorView()
@@ -53,6 +54,7 @@ class DetailsViewController: UIViewController {
         didSet{
             updateProplemTextView.layer.masksToBounds = true
             updateProplemTextView.layer.cornerRadius = 15
+            //updateProplemTextView.debugDescription = "click !! edit problem "
         }
     }
 //    @IBOutlet weak var chkeing: UILabel!
