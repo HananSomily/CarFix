@@ -13,6 +13,16 @@ class ViewRequestViewController: UIViewController {
     
     // ------------------- localize -----------------
     
+    @IBOutlet weak var nameOfCustomer: UILabel!{
+        didSet{
+            
+        }
+    }
+    @IBOutlet weak var numberOfCustomer: UILabel!{
+        didSet{
+            
+        }
+    }
     @IBOutlet weak var referceButton: UIButton! {
         didSet{
             referceButton.setTitle("Refuse", for: .normal)
@@ -86,7 +96,8 @@ class ViewRequestViewController: UIViewController {
             viewImageCar.image = selectedImage
             locationLabel.text = selected.location
             companyLabel.text = selected.companyName
-           
+            nameOfCustomer.text = selected.user.name
+            numberOfCustomer.text = selected.user.phoneNumber
         }
         // Do any additional setup after loading the view.
         

@@ -12,7 +12,7 @@ class EngRequestTableViewCell: UITableViewCell {
     @IBOutlet weak var carImage: UIImageView!
     @IBOutlet weak var userName: UILabel!{
         didSet{
-            userName.layer.cornerRadius = 5
+            userName.layer.cornerRadius = 10
             userName.clipsToBounds = true
         }
     }
@@ -24,13 +24,13 @@ class EngRequestTableViewCell: UITableViewCell {
     }
     @IBOutlet weak var carDescript: UILabel!{
         didSet{
-            carDescript.layer.cornerRadius = 5
+            carDescript.layer.cornerRadius = 10
             carDescript.clipsToBounds = true
         }
     }
     @IBOutlet weak var companyName: UILabel!{
         didSet{
-            companyName.layer.cornerRadius = 5
+            companyName.layer.cornerRadius = 10
             companyName.clipsToBounds = true
         }
     }

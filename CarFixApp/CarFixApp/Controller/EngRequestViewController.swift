@@ -213,7 +213,7 @@ class EngRequestViewController: UIViewController {
 
             let maskLayer = CALayer()
             cell.layer.masksToBounds = false
-            cell.layer.borderColor = UIColor.white.cgColor
+            cell.layer.borderColor = UIColor(red: 245/255, green: 199/255, blue: 190/255, alpha: 1).cgColor
                     cell.layer.borderWidth = 4.5
                     cell.layer.cornerRadius = 10
                     cell.clipsToBounds = true

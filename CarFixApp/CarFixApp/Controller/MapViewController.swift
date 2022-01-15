@@ -79,10 +79,11 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDe
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = kCLDistanceFilterNone
         locationManager.startUpdatingLocation()
-        
+        mapView.reloadInputViews()
         self.mapView.showsUserLocation = true
+
         getLocation()
-        //addAnnotation()
+        addAnnotation()
     }
 
 //
@@ -124,13 +125,15 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDe
         for location in locations {
         let annotation = MKPointAnnotation()
             annotation.title = location["title"] as? String
-            annotation.coordinate = CLLocationCoordinate2D(latitude: (location["latitude"] as? Double) ?? 16.963643 , longitude: (location["longitude"]as? Double) ?? 42.554945 )
+            annotation.coordinate = CLLocationCoordinate2D(latitude: ((location["latitude"] as? Double)!) , longitude: ((location["longitude"]as? Double)!))
 
                       let region = MKCoordinateRegion(center: annotation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
 
                       mapView.addAnnotation(annotation)
                       mapView.setRegion(region, animated: true)
             print(locations)
+//            self.locations.reloadData()
+
 //            v =
 //            db.collection("WorkShop").getDocuments()
             

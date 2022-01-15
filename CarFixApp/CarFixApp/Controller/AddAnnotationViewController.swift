@@ -10,10 +10,40 @@ import MapKit
 import Firebase
 import CoreLocation
 
-class AddAnnotationViewController: UIViewController  , CLLocationManagerDelegate {
+class AddAnnotationViewController: UIViewController  , CLLocationManagerDelegate, MKMapViewDelegate {
+    
+    
+    @IBOutlet weak var titleLable: UILabel!{
+        didSet{
+            
+        }
+    }
+    
+    @IBOutlet weak var latitudeLabel: UILabel!{
+        didSet{
+            
+        }
+    }
+    
+    @IBOutlet weak var longitudeLabel: UILabel!{
+        didSet{
+            
+        }
+    }
+    
+    @IBOutlet weak var designStack: UIStackView!{
+        didSet{
+            
+        }
+    }
+    @IBOutlet weak var desingButton: UIButton!{
+        didSet{
+            
+        }
+    }
     var locationManager = CLLocationManager ()
     var annotation = MKPointAnnotation()
-var flag = 0
+//var flag = 0
     @IBOutlet weak var nameOfWorkshop: UITextField!
     
     @IBOutlet weak var latitudeTextView: UITextView!
@@ -37,7 +67,7 @@ var flag = 0
         super.viewDidLoad()
              
         locationManager.delegate = self
-       // self.mapView.delegate = self
+        //mapView.delegate = self
         locationManager = CLLocationManager()
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
@@ -54,7 +84,19 @@ var flag = 0
     else {
         print("not found")
         }
-        //self.mapView.showsUserLocation = true
+        var currentLoc: CLLocation!
+        if(CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
+        CLLocationManager.authorizationStatus() == .authorizedAlways) {
+           currentLoc = locationManager.location
+           print(currentLoc.coordinate.latitude)
+            latitudeTextView.text = String(currentLoc.coordinate.latitude)
+           print(currentLoc.coordinate.longitude)
+            longitudeTextView.text = String(currentLoc.coordinate.longitude)
+        }
+//        let region = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
+//        mapView.setRegion(region, animated: true)
+        
+      //  self.mapView.showsUserLocation = true
 
         // Do any additional setup after loading the view.
     }
@@ -64,8 +106,8 @@ var flag = 0
     
     @IBAction func addlocation(_ sender: Any) {
         if let  title = nameOfWorkshop.text,
-           let latitude = latitudeTextView.text,
-           let longitude = longitudeTextView.text ,
+           let latitude = Double(latitudeTextView.text),
+           let longitude = Double(longitudeTextView.text),
            let currentUser = Auth.auth().currentUser {
             
     Activity.showIndicator(parentView: self.view, childView: activityIndicator)
@@ -137,18 +179,30 @@ var flag = 0
 //            print(longitudeLocation , "+++++")
 //            latitudeTextView.text = String(latitudeLocation)
     }
-        func setStartingLocation(location: CLLocation, distance: CLLocationDistance){
-            let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: distance, longitudinalMeters: distance)
-            mapView.setRegion(region, animated: true)
-            
-         
-        }
+//        func setStartingLocation(location: CLLocation, distance: CLLocationDistance){
+//            let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: distance, longitudinalMeters: distance)
+//            mapView.setRegion(region, animated: true)
+//
+//
+//        }
 //    //zoom
-    func mapViewZoom(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        let region = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.20, longitudeDelta: 0.20))
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        let region = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
         mapView.setRegion(region, animated: true)
     }
 
+        
+        
+//current loca
+        func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+            let renderer = MKCircleRenderer(overlay: overlay)
+            renderer.fillColor = UIColor.black.withAlphaComponent(0.5)
+            renderer.strokeColor = UIColor.red
+            renderer.lineWidth = 4
+            return renderer
+        }
+        
+        
 }
 }
 //
