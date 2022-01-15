@@ -66,11 +66,31 @@ class RigesterUserViewController: UIViewController {
             userImageProfil.addGestureRecognizer(tabGesture)
         }
     }
-    @IBOutlet weak var userEmailTextField: UITextField!
-    @IBOutlet weak var userPasswardTextField: UITextField!
-    @IBOutlet weak var userConfirPassawrdTextField: UITextField!
-    @IBOutlet weak var userNameTextField: UITextField!
-    @IBOutlet weak var userPhoneTextField: UITextField!
+    @IBOutlet weak var userEmailTextField: UITextField!{
+        didSet{
+            userEmailTextField.placeholder = "Enter Your Email".localized
+        }
+    }
+    @IBOutlet weak var userPasswardTextField: UITextField!{
+        didSet{
+            userPasswardTextField.placeholder = "Enter Your Passward".localized
+        }
+    }
+    @IBOutlet weak var userConfirPassawrdTextField: UITextField!{
+        didSet{
+            userConfirPassawrdTextField.placeholder = "Confirm Passward".localized
+        }
+    }
+    @IBOutlet weak var userNameTextField: UITextField!{
+        didSet{
+            userNameTextField.placeholder = "Enter Your Name".localized
+        }
+    }
+    @IBOutlet weak var userPhoneTextField: UITextField!{
+        didSet{
+            userPhoneTextField.placeholder = "Enter Phone Number".localized
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +100,8 @@ class RigesterUserViewController: UIViewController {
                 tap.cancelsTouchesInView = false
                 view.addGestureRecognizer(tap)
         initalSteup()
+       // userPasswardTextField.enablePasswordToggle()
+       // userConfirPassawrdTextField.enablePasswordToggle()
     }
     
     @IBAction func handelRegister(_ sender: Any) {

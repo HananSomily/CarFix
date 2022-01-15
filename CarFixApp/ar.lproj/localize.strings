@@ -40,3 +40,10 @@
 "service provider"="مقدم خدمه";
 "about"="عندما تواجهة عطلً في السياره يمكنك طلب المساعدة من المهندس ،والتوجه اليك لحل المشكلة ...";
 "helo"="مرحباً";
+"Enter Your Email"= "ادخل البريد الآلكتروني";
+"Enter Your Passward" = "ادخل كلمه السر" ;
+"Confirm Passward" = "اعد ادخال كلمه السر" ;
+"Enter Your Name" = "ادخل الاسم" ;
+"Enter Phone Number" = "ادخل رقم الهاتف" ;
+
+

@@ -37,6 +37,7 @@
 		2DC6A56327788BC1003F6A6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DC6A56127788BC1003F6A6D /* Main.storyboard */; };
 		2DC6A56527788BC5003F6A6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DC6A56427788BC5003F6A6D /* Assets.xcassets */; };
 		2DC6A56827788BC5003F6A6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DC6A56627788BC5003F6A6D /* LaunchScreen.storyboard */; };
+		2DC720EC278F58640084B061 /* UITextField+SecureToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC720EB278F58630084B061 /* UITextField+SecureToggle.swift */; };
 		2DCAFBEA277950ED0051F940 /* LoginUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCAFBE9277950ED0051F940 /* LoginUserViewController.swift */; };
 		2DCAFBEC277951200051F940 /* RigesterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCAFBEB277951200051F940 /* RigesterUserViewController.swift */; };
 		2DCAFBEE277951490051F940 /* HomeUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCAFBED277951490051F940 /* HomeUserViewController.swift */; };
@@ -84,6 +85,7 @@
 		2DC6A56427788BC5003F6A6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "/Users/hanansomily/Desktop/final project/CarFix/CarFix/CarFixApp/CarFixApp/Assets.xcassets"; sourceTree = "<absolute>"; };
 		2DC6A56727788BC5003F6A6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DC6A56927788BC5003F6A6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DC720EB278F58630084B061 /* UITextField+SecureToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+SecureToggle.swift"; sourceTree = "<group>"; };
 		2DCAFBE9277950ED0051F940 /* LoginUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserViewController.swift; sourceTree = "<group>"; };
 		2DCAFBEB277951200051F940 /* RigesterUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RigesterUserViewController.swift; sourceTree = "<group>"; };
 		2DCAFBED277951490051F940 /* HomeUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUserViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				2D10C9D22780FB6A0078A747 /* Alert.swift */,
 				2D0E744D2779995800556AAD /* imageView.swift */,
 				2D0E744F2779996E00556AAD /* Activity.swift */,
+				2DC720EB278F58630084B061 /* UITextField+SecureToggle.swift */,
 				2D25B15527818908005F4C10 /* Bundle.swift */,
 				2DCAFBE62779502C0051F940 /* Model */,
 				2DCAFBE7277950420051F940 /* View */,
@@ -302,6 +305,7 @@
 				2D0E744C2779948200556AAD /* PostModel.swift in Sources */,
 				2D01DBAB278D52B600F74E9D /* UserTabBarController.swift in Sources */,
 				2D0E744E2779995800556AAD /* imageView.swift in Sources */,
+				2DC720EC278F58640084B061 /* UITextField+SecureToggle.swift in Sources */,
 				2DCAFBF6277952210051F940 /* EngRequestViewController.swift in Sources */,
 				2D17D07E2789B62B00F92DDB /* RegisterViewController.swift in Sources */,
 				2DCAFBEE277951490051F940 /* HomeUserViewController.swift in Sources */,

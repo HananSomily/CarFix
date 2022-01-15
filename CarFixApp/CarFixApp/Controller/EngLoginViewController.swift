@@ -10,6 +10,10 @@ import Firebase
 class EngLoginViewController: UIViewController {
     var activityIndicator = UIActivityIndicatorView()
     
+    
+    
+    @IBOutlet weak var viewPassward: UIButton!
+    
              // ------------------- localize -----------------
     
     
@@ -89,15 +93,14 @@ class EngLoginViewController: UIViewController {
     
     @IBOutlet weak var emailEngTextField: UITextField!{
         didSet{
-           // emailEngTextField.placeholder = "Enter Your Email"
-                //.localized
+            emailEngTextField.placeholder = "Enter Your Email".localized
         }
     }
     @IBOutlet weak var passwardEngTextField: UITextField!{
         didSet{
-           // passwardEngTextField.placeholder = "Enter Your Passward"
-                //.localized
+            passwardEngTextField.placeholder = "Enter Your Passward".localized
 //            passwardEngTextField.textContentType = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
+         //   passwardEngTextField.enablePasswordToggle()
 
         }
     }
@@ -105,10 +108,24 @@ class EngLoginViewController: UIViewController {
         super.viewDidLoad()
 
         
+        //
+        passwardEngTextField.rightView = viewPassward
+        passwardEngTextField.rightViewMode = .whileEditing
+        //
+        
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
                 tap.cancelsTouchesInView = false
                 view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
+        
+        emailEngTextField.delegate = self
+        passwardEngTextField.delegate = self
+
+//        setTextFieldSpace( textField :passwardEngTextField)
+
+//        passwardEngTextField.rightView = eyePassword
+//                passwardEngTextField.rightViewMode = .whileEditing
+
     }
     
     @IBAction func handelLogin(_ sender: Any) {
@@ -203,7 +220,39 @@ class EngLoginViewController: UIViewController {
     @IBAction func backTo(segue:UIStoryboardSegue){
         
     }
+    
+    @IBAction func eyePas(_ sender: UIButton) {
+            passwardEngTextField.isSecureTextEntry.toggle()
+            if passwardEngTextField.isSecureTextEntry {
+                if let image = UIImage(systemName: "eye.fill") {
+                    sender.setImage(image, for: .normal)
+                }
+            } else {
+                if let image = UIImage(systemName: "eye.slash.fill"){
+                    sender.setImage(image, for: .normal)
+                }
+            }
+        }
+    
+    
+//    func setTextFieldSpace( textField :UITextField){
+//        let lblSpace = UILabel()
+//        lblSpace.frame = CGRect.init(x: 0, y: 0, width: 15, height: 15)
+//        lblSpace.backgroundColor = .clear
+//        textField.leftView = lblSpace
+//
+//        textField.leftViewMode = .always
+//        textField.contentVerticalAlignment =  .center
+//    }
+    
 }
 
 
+
+extension UIViewController: UITextFieldDelegate{
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
+    }
+}
 

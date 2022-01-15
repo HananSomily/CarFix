@@ -38,5 +38,9 @@
 "service provider"="Service Provider";
 "about"="when you experience any malfunction in the car you can  request assistance from the engineer  , and come to you to solve the problem …";
 "helo"="HELO";
-
+"Enter Your Email"="Enter Your Email";
+"Enter Your Passward" = "Enter Your Passward";
+"Confirm Passward" = "Confirm Passward" ;
+"Enter Your Name" = "Enter Your Name" ;
+"Enter Phone Number" = "Enter Phone Number" ;
 
