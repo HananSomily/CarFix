@@ -12,46 +12,76 @@ import CoreLocation
 
 class AddAnnotationViewController: UIViewController  , CLLocationManagerDelegate, MKMapViewDelegate {
     
-    
+    // ---------------- localize and Design ---------------
+
     @IBOutlet weak var titleLable: UILabel!{
         didSet{
-            
+            titleLable.clipsToBounds = true
+            titleLable.layer.cornerRadius = 5
+            titleLable.text = "title".localized
         }
     }
     
     @IBOutlet weak var latitudeLabel: UILabel!{
         didSet{
-            
+            latitudeLabel.clipsToBounds = true
+            latitudeLabel.layer.cornerRadius = 5
+            latitudeLabel.text = "latitude".localized
         }
     }
     
     @IBOutlet weak var longitudeLabel: UILabel!{
         didSet{
-            
+            longitudeLabel.clipsToBounds = true
+            longitudeLabel.layer.cornerRadius = 5
+            longitudeLabel.text = "longitude".localized
         }
     }
     
     @IBOutlet weak var designStack: UIStackView!{
         didSet{
-            
+            designStack.clipsToBounds = true
+            designStack.layer.cornerRadius = 20
         }
     }
+    
     @IBOutlet weak var desingButton: UIButton!{
         didSet{
-            
+            desingButton.clipsToBounds = true
+            desingButton.layer.cornerRadius = 0
+            desingButton.setTitle("ADD".localized, for: .normal)
         }
     }
+//var flag = 0
+    @IBOutlet weak var nameOfWorkshop: UITextField!{
+        didSet{
+            nameOfWorkshop.clipsToBounds = true
+            nameOfWorkshop.layer.cornerRadius = 5
+        }
+    }
+    
+    @IBOutlet weak var latitudeTextView: UITextView!{
+        didSet{
+            latitudeTextView.clipsToBounds = true
+            latitudeTextView.layer.cornerRadius = 5
+        }
+    }
+    
+    @IBOutlet weak var longitudeTextView: UITextView!{
+        didSet{
+            longitudeTextView.clipsToBounds = true
+            longitudeTextView.layer.cornerRadius = 5
+        }
+    }
+    // ---------------- localize and Design ---------------
     var locationManager = CLLocationManager ()
     var annotation = MKPointAnnotation()
-//var flag = 0
-    @IBOutlet weak var nameOfWorkshop: UITextField!
     
-    @IBOutlet weak var latitudeTextView: UITextView!
-    
-    @IBOutlet weak var longitudeTextView: UITextView!
     
     @IBOutlet weak var mapView: MKMapView!{
         didSet{
+            mapView.clipsToBounds = true
+            mapView.layer.cornerRadius = 20
 //                    mapView.isHidden = true
 //                    let gestureRecognizer = UITapGestureRecognizer(
 //                        target: self, action:#selector(handleTap))
@@ -66,8 +96,12 @@ class AddAnnotationViewController: UIViewController  , CLLocationManagerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
              
+        let backButton = UIBarButtonItem()
+         backButton.title = ""
+         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        
         locationManager.delegate = self
-        //mapView.delegate = self
+        mapView.delegate = self
         locationManager = CLLocationManager()
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()

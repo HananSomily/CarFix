@@ -13,6 +13,11 @@ import Foundation
 class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
     let imagePickerController = UIImagePickerController()
 
+//    @IBOutlet weak var latitudeLabel: UILabel!
+//
+//    @IBOutlet weak var longitudeLabel: UILabel!
+//    var latitudeUserNow = 0.0
+//    var longitudeUserNow = 0.0
     // ------------------- localize -----------------
 
     
@@ -67,7 +72,7 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
     var carsComp = ["changan","Chevrolet","Ford","hondae","hyundai","jeep","KIA","Lexus","mazda","MG","nissan","toyota"]
     @IBOutlet weak var cerantLocationLabel: UILabel! {
         didSet{
-            cerantLocationLabel.text = "location"
+            cerantLocationLabel.text = "location".localized
         }
     }
     @IBOutlet weak var descriptionTextField: UITextField! {
@@ -76,6 +81,12 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
             descriptionTextField.clipsToBounds = true        }
     }
     
+    @IBOutlet weak var designStack: UIStackView!{
+        didSet{
+            designStack.clipsToBounds = true
+            designStack.layer.cornerRadius = 10
+        }
+    }
     @IBOutlet weak var viewDisin: UIView!{
         didSet{
             viewDisin.layer.masksToBounds = false
@@ -88,7 +99,7 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
     }
     @IBOutlet weak var nameOfCompanyLabel: UILabel!{
         didSet{
-            nameOfCompanyLabel.text = "plese select"
+            nameOfCompanyLabel.text = "plese select".localized
         }
     }
     @IBOutlet weak var takeImage: UIImageView! {
@@ -99,6 +110,13 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
             takeImage.isUserInteractionEnabled = true
             let tabGesture = UITapGestureRecognizer(target: self, action: #selector(selectImage))
             takeImage.addGestureRecognizer(tabGesture)
+        }
+    }
+    
+    @IBOutlet weak var designButton: UIStackView!{
+        didSet{
+            designButton.clipsToBounds = true
+            designButton.layer.cornerRadius = 17
         }
     }
     let activityIndicator = UIActivityIndicatorView()
@@ -148,6 +166,16 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
         print("not found")
         }
     //  _____________ **** location **** _____________
+//        var currentLoc: CLLocation!
+//        if(CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
+//        CLLocationManager.authorizationStatus() == .authorizedAlways) {
+//           currentLoc = locationCity.location
+//           print(currentLoc.coordinate.latitude)
+////            latitudeTextView.text = String(currentLoc.coordinate.latitude)
+//           print(currentLoc.coordinate.longitude)
+////            longitudeTextView.text = String(currentLoc.coordinate.longitude)
+//        }
+        
         }
     
     //  _____________ **** location **** _____________
@@ -164,6 +192,8 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
             let placemark = placemarks! as [CLPlacemark]
             if (placemark.count>0){
                 let place = placemarks![0]
+                let lat = place.location?.altitude
+                print(lat)
                 let locality = place.locality ?? ""
                 let area = place.administrativeArea ?? ""
                 let country = place.country ?? ""
@@ -174,6 +204,15 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
                 self.cerantLocationLabel.text = "\(locality) , \(area)"
             }
         }
+//        var currentLoc: CLLocation!
+//        if(CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
+//        CLLocationManager.authorizationStatus() == .authorizedAlways) {
+//           currentLoc = locationCity.location
+//           print(currentLoc.coordinate.latitude,";;;;;;")
+//           latitudeUserNow = ( currentLoc.coordinate.latitude)
+//           print(currentLoc.coordinate.longitude,"09988888**")
+//            longitudeUserNow = (currentLoc.coordinate.longitude)
+//    }
     }
     //  _____________ **** location **** _____________
 
@@ -184,10 +223,13 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
            let imageData = image.jpegData(compressionQuality: 0.75),
            let description = descriptionTextField.text,
            let location = cerantLocationLabel.text,
+//           let latitude = latitudeUserNow as? Double,
+//           let longitude = longitudeUserNow as? Double ,
            let companyName = nameOfCompanyLabel.text ,
            let currentUser = Auth.auth().currentUser {
             Activity.showIndicator(parentView: self.view, childView: activityIndicator)
             var postId = ""
+           // print(latitude , longitude ,"&&&&((")
             if let selectedPost = selectedPosts {
                 postId = selectedPost.userId
             }else {
@@ -198,6 +240,8 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
             updloadMeta.contentType = "image/jpeg"
             storageRef.putData(imageData, metadata: updloadMeta) { storageMeta, error in
                 if let error = error {
+                    Alert.showAlert(strTitle: "Upload error", strMessage: error.localizedDescription, viewController: self)
+                    Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
                     print("Upload error",error.localizedDescription)
                 }
                 storageRef.downloadURL { url, error in
@@ -211,6 +255,8 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
                                 "description":description,
                                 "companyName": companyName,
                                 "location":location,
+//                                "latitudeUser":latitude,
+//                                "longitudeUser":longitude,
                                 "imageUrl":url.absoluteString,
                                 "createdAt":selectedPost.createdAt ?? FieldValue.serverTimestamp(),
                                 "updatedAt": FieldValue.serverTimestamp()
@@ -221,6 +267,8 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
                                 "description":description,
                                 "companyName": companyName,
                                 "location":location,
+//                                "latitudeUser":latitude,
+//                                "longitudeUser":longitude,
                                 "imageUrl":url.absoluteString,
                                 "createdAt":FieldValue.serverTimestamp(),
                                 "updatedAt": FieldValue.serverTimestamp()

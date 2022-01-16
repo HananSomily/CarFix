@@ -11,7 +11,8 @@
 "Passwardcheck"="التحقق من كلمه السر";
 "Phone"="رقم الهاتف";
 "send"="إضافه";
-"view"="عرض";
+//"view"="عرض";
+"view"= "طلباتي";
 "update"="تحديث";
 "close"="إغلاق";
 "Refuse"="رفض";
@@ -45,5 +46,11 @@
 "Confirm Passward" = "اعد ادخال كلمه السر" ;
 "Enter Your Name" = "ادخل الاسم" ;
 "Enter Phone Number" = "ادخل رقم الهاتف" ;
+"ADD"="آضف";
+"title"="عنوان";
+"longitude"="خط الطول";
+"latitude"="خط العرض";
+"If You Have WorShop !! ADD" = "إذا كان لديك ورشة !! اضفها";
 
-
+"location"="الموقع الحالي";
+"plese select"="اسم الشركة";

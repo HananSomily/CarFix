@@ -25,6 +25,12 @@ class EngRequestViewController: UIViewController {
     }
     @IBOutlet weak var engEmail: UILabel!
     @IBOutlet weak var engPhone: UILabel!
+    
+    @IBOutlet weak var desingADDbutton: UIButton!{
+        didSet{
+            desingADDbutton.setTitle("If You Have WorShop !! ADD".localized, for: .normal)
+        }
+    }
     @IBOutlet weak var postsTableView: UITableView! {
             didSet {
                 postsTableView.delegate = self
@@ -221,9 +227,7 @@ class EngRequestViewController: UIViewController {
             maskLayer.backgroundColor = UIColor.black.cgColor
             maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)
             cell.layer.mask = maskLayer
-            cell.layer.shadowColor = UIColor.blue.cgColor
-            cell.layer.shadowOpacity = 9.8
-            cell.layer.shadowRadius = 8
+
         }
     }
 

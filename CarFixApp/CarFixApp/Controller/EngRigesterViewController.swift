@@ -72,6 +72,8 @@ class EngRigesterViewController: UIViewController {
     @IBOutlet weak var engNameTextField: UITextField!
     @IBOutlet weak var engPhoneTextField: UITextField!
     
+    @IBOutlet weak var showPassward: UIButton!
+    @IBOutlet weak var showConfirmPassward: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -83,6 +85,12 @@ class EngRigesterViewController: UIViewController {
        
         initalSteup()
 
+        // -.-.-.-.-.-.- show passward -.-.-.-.-.-
+            engPasswardTextField.rightView = showPassward
+            engPasswardTextField.rightViewMode = .whileEditing
+            engConfirPassawrdTextField.rightView = showConfirmPassward
+            engConfirPassawrdTextField.rightViewMode = .whileEditing
+        // -.-.-.-.-.-.- show passward -.-.-.-.-.-
     }
     
     @IBAction func handelRegister(_ sender: Any) {

@@ -52,6 +52,10 @@ class RigesterUserViewController: UIViewController {
             regsterButton.setTitle("register".localized, for: .normal)
         }
     }
+    
+    @IBOutlet weak var showPassward: UIButton!
+    
+    @IBOutlet weak var showConfirmPassward: UIButton!
     // ------------------- localize -----------------
 
     
@@ -100,8 +104,13 @@ class RigesterUserViewController: UIViewController {
                 tap.cancelsTouchesInView = false
                 view.addGestureRecognizer(tap)
         initalSteup()
-       // userPasswardTextField.enablePasswordToggle()
-       // userConfirPassawrdTextField.enablePasswordToggle()
+    // -.-.-.-.-.-.- show passward -.-.-.-.-.-
+        userPasswardTextField.rightView = showPassward
+        userPasswardTextField.rightViewMode = .whileEditing
+        userConfirPassawrdTextField.rightView = showConfirmPassward
+        userConfirPassawrdTextField.rightViewMode = .whileEditing
+    // -.-.-.-.-.-.- show passward -.-.-.-.-.-
+
     }
     
     @IBAction func handelRegister(_ sender: Any) {

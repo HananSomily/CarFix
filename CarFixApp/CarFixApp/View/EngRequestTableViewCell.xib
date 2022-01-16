@@ -24,13 +24,13 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P1z-Zw-7YI">
                         <rect key="frame" x="0.0" y="93" width="320" height="89"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3tn-NE-XZP">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="3tn-NE-XZP">
                                 <rect key="frame" x="5" y="8" width="310" height="76"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ble-k2-t6L">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ble-k2-t6L">
                                         <rect key="frame" x="0.0" y="0.0" width="310" height="40"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6ZK-Xy-4yJ">
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="6ZK-Xy-4yJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="137" height="40"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eWD-sW-SBM">
@@ -54,7 +54,7 @@
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="company" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URW-n1-kgZ">
-                                                <rect key="frame" x="142" y="5" width="168" height="35"/>
+                                                <rect key="frame" x="141" y="5" width="169" height="35"/>
                                                 <color key="backgroundColor" name="Color-13"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="35" id="L3S-Av-Fkb"/>
@@ -103,6 +103,15 @@
                     <constraint firstAttribute="bottom" secondItem="dcJ-Pz-NAO" secondAttribute="bottom" id="xzl-T5-XQj"/>
                     <constraint firstItem="P1z-Zw-7YI" firstAttribute="trailing" secondItem="dcJ-Pz-NAO" secondAttribute="trailing" id="yYM-MT-KmG"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                        <color key="value" name="Color-16"/>
+                    </userDefinedRuntimeAttribute>
+                    <userDefinedRuntimeAttribute type="number" keyPath="padding">
+                        <real key="value" value="1"/>
+                    </userDefinedRuntimeAttribute>
+                    <userDefinedRuntimeAttribute type="string" keyPath="typeName" value="ballClipRotateMultiple"/>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
@@ -117,13 +126,16 @@
     </objects>
     <resources>
         <namedColor name="Color-13">
-            <color red="0.96470588450000005" green="0.92941176889999999" blue="0.92156863209999995" alpha="0.59985513245033117" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.9649999737739563" green="0.92900002002716064" blue="0.92199999094009399" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="Color-16">
+            <color red="0.47099998593330383" green="0.59899997711181641" blue="0.68500000238418579" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="Color-49">
             <color red="0.89800000190734863" green="0.89800000190734863" blue="0.9179999828338623" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="Color-56">
-            <color red="0.0015706949300699747" green="0.0015631070318570764" blue="0.0015782828282828731" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.0020000000949949026" green="0.0020000000949949026" blue="0.0020000000949949026" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="tertiaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>

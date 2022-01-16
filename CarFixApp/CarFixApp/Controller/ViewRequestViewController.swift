@@ -11,30 +11,32 @@ class ViewRequestViewController: UIViewController {
 
     let activityIndicator = UIActivityIndicatorView()
     
-    // ------------------- localize -----------------
-    
+    // ---------------- localize and Design ---------------
+
     @IBOutlet weak var nameOfCustomer: UILabel!{
         didSet{
-            
+            nameOfCustomer.layer.masksToBounds = true
+            nameOfCustomer.layer.cornerRadius = 8
         }
     }
     @IBOutlet weak var numberOfCustomer: UILabel!{
         didSet{
-            
+            numberOfCustomer.layer.masksToBounds = true
+            numberOfCustomer.layer.cornerRadius = 8
         }
     }
     @IBOutlet weak var referceButton: UIButton! {
         didSet{
-            referceButton.setTitle("Refuse", for: .normal)
+            referceButton.setTitle("Refuse".localized, for: .normal)
         }
     }
     @IBOutlet weak var acceptButton: UIButton!{
         didSet{
-            acceptButton.setTitle("Accept", for: .normal)
+            acceptButton.setTitle("Accept".localized, for: .normal)
         }
     }
     
-    // ------------------- localize -----------------
+    // ---------------- localize and Design ---------------
 
     @IBOutlet weak var disin: UIStackView!{
         didSet{
@@ -42,8 +44,6 @@ class ViewRequestViewController: UIViewController {
             disin.layer.cornerRadius = 8
         }
     }
-    
-
     var selected:Post?
     var selectedImage:UIImage?
     @IBOutlet weak var viewProblemCarLabel: UILabel!{
@@ -54,8 +54,15 @@ class ViewRequestViewController: UIViewController {
     }
     @IBOutlet weak var viewImageCar: UIImageView! {
         didSet{
-            viewImageCar.layer.masksToBounds = true
+
+//            viewImageCar.layer.masksToBounds = false
+////            viewImageCar.layer.cornerRadius = 20
+//            viewImageCar.layer.shadowOpacity = 10.8
+//            viewImageCar.layer.shadowRadius = 50
+//            viewImageCar.layer.shadowOffset = CGSize(width: 0 , height: 0)
+//            viewImageCar.layer.shadowColor = UIColor.black.cgColor
             viewImageCar.layer.cornerRadius = 20
+            viewImageCar.clipsToBounds = true
         }
     }
     @IBOutlet weak var locationLabel: UILabel!{
@@ -75,7 +82,7 @@ class ViewRequestViewController: UIViewController {
     
     @IBOutlet weak var disignButton: UIStackView!{
         didSet{
-            disignButton.layer.cornerRadius = 20
+            disignButton.layer.cornerRadius = 17
             disignButton.clipsToBounds = true
         }
     }
@@ -98,6 +105,11 @@ class ViewRequestViewController: UIViewController {
             companyLabel.text = selected.companyName
             nameOfCustomer.text = selected.user.name
             numberOfCustomer.text = selected.user.phoneNumber
+            func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+                let send = segue.destination as! TrackingViewController
+                 send.viewLocation = selected
+                print(selected,"---0000")
+                }
         }
         // Do any additional setup after loading the view.
         
@@ -133,6 +145,8 @@ class ViewRequestViewController: UIViewController {
     }
     
     @IBAction func accept(_ sender: Any) {
+        // segue send data between view controller
+
     }
     
 }

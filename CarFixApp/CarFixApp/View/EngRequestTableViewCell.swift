@@ -18,7 +18,7 @@ class EngRequestTableViewCell: UITableViewCell {
     }
     @IBOutlet weak var userImage: UIImageView!{
         didSet{
-            userImage.layer.cornerRadius = 20
+            userImage.layer.cornerRadius = 10
             userImage.clipsToBounds = true
         }
     }
