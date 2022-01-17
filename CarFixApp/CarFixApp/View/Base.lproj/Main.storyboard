@@ -73,6 +73,27 @@
             </objects>
             <point key="canvasLocation" x="-1487.2" y="1065.5172413793105"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="vpk-p1-bpK">
+            <objects>
+                <viewController id="FrK-Hd-F6Z" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SZx-GX-mNi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="clZ-s4-LBo">
+                                <rect key="frame" x="129" y="508" width="116" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </pageControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="YiD-gX-vn1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UVV-zG-QBp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4673" y="1330"/>
+        </scene>
         <!--About Car Fix View Controller-->
         <scene sceneID="OIZ-fc-eny">
             <objects>
@@ -115,7 +136,7 @@
                             <constraint firstItem="ZL3-xa-AjE" firstAttribute="leading" secondItem="J5a-Jc-FaD" secondAttribute="leading" constant="129" id="zD1-01-dt4"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="homekit" catalog="system" selectedImage="homekit" id="SaD-rN-OJQ">
+                    <tabBarItem key="tabBarItem" title="" image="exclamationmark.circle" catalog="system" id="SaD-rN-OJQ">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <connections>
@@ -359,31 +380,6 @@
             </objects>
             <point key="canvasLocation" x="-5604" y="-1184"/>
         </scene>
-        <!--Item-->
-        <scene sceneID="bv8-Zx-iZi">
-            <objects>
-                <viewController id="K8f-Dw-ZGO" customClass="MapkitViewController" customModule="CarFixApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="XrJ-FI-mJn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y35-7C-arV">
-                                <rect key="frame" x="16" y="88" width="343" height="503"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="svE-XR-zPw"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" selectedImage="book" catalog="system" id="VNT-kf-xew"/>
-                    <connections>
-                        <outlet property="mapView" destination="y35-7C-arV" id="327-XU-HQp"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4HE-df-g8t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1798" y="-1520"/>
-        </scene>
         <!--Rigester User View Controller-->
         <scene sceneID="KFu-Hj-vx7">
             <objects>
@@ -435,7 +431,7 @@
                                                         </attributedString>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="0gg-gl-MX2">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="0gg-gl-MX2">
                                                         <rect key="frame" x="0.0" y="36" width="295" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="5G1-hx-pFz"/>
@@ -462,7 +458,7 @@
                                                         </attributedString>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="P3r-QT-wHL">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="P3r-QT-wHL">
                                                         <rect key="frame" x="0.0" y="36" width="295" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="kQU-uL-JPa"/>
@@ -492,7 +488,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eS4-So-n4j">
                                                         <rect key="frame" x="0.0" y="36" width="295" height="30"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="MJs-tE-g51">
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="MJs-tE-g51">
                                                                 <rect key="frame" x="0.0" y="0.0" width="295" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="Uwb-6v-xyl"/>
@@ -1135,7 +1131,8 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" itemWidth="20" id="rKK-14-a9Q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" systemColor="tintColor"/>
+                        <color key="tintColor" name="Color-52"/>
+                        <color key="selectedImageTintColor" name="Color-50"/>
                         <tabBarAppearance key="standardAppearance">
                             <tabBarItemAppearance key="inlineLayoutAppearance">
                                 <tabBarItemStateAppearance key="normal"/>
@@ -1145,9 +1142,14 @@
                             </tabBarItemAppearance>
                         </tabBarAppearance>
                         <tabBarAppearance key="scrollEdgeAppearance" backgroundImageContentMode="center" stackedItemPositioning="centered" stackedItemWidth="70">
+                            <color key="backgroundColor" systemColor="systemGray4Color"/>
                             <color key="shadowColor" red="0.96877082130000003" green="1" blue="0.9759833134" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <tabBarItemAppearance key="compactInlineLayoutAppearance">
-                                <tabBarItemStateAppearance key="normal"/>
+                                <tabBarItemStateAppearance key="normal">
+                                    <textAttributes key="titleTextAttributes">
+                                        <color key="textColor" red="0.50220563689999997" green="0.56465506180000002" blue="0.61892361110000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </textAttributes>
+                                </tabBarItemStateAppearance>
                                 <tabBarItemStateAppearance key="selected">
                                     <textAttributes key="titleTextAttributes">
                                         <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
@@ -1206,7 +1208,7 @@
                                                             </fragment>
                                                         </attributedString>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="35q-zC-CiL">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="35q-zC-CiL">
                                                         <rect key="frame" x="0.0" y="35" width="297" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="kwQ-Xd-LOW"/>
@@ -1408,7 +1410,7 @@
                             <constraint firstItem="syZ-7c-YeC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="4" id="zuG-7j-XOC"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Enginer" image="car.fill" catalog="system" id="0Da-IS-8bw"/>
+                    <tabBarItem key="tabBarItem" title="Enginer" image="house" catalog="system" id="0Da-IS-8bw"/>
                     <connections>
                         <outlet property="disignViewLogIn" destination="syZ-7c-YeC" id="Ajj-O9-1Mi"/>
                         <outlet property="emailEngTextField" destination="35q-zC-CiL" id="piA-1m-Qf3"/>
@@ -1592,7 +1594,7 @@
                                                         </attributedString>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Ju4-bJ-JKd">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Ju4-bJ-JKd">
                                                         <rect key="frame" x="0.0" y="30" width="325" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="D5j-Ov-uS3"/>
@@ -1619,7 +1621,7 @@
                                                         </attributedString>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="JGI-sZ-90R">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="JGI-sZ-90R">
                                                         <rect key="frame" x="0.0" y="31" width="325" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="6zj-eO-GRd"/>
@@ -1649,12 +1651,13 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="-40" translatesAutoresizingMaskIntoConstraints="NO" id="7TZ-C8-tzo">
                                                         <rect key="frame" x="0.0" y="31" width="325" height="30"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="bezel" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="WFy-47-zNV">
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="WFy-47-zNV">
                                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="Blk-Dg-OX6"/>
                                                                 </constraints>
-                                                                <attributedString key="attributedText"/>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                             </textField>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNX-1a-beF">
@@ -1695,7 +1698,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="-40" translatesAutoresizingMaskIntoConstraints="NO" id="vjK-Mz-2dg">
                                                         <rect key="frame" x="0.0" y="31" width="325" height="30"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Fj5-gz-Fui">
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Fj5-gz-Fui">
                                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="30" id="XL2-2K-rlq"/>
@@ -1741,7 +1744,7 @@
                                                         </attributedString>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="fMh-GG-i6L">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="fMh-GG-i6L">
                                                         <rect key="frame" x="0.0" y="31" width="325" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="BiQ-r3-Hgy"/>
@@ -2329,38 +2332,6 @@
             </objects>
             <point key="canvasLocation" x="6032.8000000000002" y="375.56221889055473"/>
         </scene>
-        <!--Tracking View Controller-->
-        <scene sceneID="dbg-Yu-B6J">
-            <objects>
-                <viewController id="YUK-JE-Y8D" customClass="TrackingViewController" customModule="CarFixApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="A2z-UT-Oey">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6E1-2F-3fI">
-                                <rect key="frame" x="213" y="113" width="114" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JP8-3t-6P8">
-                                <rect key="frame" x="58" y="110" width="94" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="tRY-Fq-sEn"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="EAl-sz-NFX"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oMi-o1-Hgc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7101.6000000000004" y="837.93103448275872"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="8B6-vo-6xg">
             <objects>
@@ -2429,13 +2400,11 @@
         <image name="Image-1" width="300" height="300"/>
         <image name="TickImageCar" width="540" height="462"/>
         <image name="b9ec615f8bd55e3ed60f9d6444bb54f2" width="474" height="842"/>
-        <image name="book" catalog="system" width="128" height="99"/>
         <image name="car" width="554" height="451"/>
-        <image name="car.fill" catalog="system" width="128" height="93"/>
         <image name="cerrentLocation" width="134" height="116"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="exclamationmark.circle" catalog="system" width="128" height="121"/>
         <image name="eye.circle" catalog="system" width="128" height="121"/>
-        <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="locations" width="136" height="115"/>
         <image name="map" catalog="system" width="128" height="110"/>
@@ -2528,11 +2497,11 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="tertiarySystemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -67,6 +67,9 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        Alert.showAlert(strTitle: "Plese LogIn", strMessage: "Show all WorkShop Plese LogIn ", viewController: self)
+
+        
         let backButton = UIBarButtonItem()
          backButton.title = ""
          self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
@@ -98,6 +101,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDe
         let ref = Firestore.firestore()
         ref.collection("WorkShop").getDocuments(){ [self]querySnapshot, err in
         if let err = err {
+            Alert.showAlert(strTitle: "Plese LogIn", strMessage: "Show all WorkShop Plese LogIn ", viewController: self)
             print("Error getting documents: \(err.localizedDescription)")
         } else {
             for document in querySnapshot!.documents {

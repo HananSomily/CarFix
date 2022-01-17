@@ -181,19 +181,18 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
     //  _____________ **** location **** _____________
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-//           print("****locations = \(locValue.latitude) \(locValue.longitude)")
         let cerentLocation = locations[0] as CLLocation
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(cerentLocation) { placemarks, error in
             if (error != nil){
                 print("error")
             }
-            let placemark = placemarks! as [CLPlacemark]
+            if let placemarks = placemarks {
+            let placemark = placemarks as [CLPlacemark]
             if (placemark.count>0){
-                let place = placemarks![0]
+                let place = placemarks[0]
                 let lat = place.location?.altitude
-                print(lat)
+                print(lat!)
                 let locality = place.locality ?? ""
                 let area = place.administrativeArea ?? ""
                 let country = place.country ?? ""
@@ -204,6 +203,7 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
                 self.cerantLocationLabel.text = "\(locality) , \(area)"
             }
         }
+    }
 //        var currentLoc: CLLocation!
 //        if(CLLocationManager.authorizationStatus() == .authorizedWhenInUse ||
 //        CLLocationManager.authorizationStatus() == .authorizedAlways) {
