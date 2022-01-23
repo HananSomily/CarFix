@@ -77,12 +77,19 @@ class EngRigesterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
                 tap.cancelsTouchesInView = false
                 view.addGestureRecognizer(tap)
         
         imagePickerController.delegate = self
        
+        //
+        let backButton = UIBarButtonItem()
+         backButton.title = ""
+         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        
+        
        // initalSteup()
 
         // -.-.-.-.-.-.- show passward -.-.-.-.-.-

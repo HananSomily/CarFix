@@ -98,11 +98,19 @@ class RigesterUserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //
         imagePickerController.delegate = self
-        // Do any additional setup after loading the view.
+       //
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
                 tap.cancelsTouchesInView = false
                 view.addGestureRecognizer(tap)
+        //
+        let backButton = UIBarButtonItem()
+         backButton.title = ""
+         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        
+        
         //initalSteup()
     // -.-.-.-.-.-.- show passward -.-.-.-.-.-
         userPasswardTextField.rightView = showPassward

@@ -105,18 +105,18 @@ class StartingViewController: UIViewController {
                 self.view3.center.y += 10.0
               }
             )
-            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5,
-              animations: {
-                self.GoToMap.center.x -= 40.0
-                self.GoToMap.center.y += 20.0
-              }
-            )
-            UIView.addKeyframe(withRelativeStartTime: 0.30, relativeDuration: 0.5,
-              animations: {
-                self.GoToMap.center.x += 30.0
-                self.GoToMap.center.y -= 10.0
-              }
-            )
+//            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5,
+//              animations: {
+//                self.GoToMap.center.x -= 40.0
+//                self.GoToMap.center.y += 20.0
+//              }
+//            )
+//            UIView.addKeyframe(withRelativeStartTime: 0.30, relativeDuration: 0.5,
+//              animations: {
+//                self.GoToMap.center.x += 30.0
+//                self.GoToMap.center.y -= 10.0
+//              }
+//            )
 //            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5,
 //              animations: {
 //                self.goToAccount.center.x -= 40.0

@@ -74,7 +74,7 @@ class EngLoginViewController: UIViewController {
             loginDisign.layer.cornerRadius = 5
             loginDisign.layer.masksToBounds = false
             loginDisign.layer.shadowColor = UIColor.black.cgColor
-            loginDisign.layer.shadowOpacity = 0.4
+            loginDisign.layer.shadowOpacity = 0.2
             //loginDisign.layer.shadowRadius = 8
         }
     }
@@ -85,7 +85,7 @@ class EngLoginViewController: UIViewController {
             disignViewLogIn.layer.cornerRadius = 20
             disignViewLogIn.layer.masksToBounds = false
             disignViewLogIn.layer.shadowColor = UIColor.gray.cgColor
-            disignViewLogIn.layer.shadowOpacity = 0.8
+            disignViewLogIn.layer.shadowOpacity = 0.4
         }
     }
 
@@ -106,6 +106,11 @@ class EngLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //
+        
+        let backButton = UIBarButtonItem()
+         backButton.title = ""
+         self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         
         //
         passwardEngTextField.rightView = viewPassward

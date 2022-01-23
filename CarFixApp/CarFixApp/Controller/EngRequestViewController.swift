@@ -139,7 +139,7 @@ class EngRequestViewController: UIViewController {
         @IBAction func handleLogout(_ sender: Any) {
             do {
                 try Auth.auth().signOut()
-                if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeNavigationController") as? UITabBarController {
+                if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeNavigationController") as? UINavigationController {
                     vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)
                 }
