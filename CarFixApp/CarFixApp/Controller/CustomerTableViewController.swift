@@ -11,11 +11,9 @@ class CustomerTableViewController: UIViewController {
 
     var selectedPosts: Post?
     var posts = [Post]()
-
     var customer: User?
     var selectedPostImage:UIImage?
     
-
     @IBOutlet weak var malfucationTableView: UITableView!
     {
             didSet {
@@ -33,19 +31,14 @@ class CustomerTableViewController: UIViewController {
         malfucationTableView.layer.shadowColor = UIColor.gray.cgColor
         malfucationTableView.layer.shadowOpacity = 0.8
         malfucationTableView.layer.shadowRadius = 8
-
         
         let backButton = UIBarButtonItem()
          backButton.title = ""
          self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-       // malfucationTableView.frame = malfucationTableView.frame.inset(by: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
-
-
         // Do any additional setup after loading the view.
         getPosts()
     }
     
-
     func getPosts() {
         let ref = Firestore.firestore()
         //.whereField("userId", isEqualTo: Auth.auth().currentUser!.uid)
@@ -54,19 +47,16 @@ class CustomerTableViewController: UIViewController {
             if let error = error {
                 print("DB ERROR Posts",error.localizedDescription)
             }
-
             if let snapshot = snapshot {
-                print(" CANGES:",snapshot.documentChanges.count)
+                print("CANGES:",snapshot.documentChanges.count)
                 snapshot.documentChanges.forEach { diff in
                     let postData = diff.document.data()
                     switch diff.type {
                     case .added :
-                    
                         if let userId = postData["userId"] as? String {
                             ref.collection("users").document(userId).getDocument { userSnapshot, error in
                                 if let error = error {
                                     print("ERROR user Data",error.localizedDescription)
-
                                 }
                                 if let userSnapshot = userSnapshot,
                                    let userData = userSnapshot.data(){
@@ -75,14 +65,11 @@ class CustomerTableViewController: UIViewController {
                                     self.malfucationTableView.beginUpdates()
                                     if snapshot.documentChanges.count != 1 {
                                         self.posts.append(post)
-
                                         self.malfucationTableView.insertRows(at: [IndexPath(row:self.posts.count - 1,section: 0)],with: .automatic)
                                     }else {
                                         self.posts.insert(post,at:0)
-
                                         self.malfucationTableView.insertRows(at: [IndexPath(row: 0,section: 0)],with: .automatic)
                                     }
-
                                     self.malfucationTableView.endUpdates()
                                 }
                             }
@@ -94,7 +81,7 @@ class CustomerTableViewController: UIViewController {
                        let updateIndex = self.posts.firstIndex(where: {$0.userId == postId}){
                         let newPost = Post(dict:postData, userId: postId, user: currentPost.user)
                         self.posts[updateIndex] = newPost
-                     print(newPost,"NEW+++")
+                    // print(newPost,"NEW+++")
                             self.malfucationTableView.beginUpdates()
                             self.malfucationTableView.deleteRows(at: [IndexPath(row: updateIndex,section: 0)], with: .left)
                             self.malfucationTableView.insertRows(at: [IndexPath(row: updateIndex,section: 0)],with: .left)
@@ -104,7 +91,6 @@ class CustomerTableViewController: UIViewController {
                     case .removed:
                         let postId = diff.document.documentID
                         if let deleteIndex = self.posts.firstIndex(where: {$0.userId == postId}){
-
                             self.posts.remove(at: deleteIndex)
                                 self.malfucationTableView.beginUpdates()
                                 self.malfucationTableView.deleteRows(at: [IndexPath(row: deleteIndex,section: 0)], with: .automatic)
@@ -131,22 +117,17 @@ class CustomerTableViewController: UIViewController {
 }
 extension CustomerTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-     //   print("*****" , posts)
         return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "malfunctionsCell") as! malfunctionsCarTableViewCell
-        
         return cell.configure(with: posts[indexPath.row])
     }
-    
-    
 }
 extension CustomerTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 160
-        
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! malfunctionsCarTableViewCell

@@ -10,7 +10,7 @@ import MapKit
 import Firebase
 import CoreLocation
 
-class AddAnnotationViewController: UIViewController  , CLLocationManagerDelegate, MKMapViewDelegate {
+class AddAnnotationViewController: UIViewController , CLLocationManagerDelegate, MKMapViewDelegate {
     
     // ---------------- localize and Design ---------------
 
@@ -100,6 +100,10 @@ class AddAnnotationViewController: UIViewController  , CLLocationManagerDelegate
          backButton.title = ""
          self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
         
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+                tap.cancelsTouchesInView = false
+                view.addGestureRecognizer(tap)
+        
         locationManager.delegate = self
         mapView.delegate = self
         locationManager = CLLocationManager()
@@ -129,9 +133,7 @@ class AddAnnotationViewController: UIViewController  , CLLocationManagerDelegate
         }
 //        let region = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
 //        mapView.setRegion(region, animated: true)
-        
       //  self.mapView.showsUserLocation = true
-
         // Do any additional setup after loading the view.
     }
     
@@ -145,17 +147,14 @@ class AddAnnotationViewController: UIViewController  , CLLocationManagerDelegate
            let currentUser = Auth.auth().currentUser {
             
     Activity.showIndicator(parentView: self.view, childView: activityIndicator)
-
-   // var ref: DocumentReference? = nil
             var addLocation = [String:Any]()
             let db = Firestore.firestore()
             let ref = db.collection("WorkShop")
-
             addLocation = [
                     "title":title,
                     "latitude": latitude,
                     "longitude": longitude
-    ]
+                          ]
             ref.document().setData(addLocation) { error in
                 if let error = error {
                     print("FireStore Error",error.localizedDescription)
@@ -163,20 +162,14 @@ class AddAnnotationViewController: UIViewController  , CLLocationManagerDelegate
                 Activity.removeIndicator(parentView: self.view, childView: self.activityIndicator)
                 self.navigationController?.popViewController(animated: true)
             }
-}
+       }
         func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-
-          //  if flag == 0 {
             let cerentLocation = locations[0] as CLLocation
                 latitudeLocation = cerentLocation.coordinate.latitude
                 longitudeLocation = cerentLocation.coordinate.longitude
 //            latitudeTextView.text = " String\(cerentLocation.coordinate.latitude) lllll"
 //            longitudeTextView.text = String(cerentLocation.coordinate.longitude )
-
-            
             print("user location" , cerentLocation)
-             //   flag = 1
-           // }
 //            let cerentLocation = CLLocation(latitude: latitudeLocation, longitude: longitudeLocation)
             let geocoder = CLGeocoder()
             geocoder.reverseGeocodeLocation(cerentLocation) { placemarks, error in
@@ -195,8 +188,7 @@ class AddAnnotationViewController: UIViewController  , CLLocationManagerDelegate
                     print("area \(area)")
                     print("country\(country)")
                     self.latitudeTextView.text = String( cerentLocation.coordinate.latitude)
-                    print(self.latitudeLocation,"//////")
-                   // self.cerantLocationLabel.text = "\(locality) , \(area)"
+                    print(self.latitudeLocation,"//")
                 }
             }
         }

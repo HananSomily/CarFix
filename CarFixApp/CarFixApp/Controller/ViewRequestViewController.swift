@@ -11,7 +11,7 @@ class ViewRequestViewController: UIViewController {
 
     let activityIndicator = UIActivityIndicatorView()
     
-    // ---------------- localize and Design ---------------
+    // ------------------- Disin & localize -----------------
 
     @IBOutlet weak var nameOfCustomer: UILabel!{
         didSet{
@@ -36,8 +36,6 @@ class ViewRequestViewController: UIViewController {
         }
     }
     
-    // ---------------- localize and Design ---------------
-
     @IBOutlet weak var disin: UIStackView!{
         didSet{
             disin.layer.masksToBounds = true
@@ -93,7 +91,8 @@ class ViewRequestViewController: UIViewController {
             disingLableView.clipsToBounds = true
         }
     }
-    
+    // ------------------- Disin & localize -----------------
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,11 +104,6 @@ class ViewRequestViewController: UIViewController {
             companyLabel.text = selected.companyName
             nameOfCustomer.text = selected.user.name
             numberOfCustomer.text = selected.user.phoneNumber
-            func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-                let send = segue.destination as! TrackingViewController
-                 send.viewLocation = selected
-                print(selected,"---0000")
-                }
         }
         // Do any additional setup after loading the view.
         
@@ -117,7 +111,6 @@ class ViewRequestViewController: UIViewController {
          backButton.title = ""
          self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
-    
     
     @IBAction func refece(_ sender: Any) {
         let ref = Firestore.firestore().collection("posts")
@@ -127,9 +120,7 @@ class ViewRequestViewController: UIViewController {
                 if let error = error {
                     print("Error in db delete",error)
                 }else {
-                    // Create a reference to the file to delete
                     let storageRef = Storage.storage().reference(withPath: "posts/\(selected.user.id)/\(selected.userId)")
-                    // Delete the file
                     storageRef.delete { error in
                         if let error = error {
                             print("Error in storage delete",error)

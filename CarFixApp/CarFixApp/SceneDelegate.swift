@@ -54,7 +54,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 }
             } else {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let mainTabBar = storyboard.instantiateViewController(withIdentifier: "HomeNavigationController")
+                let mainTabBar = storyboard.instantiateViewController(withIdentifier: "StaringApp")
                       window.rootViewController = mainTabBar
                       window.makeKeyAndVisible()
             }

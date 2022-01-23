@@ -77,13 +77,13 @@ class EngRigesterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+                tap.cancelsTouchesInView = false
+                view.addGestureRecognizer(tap)
+        
         imagePickerController.delegate = self
-        // Do any additional setup after loading the view.
-//        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
-//                tap.cancelsTouchesInView = false
-//                view.addGestureRecognizer(tap)
        
-        initalSteup()
+       // initalSteup()
 
         // -.-.-.-.-.-.- show passward -.-.-.-.-.-
             engPasswardTextField.rightView = showPassward
@@ -100,11 +100,10 @@ class EngRigesterViewController: UIViewController {
            let name = engNameTextField.text ,
            let email = engEmailTextField.text ,
            let phoneNumber = engPhoneTextField.text,
-//**
            let passward = engPasswardTextField.text ,
            let confirPassward = engConfirPassawrdTextField.text,
            passward == confirPassward {
-            print("ok")
+           // print("ok")
             Activity.showIndicator(parentView: self.view, childView: activityIndicator)
             Auth.auth().createUser(withEmail: email, password: passward) { authResult , error in
                 if let error = error {
@@ -125,14 +124,14 @@ class EngRigesterViewController: UIViewController {
                             }
                             if let url = url{
                                 print("URL",url.absoluteString)
-                            let dataBase = Firestore.firestore()
+                            let db = Firestore.firestore()
                             let userData:[String:Any] = ["id":authReselt.user.uid,
                                 "name":name ,
                                 "email":email,
                                 "customer": false ,
                                 "phoneNumber":phoneNumber,
                                 "imageUrl":url.absoluteString]
-                                dataBase.collection("engineer").document(authReselt.user.uid).setData(userData){
+                                db.collection("engineer").document(authReselt.user.uid).setData(userData){
                                     error in
                                     if let error = error {
                                         print("Registeration DataBase Error",error.localizedDescription)
@@ -196,11 +195,6 @@ class EngRigesterViewController: UIViewController {
     }
     
     @objc private func keyboardWillShow(notification:NSNotification){
-//        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue{
-//            let keybordHeight = keyboardFrame.cgRectValue.height
-//            let bootomSpace = self.view.frame.height - (engEmailTextField.frame.origin.y + engEmailTextField.frame.height)
-//            self.view.frame.origin.y -= keybordHeight - bootomSpace + 10
-        //}
         guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
            // if keyboard size is not available for some reason, dont do anything
            return

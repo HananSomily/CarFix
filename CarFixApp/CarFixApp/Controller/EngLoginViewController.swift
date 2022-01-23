@@ -11,7 +11,6 @@ class EngLoginViewController: UIViewController {
     var activityIndicator = UIActivityIndicatorView()
     
     
-    
     @IBOutlet weak var viewPassward: UIButton!
     
              // ------------------- localize -----------------
@@ -41,8 +40,8 @@ class EngLoginViewController: UIViewController {
     @IBOutlet weak var logInLabel: UIButton!{
         didSet{
             logInLabel.setTitle("log in".localized, for: .normal)
-            logInLabel.layer.masksToBounds = false
-            logInLabel.layer.cornerRadius = 8
+           // logInLabel.layer.masksToBounds = false
+           // logInLabel.layer.cornerRadius = 20
         }
     }
     @IBOutlet weak var orLabel: UILabel!{
@@ -83,10 +82,10 @@ class EngLoginViewController: UIViewController {
     
     @IBOutlet weak var disignViewLogIn: UIView! {
         didSet{
-            disignViewLogIn.layer.cornerRadius = 8
+            disignViewLogIn.layer.cornerRadius = 20
             disignViewLogIn.layer.masksToBounds = false
-            disignViewLogIn.layer.shadowColor = UIColor.black.cgColor
-            disignViewLogIn.layer.shadowOpacity = 0.3
+            disignViewLogIn.layer.shadowColor = UIColor.gray.cgColor
+            disignViewLogIn.layer.shadowOpacity = 0.8
         }
     }
 
@@ -217,7 +216,7 @@ class EngLoginViewController: UIViewController {
     
     @IBAction func handelRegister(_ sender: Any) {
     }
-    @IBAction func backTo(segue:UIStoryboardSegue){
+    @IBAction func backToLogIn(segue:UIStoryboardSegue){
         
     }
     

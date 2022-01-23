@@ -30,6 +30,14 @@ class RegisterViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var designView: UIView!{
+        didSet{
+            designView.layer.cornerRadius = 8
+            designView.layer.masksToBounds = false
+            designView.layer.shadowColor = UIColor.gray.cgColor
+            designView.layer.shadowOpacity = 0.8
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 

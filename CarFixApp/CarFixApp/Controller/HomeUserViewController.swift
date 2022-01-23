@@ -43,10 +43,8 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
 
     var selectedPosts: Post?
     var posts = [Post]()
-
     var customer: User?
     var selectedPostImage:UIImage?
-    
     var locationCity:CLLocationManager!
     
     @IBOutlet weak var userNameLable: UILabel!
@@ -61,7 +59,6 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
     }
     @IBOutlet weak var userPhoneLable: UILabel!
     @IBOutlet weak var userEmailLable: UILabel!
-    
     @IBOutlet weak var actionSave: UIButton!
     @IBOutlet weak var companyImageViewCollectionView: UICollectionView! {
         didSet{
@@ -70,6 +67,9 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
         }
     }
     var carsComp = ["changan","Chevrolet","Ford","hondae","hyundai","jeep","KIA","Lexus","mazda","MG","nissan","toyota"]
+    
+    // ------------------- Disin & localize -----------------
+    
     @IBOutlet weak var cerantLocationLabel: UILabel! {
         didSet{
             cerantLocationLabel.text = "location".localized
@@ -119,6 +119,8 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
             designButton.layer.cornerRadius = 17
         }
     }
+    // ------------------- Disin & localize -----------------
+
     let activityIndicator = UIActivityIndicatorView()
 
     override func viewDidLoad() {
@@ -196,7 +198,6 @@ class HomeUserViewController: UIViewController , CLLocationManagerDelegate {
                 let locality = place.locality ?? ""
                 let area = place.administrativeArea ?? ""
                 let country = place.country ?? ""
-//                let y = place.location?.altitude
                 print("locality **** \(locations)")
                 print("area \(area)")
                 print("country\(country)")

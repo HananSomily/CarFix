@@ -24,8 +24,8 @@ class EngRequestTableViewCell: UITableViewCell {
     }
     @IBOutlet weak var carDescript: UILabel!{
         didSet{
-            carDescript.layer.cornerRadius = 10
-            carDescript.clipsToBounds = true
+//            carDescript.layer.cornerRadius = 10
+//            carDescript.clipsToBounds = true
         }
     }
     @IBOutlet weak var companyName: UILabel!{
@@ -40,7 +40,12 @@ class EngRequestTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-     
+    @IBOutlet weak var designView: UIView!{
+        didSet{
+            designView.clipsToBounds = true
+            designView.layer.cornerRadius = 20
+        }
+    }
     
     
     override func setSelected(_ selected: Bool, animated: Bool) {

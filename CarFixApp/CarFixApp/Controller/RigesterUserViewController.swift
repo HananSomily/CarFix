@@ -16,11 +16,11 @@ class RigesterUserViewController: UIViewController {
     // ------------------- localize -----------------
 
     
-    @IBOutlet weak var helloLabel: UILabel!{
-        didSet{
-            helloLabel.text = "hhhi"
-       }
-    }
+//    @IBOutlet weak var helloLabel: UILabel!{
+//        didSet{
+//            helloLabel.text = "hhhi"
+//       }
+//    }
         @IBOutlet weak var emailLabel: UILabel!{
             didSet{
                 emailLabel.text = "Email".localized
@@ -103,7 +103,7 @@ class RigesterUserViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
                 tap.cancelsTouchesInView = false
                 view.addGestureRecognizer(tap)
-        initalSteup()
+        //initalSteup()
     // -.-.-.-.-.-.- show passward -.-.-.-.-.-
         userPasswardTextField.rightView = showPassward
         userPasswardTextField.rightViewMode = .whileEditing

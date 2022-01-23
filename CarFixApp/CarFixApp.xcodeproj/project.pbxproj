@@ -25,12 +25,11 @@
 		2D0E7458277A98BF00556AAD /* CompanyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D0E7456277A98BF00556AAD /* CompanyCollectionViewCell.xib */; };
 		2D10C9D32780FB6A0078A747 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D10C9D22780FB6A0078A747 /* Alert.swift */; };
 		2D10CBD92785832500586400 /* CustomerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D10CBD82785832500586400 /* CustomerTableViewController.swift */; };
+		2D15160E279B509E003D403B /* StartingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D15160D279B509E003D403B /* StartingViewController.swift */; };
 		2D17D07E2789B62B00F92DDB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D17D07D2789B62B00F92DDB /* RegisterViewController.swift */; };
 		2D17D0802789F7EA00F92DDB /* AboutCarFixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D17D07F2789F7EA00F92DDB /* AboutCarFixViewController.swift */; };
-		2D17D082278A21CC00F92DDB /* MapkitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D17D081278A21CC00F92DDB /* MapkitViewController.swift */; };
 		2D25B15627818908005F4C10 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D25B15527818908005F4C10 /* Bundle.swift */; };
 		2D25B15D27819089005F4C10 /* localize.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D25B15F27819089005F4C10 /* localize.strings */; };
-		2DBA57402794194E002AE4AB /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA573F2794194E002AE4AB /* TrackingViewController.swift */; };
 		2DBA574B2794A006002AE4AB /* NVActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 2DBA574A2794A006002AE4AB /* NVActivityIndicatorView */; };
 		2DBA574D2794A006002AE4AB /* NVActivityIndicatorViewExtended in Frameworks */ = {isa = PBXBuildFile; productRef = 2DBA574C2794A006002AE4AB /* NVActivityIndicatorViewExtended */; };
 		2DBA574F2794A14B002AE4AB /* LodaingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA574E2794A14B002AE4AB /* LodaingViewController.swift */; };
@@ -71,16 +70,15 @@
 		2D10C9D22780FB6A0078A747 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		2D10CBD82785832500586400 /* CustomerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerTableViewController.swift; sourceTree = "<group>"; };
 		2D10CBDB2785D82200586400 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		2D15160D279B509E003D403B /* StartingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartingViewController.swift; sourceTree = "<group>"; };
 		2D17D07D2789B62B00F92DDB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		2D17D07F2789F7EA00F92DDB /* AboutCarFixViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCarFixViewController.swift; sourceTree = "<group>"; };
-		2D17D081278A21CC00F92DDB /* MapkitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapkitViewController.swift; sourceTree = "<group>"; };
 		2D25B15527818908005F4C10 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		2D25B1572781897A005F4C10 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
 		2D25B1582781897A005F4C10 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		2D25B15A27818A27005F4C10 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		2D25B15E27819089005F4C10 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/localize.strings; sourceTree = "<group>"; };
 		2D25B1602781908B005F4C10 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/localize.strings; sourceTree = "<group>"; };
-		2DBA573F2794194E002AE4AB /* TrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
 		2DBA574E2794A14B002AE4AB /* LodaingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LodaingViewController.swift; sourceTree = "<group>"; };
 		2DC3AB84277CD1F2003272E0 /* malfunctionsCarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = malfunctionsCarTableViewCell.swift; sourceTree = "<group>"; };
 		2DC3AB85277CD1F2003272E0 /* malfunctionsCarTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = malfunctionsCarTableViewCell.xib; sourceTree = "<group>"; };
@@ -201,11 +199,10 @@
 				2D0DB62B2786C255008CD3AA /* MapViewController.swift */,
 				2D17D07D2789B62B00F92DDB /* RegisterViewController.swift */,
 				2D17D07F2789F7EA00F92DDB /* AboutCarFixViewController.swift */,
-				2D17D081278A21CC00F92DDB /* MapkitViewController.swift */,
 				2D01DBAA278D52B600F74E9D /* UserTabBarController.swift */,
 				2D01DBB9278F3DF800F74E9D /* AddAnnotationViewController.swift */,
-				2DBA573F2794194E002AE4AB /* TrackingViewController.swift */,
 				2DBA574E2794A14B002AE4AB /* LodaingViewController.swift */,
+				2D15160D279B509E003D403B /* StartingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -306,12 +303,12 @@
 				2D10CBD92785832500586400 /* CustomerTableViewController.swift in Sources */,
 				2D0E74502779996E00556AAD /* Activity.swift in Sources */,
 				2DCAFBF4277952020051F940 /* EngRigesterViewController.swift in Sources */,
-				2D17D082278A21CC00F92DDB /* MapkitViewController.swift in Sources */,
 				2D0E7457277A98BF00556AAD /* CompanyCollectionViewCell.swift in Sources */,
 				2D01DBAD278E0B6800F74E9D /* Location.swift in Sources */,
 				2D0DB62C2786C255008CD3AA /* MapViewController.swift in Sources */,
 				2DCAFBF82779526C0051F940 /* ViewRequestViewController.swift in Sources */,
 				2DCAFBF2277951D70051F940 /* EngLoginViewController.swift in Sources */,
+				2D15160E279B509E003D403B /* StartingViewController.swift in Sources */,
 				2D17D0802789F7EA00F92DDB /* AboutCarFixViewController.swift in Sources */,
 				2DC6A55C27788BC1003F6A6D /* AppDelegate.swift in Sources */,
 				2DC3AB86277CD1F2003272E0 /* malfunctionsCarTableViewCell.swift in Sources */,
@@ -319,7 +316,6 @@
 				2D01DBAB278D52B600F74E9D /* UserTabBarController.swift in Sources */,
 				2D0E744E2779995800556AAD /* imageView.swift in Sources */,
 				2DC720EC278F58640084B061 /* UITextField+SecureToggle.swift in Sources */,
-				2DBA57402794194E002AE4AB /* TrackingViewController.swift in Sources */,
 				2DCAFBF6277952210051F940 /* EngRequestViewController.swift in Sources */,
 				2D17D07E2789B62B00F92DDB /* RegisterViewController.swift in Sources */,
 				2DCAFBEE277951490051F940 /* HomeUserViewController.swift in Sources */,
